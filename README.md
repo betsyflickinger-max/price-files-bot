@@ -52,9 +52,21 @@ On a computer: `pip install -r requirements.txt` then `python bot/run.py --state
 
 `data/hospitals.csv` lists the 5,255 hospitals on CMS's Hospital General Information list (excluding VA and Defense Department hospitals). For each hospital it has the known index domain and file link, plus the last original archived in the October 3–9 runs. To add a found link, edit the hospital's row; the bot picks it up the next time that hospital is due.
 
-## Version 2: insurer files (planned)
+## Version 2: insurer files (rented machines only when needed)
 
-A monthly job checks every insurer file for changes on GitHub, then starts rented DigitalOcean machines only for the files that changed. The machines read the files, save the results, and delete themselves.
+Every day at 5:47am Central (`insurers/bot.py`, workflow "Insurer price files"):
+
+1. **Collect** results from any rented machines, and delete any bot machine older than 2 days so nothing runs up a bill.
+2. **Find this month's file** for each of the 76 DFW networks in `insurers/networks.csv`. Insurers date their file names, so the bot tries each date from today back to the file it already has. Files with a fixed link (Wellpoint) are checked in place.
+3. **Check without downloading:** same ETag, or the same `last_updated_on` inside the file plus the same size, means unchanged. That network gets `last_checked` = today.
+4. **Rent one DigitalOcean machine per insurer group** with changed files (UnitedHealthcare, Aetna, BCBSTX, Cigna, everyone else). Each machine runs the unchanged 06f pipeline, replaces that network's tables in R2 `data/full/rates/` and `data/full/membership/`, then deletes itself.
+5. **Double-count fix:** when the new file has a new name, the old month's tables move to `work/retired/<yyyy-mm>/` after the new ones are safely uploaded, so each network is counted once.
+
+Problems (failed reads, rows down by more than half, dead links) open a GitHub issue labeled `insurer-file-alert`, once per problem. State: R2 `bot/insurers/manifest.csv`; machine logs and results: `bot/insurers/runs/<run>/`.
+
+Needs one more secret: `DIGITALOCEAN_TOKEN`. Without it the workflow only checks. To test: Actions → Insurer price files → Run workflow, untick "Dry run", and enter one slot (e.g. `oscar-oscar-064-in-network-json`).
+
+Known gaps (Oct 9): Cigna's links need signed URLs from its table of contents (CloudFront answers 403); BSW's September files are gone and October's use a different name; Molina's links now open a web page. These networks keep their last good tables and are flagged until their discovery is added. Rebuilding the site files from the new tables (every-code build) is still a separate step.
 
 ## Data rules
 
