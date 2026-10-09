@@ -1,0 +1,61 @@
+name: Insurer price files
+
+on:
+  schedule:
+    - cron: "47 10 * * *"   # every day, 5:47am Central: collect results, check for new files, rent machines if needed
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run: check for new files but rent no machines and change nothing"
+        type: boolean
+        default: true
+      only:
+        description: "Only these networks (slot names from insurers/networks.csv, comma-separated; blank = all)"
+        required: false
+        default: ""
+
+concurrency:
+  group: insurer-price-files
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  insurers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+      R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      R2_BUCKET: ${{ secrets.R2_BUCKET }}
+      DIGITALOCEAN_TOKEN: ${{ secrets.DIGITALOCEAN_TOKEN }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Check insurer files
+        run: |
+          ARGS=""
+          [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.dry_run }}" = "true" ] && ARGS="--dry-run"
+          [ -n "${{ inputs.only }}" ] && ARGS="$ARGS --only ${{ inputs.only }}"
+          if [ -z "$DIGITALOCEAN_TOKEN" ] && [ -z "$ARGS" ]; then
+            echo "::warning::DIGITALOCEAN_TOKEN is not set, so this run only checks (no machines rented)."
+            ARGS="--dry-run"
+          fi
+          python insurers/bot.py $ARGS
+      - run: cat out/insurer_summary.md >> "$GITHUB_STEP_SUMMARY"
+        if: always()
+      - name: Open an issue for problems
+        if: always()
+        run: |
+          if [ -f out/insurer_alerts.md ]; then
+            gh label create insurer-file-alert --color B22222 --description "Insurer file failed, shrank, or went stale" 2>/dev/null || true
+            gh issue create --title "Insurer file problems $(date -u +%F)" --body-file out/insurer_alerts.md --label insurer-file-alert
+          fi
