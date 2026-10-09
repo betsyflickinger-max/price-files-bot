@@ -9,11 +9,16 @@ from botocore.exceptions import ClientError
 R2_PREFIX = "bot/"  # everything the bot writes besides originals lives under bot/
 
 
+def env(name):
+    """A secret, minus any spaces or line breaks that came along when it was pasted in."""
+    return "".join(os.environ.get(name, "").split())
+
+
 def r2():
-    s3 = boto3.client("s3", endpoint_url=f"https://{os.environ['R2_ACCOUNT_ID']}.r2.cloudflarestorage.com",
-                      aws_access_key_id=os.environ["R2_ACCESS_KEY_ID"],
-                      aws_secret_access_key=os.environ["R2_SECRET_ACCESS_KEY"], region_name="auto")
-    return s3, os.environ["R2_BUCKET"]
+    s3 = boto3.client("s3", endpoint_url=f"https://{env('R2_ACCOUNT_ID')}.r2.cloudflarestorage.com",
+                      aws_access_key_id=env("R2_ACCESS_KEY_ID"),
+                      aws_secret_access_key=env("R2_SECRET_ACCESS_KEY"), region_name="auto")
+    return s3, env("R2_BUCKET")
 
 
 def exists(s3, bucket, key):
@@ -41,7 +46,7 @@ def write_csv(s3, bucket, key, rows, fields):
 
 
 def ia_enabled():
-    return bool(os.environ.get("IA_ACCESS_KEY") and os.environ.get("IA_SECRET_KEY"))
+    return bool(env("IA_ACCESS_KEY") and env("IA_SECRET_KEY"))
 
 
 def ia_item(state, month):
@@ -61,7 +66,7 @@ def ia_upload(path, state, month, name):
               subject="healthcare; price transparency; hospital prices; 45 CFR 180")
     try:
         rs = upload(ia_item(state, month), files={name: path}, metadata=md,
-                    access_key=os.environ["IA_ACCESS_KEY"], secret_key=os.environ["IA_SECRET_KEY"],
+                    access_key=env("IA_ACCESS_KEY"), secret_key=env("IA_SECRET_KEY"),
                     retries=5, retries_sleep=30)
         bad = [r for r in rs if getattr(r, "status_code", 200) >= 300]
         return f"archive.org HTTP {bad[0].status_code}" if bad else ""
