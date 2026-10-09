@@ -34,7 +34,7 @@ P = "bot/insurers/"
 REPO = "https://github.com/betsyflickinger-max/price-files-bot"
 FIELDS = ["slot", "insurer", "network_label", "machine_group", "url", "url_date", "table", "etag", "size",
           "file_last_updated_on", "rows", "status", "detail", "last_checked", "last_changed", "processed_on",
-          "run_id", "droplet_id", "launched_at", "fails"]
+          "run_id", "droplet_id", "launched_at", "fails", "problem"]
 SIZES = {"uhc": "s-4vcpu-16gb-amd", "aetna": "s-4vcpu-16gb-amd"}  # biggest files; anything else: 4 vCPU / 8 GB
 MAX_MACHINES = 5
 STUCK_HOURS = 48
@@ -62,6 +62,8 @@ def peek(url):
         elif r.status_code == 200:
             size = r.headers.get("Content-Length", "")
         etag = r.headers.get("ETag", "").replace("W/", "").strip('"')
+    if head.lstrip()[:1] == b"<":
+        raise ValueError("link opens a web page, not a price file")
     if head[:2] == b"\x1f\x8b":
         try:
             head = zlib.decompressobj(16 + zlib.MAX_WBITS).decompress(head)
@@ -131,6 +133,10 @@ def check_all(man, today, only):
         since = date.fromisoformat(m["url_date"]) if m.get("url_date") else today - timedelta(days=40)
         f = find_links.find(dict(n, current_url=m["url"]), today, since)
         url = f["url"]
+        if f.get("error") and url == m["url"]:  # the file we have is gone and no newer one was found
+            m.update(last_checked=today.isoformat(), detail=f"{f['how']}; keeping the last good tables")
+            notes.append(("link broken", m))
+            continue
         try:
             info = peek(url)
         except Exception as e:
@@ -232,6 +238,19 @@ def main():
     notes = collect(s3, b, man, now, a.dry_run)
     notes += check_all(man, today, {s.strip() for s in a.only.split(",") if s.strip()})
     launched = launch(s3, b, man, now, a.dry_run)
+    # Only raise an issue the first time a problem appears (Molina's 47 dead links shouldn't open one every day)
+    flagged = {}
+    for k, m in notes:
+        flagged.setdefault(m["slot"], (k, m))
+    new_problems = []
+    for m in man.values():
+        k = flagged.get(m["slot"], ("", m))[0]
+        if k == "stale" and today.day != 20:
+            k = m.get("problem", "") if m.get("problem") == "stale" else ""
+        if k and k != m.get("problem", ""):
+            new_problems.append((k, m))
+        if m.get("status") != "running" or k:
+            m["problem"] = k
     rows = sorted(man.values(), key=lambda m: (m["insurer"], m["slot"]))
     if not a.dry_run:
         store.write_csv(s3, b, P + "manifest.csv", rows, FIELDS)
@@ -246,12 +265,14 @@ def main():
     lines += ["", "| Insurer | Network | Status | Detail |", "|---|---|---|---|"]
     lines += [f"| {m['insurer']} | {m['network_label']} | {m.get('status', '')} | {(m.get('detail') or '').replace('|', '/')[:120]} |" for m in rows]
     (out / "insurer_summary.md").write_text("\n".join(lines) + "\n")
-    bad = [(k, m) for k, m in notes if k in ("failed", "rows dropped") or (k == "stale" and today.day == 20)]
+    bad = new_problems
     if bad and not a.dry_run:
         al = [f"{len(bad)} insurer file problem(s) on {today}:", "", "| Problem | Insurer | Network | Detail |", "|---|---|---|---|"]
         al += [f"| {k} | {m['insurer']} | {m['network_label']} | {(m.get('detail') or '').replace('|', '/')[:150]} |" for k, m in bad]
         (out / "insurer_alerts.md").write_text("\n".join(al) + "\n")
-    print("\n".join(lines[:4]))
+    print("\n".join(lines if a.dry_run else lines[:4]))
+    for k, m in bad:
+        print(f"NEW PROBLEM: {k}: {m['insurer']} {m['network_label']}")
 
 
 if __name__ == "__main__":

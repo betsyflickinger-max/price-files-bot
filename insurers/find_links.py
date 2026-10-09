@@ -32,7 +32,10 @@ def find(row, today, since):
     t = row["url_template"]
     if "{" not in t:
         h = check.headers(t)
-        return dict(url=t, how="same link every month", http=h["http"], error=h["error"], found=h["ok"])
+        if h["ok"] and h.get("html"):
+            return dict(url=t, how="link now opens a web page, not a file", http=h["http"], error="web page", found=False)
+        return dict(url=t, how="same link every month" if h["ok"] else f"link broken ({h['error']})",
+                    http=h["http"], error=h["error"], found=h["ok"])
     cands = {}
     for d in candidate_dates(since, today):  # newest first; {ym}-only templates repeat, keep the newest day
         cands.setdefault(fill(t, d), d)
