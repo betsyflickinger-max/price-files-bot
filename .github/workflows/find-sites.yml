@@ -1,0 +1,41 @@
+name: Find hospital websites
+
+# Looks for the website (cms-hpt.txt) of hospitals the daily run has no link for, and saves what it
+# finds to a "found-sites" branch for review. Merge that branch into main and the daily run uses it.
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Max hospitals to search (0 = all; use 40 for a test)"
+        default: "0"
+      refresh:
+        description: "First add any new hospitals from the CMS lists"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+jobs:
+  find:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - if: ${{ inputs.refresh }}
+        run: python bot/refresh_list.py
+      - run: python bot/find_sites.py --limit ${{ inputs.limit }} | tee out.txt
+      - run: tail -1 out.txt >> "$GITHUB_STEP_SUMMARY"
+      - name: Save to the found-sites branch
+        run: |
+          git config user.name "price-files-bot"
+          git config user.email "price-files-bot@users.noreply.github.com"
+          git checkout -B found-sites
+          git add data/hospitals.csv data/found_sites.csv
+          git commit -m "Hospital websites found $(date -u +%F): $(tail -1 out.txt)" || exit 0
+          git push -f origin found-sites
