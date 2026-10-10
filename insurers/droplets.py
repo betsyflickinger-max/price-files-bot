@@ -44,3 +44,11 @@ def delete(droplet_id):
             return True
         time.sleep(10)
     return False
+
+
+def room():
+    """Free machine slots on the account (DigitalOcean caps how many can exist at once)."""
+    acct = requests.get(f"{API}/account", headers=_h(), timeout=60).json()["account"]
+    r = requests.get(f"{API}/droplets", params={"per_page": 200}, headers=_h(), timeout=60)
+    r.raise_for_status()
+    return int(acct.get("droplet_limit") or 3) - len(r.json()["droplets"])

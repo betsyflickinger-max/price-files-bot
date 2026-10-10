@@ -207,15 +207,19 @@ def launch(s3, b, man, now, dry):
     for m in queued:
         groups.setdefault(m["machine_group"], []).append(m)
     running = {m["machine_group"] for m in man.values() if m.get("status") == "running"}
-    try:
-        live = len(droplets.mine()) if not dry else 0
+    try:  # stay inside both our own cap and the account's limit (other jobs may be using machines)
+        free = min(MAX_MACHINES - len(droplets.mine()), droplets.room()) if not dry else MAX_MACHINES
     except Exception:
-        live = 0
+        free = 1
     run_id = now.strftime("%Y%m%d-%H%M")
     env = {k: store.env(k) for k in ("R2_ACCOUNT_ID", "R2_ACCESS_KEY_ID", "R2_SECRET_ACCESS_KEY", "R2_BUCKET", "DIGITALOCEAN_TOKEN")}
     launched = []
     for g, ms in sorted(groups.items(), key=lambda kv: -len(kv[1])):
-        if g in running or live >= MAX_MACHINES:
+        if g in running:
+            continue
+        if free <= 0:
+            for m in ms:
+                m["detail"] = "waiting for a free machine slot (account limit); starts on a later run"
             continue
         jobs = [dict(slot=m["slot"], url=m["next_url"], network_label=m["network_label"], prev_table=m.get("table", "")) for m in ms]
         buf = io.StringIO()
@@ -231,7 +235,7 @@ def launch(s3, b, man, now, dry):
             for m in ms:
                 m["detail"] = f"could not rent a machine: {str(e)[:200]}"
             continue
-        live += 1
+        free -= 1
         for m in ms:
             m.update(status="running", run_id=run_id, droplet_id=str(d["id"]), launched_at=now.strftime("%Y-%m-%dT%H:%M:%SZ"),
                      url=m.pop("next_url"), url_date=url_date(m["url"]) or m.get("url_date", ""))

@@ -54,6 +54,14 @@ jobs:
             ARGS="--dry-run"
           fi
           python insurers/bot.py $ARGS
+      - name: All of Texas (scheduled runs only; manual runs use the inputs above)
+        if: github.event_name == 'schedule'
+        run: |
+          cp out/insurer_summary.md out/insurer_summary_dfw.md
+          [ -f out/insurer_alerts.md ] && mv out/insurer_alerts.md out/insurer_alerts_dfw.md
+          python insurers/bot.py --scope tx
+          cat out/insurer_summary_dfw.md >> "$GITHUB_STEP_SUMMARY"
+          [ -f out/insurer_alerts_dfw.md ] && cat out/insurer_alerts_dfw.md >> out/insurer_alerts.md || true
       - run: cat out/insurer_summary.md >> "$GITHUB_STEP_SUMMARY"
         if: always()
       - name: Open an issue for problems
