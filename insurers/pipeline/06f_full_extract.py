@@ -58,27 +58,52 @@ def stream_to_parquet(cmd, dest, consts):
     import pyarrow as pa
     import pyarrow.csv as pcsv
     import pyarrow.parquet as pq
+    import queue
+    import threading
     p = subprocess.Popen(cmd, stdout=subprocess.PIPE)
     reader = pcsv.open_csv(p.stdout, read_options=pcsv.ReadOptions(block_size=16 << 20),
                            convert_options=pcsv.ConvertOptions(column_types={c: pa.string() for c in COLS},
                                                                strings_can_be_null=False))
-    writer = None
     tmpdest = Path(str(dest) + ".part")
-    for batch in reader:
-        n = batch.num_rows
-        cols = {k: pa.array([str(consts[k] or "")] * n, pa.string()) for k in ("reporting_entity_name", "file_label", "last_updated_on")}
-        tbl = pa.Table.from_batches([batch]).cast(pa.schema([(f.name, pa.string()) for f in batch.schema]))
-        for i, (k, v) in enumerate(cols.items()):
-            tbl = tbl.add_column(i, k, v)
-        for k in ("source_file", "source_url", "checked_on"):
-            tbl = tbl.append_column(k, pa.array([str(consts[k] or "")] * n, pa.string()))
-        if writer is None:
-            writer = pq.ParquetWriter(tmpdest, tbl.schema, compression="zstd")
-        writer.write_table(tbl)
+    # Parquet compression runs on its own thread so it overlaps with CSV parsing (pyarrow releases the GIL).
+    q, err, state = queue.Queue(maxsize=4), [], {"writer": None}
+
+    def write_loop():
+        try:
+            while (tbl := q.get()) is not None:
+                if state["writer"] is None:
+                    state["writer"] = pq.ParquetWriter(tmpdest, tbl.schema, compression="zstd")
+                state["writer"].write_table(tbl)
+        except Exception as e:  # keep draining so the reader never blocks
+            err.append(e)
+            while q.get() is not None:
+                pass
+
+    th = threading.Thread(target=write_loop, daemon=True)
+    th.start()
+    # The six per-file values are the same on every row: build them with pa.repeat, not a Python list per batch.
+    const = lambda k, n: pa.repeat(pa.scalar(str(consts[k] or ""), pa.string()), n)
+    try:
+        for batch in reader:
+            if err:
+                break
+            n = batch.num_rows
+            tbl = pa.Table.from_batches([batch]).cast(pa.schema([(f.name, pa.string()) for f in batch.schema]))
+            for i, k in enumerate(("reporting_entity_name", "file_label", "last_updated_on")):
+                tbl = tbl.add_column(i, k, const(k, n))
+            for k in ("source_file", "source_url", "checked_on"):
+                tbl = tbl.append_column(k, const(k, n))
+            q.put(tbl)
+    finally:
+        q.put(None)
+        th.join()
+    if err:
+        p.kill()
+        raise err[0]
     if p.wait() != 0:
         raise RuntimeError("mrfrows failed")
-    if writer:
-        writer.close()
+    if state["writer"]:
+        state["writer"].close()
         tmpdest.replace(dest)
 
 
