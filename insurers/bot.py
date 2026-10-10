@@ -41,7 +41,7 @@ FIELDS = ["slot", "insurer", "network_label", "machine_group", "url", "url_date"
           "run_id", "droplet_id", "launched_at", "fails", "problem"]
 SIZES = {"uhc": "s-8vcpu-16gb-amd", "aetna": "s-8vcpu-16gb-amd"}  # 320 GB disk for the biggest files
 PER_MACHINE = {"uhc": 1, "aetna": 1, "bcbstx": 2, "cigna": 2, "small": 12}  # files per machine
-RESERVE = 1  # leave one slot free for other jobs (site builds)
+RESERVE = 0  # slots to leave free for other jobs; 0 = use every free machine
 SCOPE = "dfw"  # biggest files; anything else: 4 vCPU / 8 GB
 MAX_MACHINES = 9
 STUCK_HOURS = 48
@@ -257,6 +257,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true", help="check only; rent nothing, change nothing in R2")
     ap.add_argument("--only", default="", help="comma-separated slots")
+    ap.add_argument("--fill", action="store_true", help="quick pass: collect results and fill free machines, no file check")
     ap.add_argument("--scope", default="dfw", choices=sorted(SCOPES), help="dfw (default) or tx (all of Texas)")
     a = ap.parse_args()
     global P, SCOPE
@@ -266,7 +267,8 @@ def main():
     today = now.date()
     man = load(s3, b, a.scope)
     notes = collect(s3, b, man, now, a.dry_run)
-    notes += check_all(man, today, {s.strip() for s in a.only.split(",") if s.strip()})
+    if not a.fill:
+        notes += check_all(man, today, {s.strip() for s in a.only.split(",") if s.strip()})
     hold = ""
     try:
         hold = s3.get_object(Bucket=b, Key=P + "hold.txt")["Body"].read().decode().strip()

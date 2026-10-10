@@ -2,7 +2,8 @@ name: Insurer price files
 
 on:
   schedule:
-    - cron: "47 */6 * * *"   # every 6 hours: collect results, check for new files, start waiting files as machine slots free up
+    - cron: "47 */6 * * *"   # every 6 hours: full check for new insurer files
+    - cron: "*/10 * * * *"   # every 10 minutes: collect finished results and put waiting files on any free machine
   workflow_dispatch:
     inputs:
       dry_run:
@@ -49,6 +50,7 @@ jobs:
           [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.dry_run }}" = "true" ] && ARGS="--dry-run"
           [ -n "${{ inputs.only }}" ] && ARGS="$ARGS --only ${{ inputs.only }}"
           ARGS="$ARGS --scope ${{ inputs.scope || 'dfw' }}"
+          [ "${{ github.event.schedule }}" = "*/10 * * * *" ] && ARGS="$ARGS --fill"
           if [ -z "$DIGITALOCEAN_TOKEN" ] && [[ "$ARGS" != *--dry-run* ]]; then
             echo "::warning::DIGITALOCEAN_TOKEN is not set, so this run only checks (no machines rented)."
             ARGS="--dry-run"
@@ -59,13 +61,14 @@ jobs:
         run: |
           cp out/insurer_summary.md out/insurer_summary_dfw.md
           [ -f out/insurer_alerts.md ] && mv out/insurer_alerts.md out/insurer_alerts_dfw.md
-          python insurers/bot.py --scope tx
+          FILL=""; [ "${{ github.event.schedule }}" = "*/10 * * * *" ] && FILL="--fill"
+          python insurers/bot.py --scope tx $FILL
           cat out/insurer_summary_dfw.md >> "$GITHUB_STEP_SUMMARY"
           [ -f out/insurer_alerts_dfw.md ] && cat out/insurer_alerts_dfw.md >> out/insurer_alerts.md || true
       - run: cat out/insurer_summary.md >> "$GITHUB_STEP_SUMMARY"
         if: always()
       - name: Open an issue for problems
-        if: always()
+        if: always() && github.event.schedule != '*/10 * * * *'
         run: |
           if [ -f out/insurer_alerts.md ]; then
             gh label create insurer-file-alert --color B22222 --description "Insurer file failed, shrank, or went stale" 2>/dev/null || true
