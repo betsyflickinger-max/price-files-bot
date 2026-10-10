@@ -52,10 +52,8 @@ jobs:
         if: steps.y.outputs.go == 'yes'
         run: |
           python3 - <<'PY'
-          import os, boto3
-          s3 = boto3.client("s3", endpoint_url=f"https://{os.environ['R2_ACCOUNT_ID']}.r2.cloudflarestorage.com",
-                            aws_access_key_id=os.environ["R2_ACCESS_KEY_ID"], aws_secret_access_key=os.environ["R2_SECRET_ACCESS_KEY"])
-          b = os.environ["R2_BUCKET"]
+          import sys; sys.path.insert(0, "bot"); import store
+          s3, b = store.r2()
           keys = [o for pg in s3.get_paginator("list_objects_v2").paginate(Bucket=b, Prefix="data/")
                   for o in pg.get("Contents", []) if "payer_rates_dfw_exchange" in o["Key"]]
           k = max(keys, key=lambda o: o["LastModified"])["Key"]
@@ -76,11 +74,10 @@ jobs:
         run: |
           Y=${{ steps.y.outputs.year }}; D=calculator/data/$Y
           python3 - <<PY
-          import os, boto3, pathlib
-          s3 = boto3.client("s3", endpoint_url=f"https://{os.environ['R2_ACCOUNT_ID']}.r2.cloudflarestorage.com",
-                            aws_access_key_id=os.environ["R2_ACCESS_KEY_ID"], aws_secret_access_key=os.environ["R2_SECRET_ACCESS_KEY"])
+          import sys, pathlib; sys.path.insert(0, "bot"); import store
+          s3, b = store.r2()
           for p in pathlib.Path("$D").iterdir():
-              s3.upload_file(str(p), os.environ["R2_BUCKET"], f"site/calculator/$Y/{p.name}")
+              s3.upload_file(str(p), b, f"site/calculator/$Y/{p.name}")
           PY
           git config user.name "price-files-bot"; git config user.email "price-files-bot@users.noreply.github.com"
           git add $D && git commit -m "Plan Calculator data for $Y" && git pull --rebase -q origin main && git push origin HEAD:main
