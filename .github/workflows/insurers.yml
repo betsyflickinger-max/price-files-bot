@@ -49,6 +49,14 @@ jobs:
           python-version: "3.12"
           cache: pip
       - run: pip install -r requirements.txt
+      - name: Check the machines' GitHub token (manual runs)
+        if: github.event_name == 'workflow_dispatch' && !inputs.fill
+        run: |
+          T=$(echo -n "$BOT_GITHUB_TOKEN" | tr -d '[:space:]')
+          if [ -z "$T" ]; then echo "::warning::BOT_GITHUB_TOKEN is not set: free machines are filled by the 10-minute pass only."; exit 0; fi
+          code=$(curl -s -o /dev/null -w "%{http_code}" -H "Authorization: Bearer $T" https://api.github.com/repos/${{ github.repository }}/actions/workflows/insurers.yml)
+          echo "BOT_GITHUB_TOKEN check: HTTP $code (200 = works)"
+          [ "$code" = "200" ] || echo "::warning::BOT_GITHUB_TOKEN did not work (HTTP $code). Check its repository access and the Actions permission."
       - name: Check insurer files
         run: |
           ARGS=""
