@@ -1,0 +1,91 @@
+name: Plan Calculator data
+
+# Every day, looks for CMS's next-year marketplace plan files. The day they appear, it builds the
+# DFW plan and cost-sharing tables, runs the out-of-pocket math against the current rate file, saves
+# everything to calculator/data/<year>/ and R2, and opens an issue so the page can be updated.
+on:
+  schedule:
+    - cron: "23 13 * * *"   # 8:23am Central
+  workflow_dispatch:
+    inputs:
+      year:
+        description: "Plan year to build (blank = next year)"
+        default: ""
+      force:
+        description: "Build even if this year is already built"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+      R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      R2_BUCKET: ${{ secrets.R2_BUCKET }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: y
+        run: |
+          Y="${{ inputs.year }}"; [ -z "$Y" ] && Y=$(( $(date -u +%Y) + 1 ))
+          echo "year=$Y" >> "$GITHUB_OUTPUT"
+          if [ -f "calculator/data/$Y/calc_data_$Y.json" ] && [ "${{ inputs.force }}" != "true" ]; then
+            echo "go=no" >> "$GITHUB_OUTPUT"; echo "$Y already built"; exit 0; fi
+          code=$(curl -s -o /dev/null -w '%{http_code}' -I "https://download.cms.gov/marketplace-puf/$Y/benefits-and-cost-sharing-puf.zip")
+          echo "CMS $Y files: HTTP $code"
+          [ "$code" = "200" ] && echo "go=yes" >> "$GITHUB_OUTPUT" || echo "go=no" >> "$GITHUB_OUTPUT"
+      - if: steps.y.outputs.go == 'yes'
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - if: steps.y.outputs.go == 'yes'
+        run: pip install -r requirements.txt pandas==2.2.3
+      - name: Get the current exchange rate file from R2
+        if: steps.y.outputs.go == 'yes'
+        run: |
+          python3 - <<'PY'
+          import os, boto3
+          s3 = boto3.client("s3", endpoint_url=f"https://{os.environ['R2_ACCOUNT_ID']}.r2.cloudflarestorage.com",
+                            aws_access_key_id=os.environ["R2_ACCESS_KEY_ID"], aws_secret_access_key=os.environ["R2_SECRET_ACCESS_KEY"])
+          b = os.environ["R2_BUCKET"]
+          keys = [o for pg in s3.get_paginator("list_objects_v2").paginate(Bucket=b, Prefix="data/")
+                  for o in pg.get("Contents", []) if "payer_rates_dfw_exchange" in o["Key"]]
+          k = max(keys, key=lambda o: o["LastModified"])["Key"]
+          print("rate file:", k)
+          s3.download_file(b, k, "rates" + (".csv.gz" if k.endswith(".gz") else ".csv"))
+          open("rates_key.txt", "w").write(k)
+          PY
+      - name: Build
+        if: steps.y.outputs.go == 'yes'
+        run: |
+          Y=${{ steps.y.outputs.year }}; D=calculator/data/$Y
+          python calculator/puf_to_dfw.py $Y --out $D | tee build.txt
+          python calculator/oop.py $Y --rates $(ls rates.csv* | head -1) --tables $D --out work | tee -a build.txt
+          cp work/calc_data_$Y.json work/unmatched_networks_$Y.csv $D/
+          gzip -c work/exchange_oop_$Y.csv > $D/exchange_oop_$Y.csv.gz
+      - name: Save to R2 and main, open an issue
+        if: steps.y.outputs.go == 'yes'
+        run: |
+          Y=${{ steps.y.outputs.year }}; D=calculator/data/$Y
+          python3 - <<PY
+          import os, boto3, pathlib
+          s3 = boto3.client("s3", endpoint_url=f"https://{os.environ['R2_ACCOUNT_ID']}.r2.cloudflarestorage.com",
+                            aws_access_key_id=os.environ["R2_ACCESS_KEY_ID"], aws_secret_access_key=os.environ["R2_SECRET_ACCESS_KEY"])
+          for p in pathlib.Path("$D").iterdir():
+              s3.upload_file(str(p), os.environ["R2_BUCKET"], f"site/calculator/$Y/{p.name}")
+          PY
+          git config user.name "price-files-bot"; git config user.email "price-files-bot@users.noreply.github.com"
+          git add $D && git commit -m "Plan Calculator data for $Y" && git pull --rebase -q origin main && git push origin HEAD:main
+          { echo "CMS posted the $Y marketplace plan files. The calculator data is built: \`$D/calc_data_$Y.json\` (also in R2 \`site/calculator/$Y/\`)."
+            echo; echo "Rate file used: \`$(cat rates_key.txt)\`"; echo; echo '```'; cat build.txt; echo '```'
+            echo; echo "Before publishing: check the unmatched networks above (renamed networks need a line in LINK in calculator/oop.py), then swap the data block in the Plan Calculator page."
+          } > issue.md
+          gh issue create --title "$Y plan files are out: Plan Calculator data ready" --body-file issue.md
