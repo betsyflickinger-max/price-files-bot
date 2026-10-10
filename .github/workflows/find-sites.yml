@@ -1,8 +1,11 @@
 name: Find hospital websites
 
-# Looks for the website (cms-hpt.txt) of hospitals the daily run has no link for, and saves what it
-# finds to a "found-sites" branch for review. Merge that branch into main and the daily run uses it.
+# Weekly "missing hospitals" bot: adds any new hospitals from CMS's lists, then looks for the website
+# (cms-hpt.txt) of every hospital the daily run has no link for. Matches that pass the index check go
+# straight into data/hospitals.csv on main; same-name-in-another-state matches open an issue for a hand check.
 on:
+  schedule:
+    - cron: "41 7 * * 0"   # Sundays, 2:41am Central (before the daily hospital run)
   workflow_dispatch:
     inputs:
       limit:
@@ -15,6 +18,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   find:
@@ -27,15 +31,34 @@ jobs:
           python-version: "3.12"
           cache: pip
       - run: pip install -r requirements.txt
-      - if: ${{ inputs.refresh }}
-        run: python bot/refresh_list.py
-      - run: python bot/find_sites.py --limit ${{ inputs.limit }} | tee out.txt
-      - run: tail -1 out.txt >> "$GITHUB_STEP_SUMMARY"
-      - name: Save to the found-sites branch
+      - if: ${{ github.event_name == 'schedule' || inputs.refresh }}
+        run: python bot/refresh_list.py | tee added.txt
+      - run: python bot/find_sites.py --limit ${{ inputs.limit || '0' }} | tee out.txt
+      - run: |
+          cat added.txt out.txt 2>/dev/null | grep -E "^added|^done" >> "$GITHUB_STEP_SUMMARY"
+      - name: Save to main
         run: |
           git config user.name "price-files-bot"
           git config user.email "price-files-bot@users.noreply.github.com"
-          git checkout -B found-sites
           git add data/hospitals.csv data/found_sites.csv
-          git commit -m "Hospital websites found $(date -u +%F): $(tail -1 out.txt)" || exit 0
-          git push -f origin found-sites
+          git commit -m "Missing-hospital search $(date -u +%F): $(tail -1 out.txt)" || exit 0
+          git pull --rebase -q origin main && git push origin HEAD:main
+      - name: Open an issue for matches that need a hand check
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY' > held.md
+          import csv
+          rows = [r for r in csv.DictReader(open("data/found_sites.csv")) if r["accepted"] != "yes"]
+          if rows:
+              print("These hospitals share a name with a hospital in another state, so the bot did not add their website automatically. "
+                    "Check each one; if it is right, put the domain in `index_domain` in data/hospitals.csv.\n")
+              print("| State | Hospital | City | Website found | Location listed there |\n|---|---|---|---|---|")
+              for r in rows:
+                  print(f"| {r['state']} | {r['name']} | {r['city']} | {r['domain']} | {r['location']} |")
+          PY
+          if [ -s held.md ]; then
+            gh label create hospital-hand-check --color 1D76DB --description "Website match needs a person to confirm" 2>/dev/null || true
+            gh issue list --label hospital-hand-check --state open --json number --jq '.[].number' | xargs -r -I{} gh issue close {} -c "Replaced by this week's list."
+            gh issue create --title "Hospital websites to check by hand $(date -u +%F)" --body-file held.md --label hospital-hand-check
+          fi
