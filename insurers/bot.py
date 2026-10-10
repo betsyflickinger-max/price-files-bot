@@ -132,7 +132,7 @@ def check_all(man, today, only):
             continue
         since = date.fromisoformat(m["url_date"]) if m.get("url_date") else today - timedelta(days=40)
         f = find_links.find(dict(n, current_url=m["url"]), today, since)
-        url = f["url"]
+        url = f["url"] or m["url"]
         if f.get("error") and url == m["url"]:  # the file we have is gone and no newer one was found
             m.update(last_checked=today.isoformat(), detail=f"{f['how']}; keeping the last good tables")
             notes.append(("link broken", m))

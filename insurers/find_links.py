@@ -7,6 +7,7 @@ We try the dates from newest to oldest, from today back to the date we already h
 first link that answers. Networks with no date in the link (Molina, Wellpoint) keep the same link.
 A network whose new file can't be found keeps its current file and is flagged "no new file yet".
 """
+import re
 import sys
 from concurrent.futures import ThreadPoolExecutor
 from datetime import timedelta
@@ -27,8 +28,63 @@ def candidate_dates(since, today):
         d -= timedelta(days=1)
 
 
+_CACHE = {}
+
+
+def _get(url, **kw):
+    import requests
+    if url not in _CACHE:
+        r = requests.get(url, headers={"User-Agent": check.UA}, timeout=600, **kw)
+        r.raise_for_status()
+        _CACHE[url] = r.text
+    return _CACHE[url]
+
+
+def cigna_toc(arg):
+    """Cigna serves files only through signed links. Its public latest.json points to this month's
+    table of contents, which lists a signed link for every rate file. arg = network part of the name."""
+    import json
+    latest = json.loads(_get("https://www.cigna.com/static/mrf/latest.json"))
+    toc_url = next(f["url"] for m in latest["mrfs"] if m.get("kind") == "TOC" for f in m["files"])
+    toc = _get(toc_url)
+    for u in re.findall(r'"location"\s*:\s*"([^"]+)"', toc):
+        if f"_{arg}_in-network-rates" in u.split("?")[0]:
+            d = re.search(r"(\d{4}-\d{2}-\d{2})_cigna", u)
+            return dict(url=u, how=f"from Cigna's table of contents ({d.group(1) if d else '?'})", http="200", error="", found=True)
+    return dict(url="", how="not in Cigna's table of contents", http="", error="missing from table of contents", found=False)
+
+
+def azure_list(arg):
+    """Insurers that keep files in public Azure storage (BSW): list the folder, newest matching file.
+    arg = '<container list URL>|<regex for the file name>'."""
+    base, pat = arg.split("|", 1)
+    names, marker = [], ""
+    while True:
+        x = _get(base + (f"&marker={marker}" if marker else ""))
+        names += re.findall(r"<Name>([^<]+)</Name>", x)
+        m = re.search(r"<NextMarker>([^<]+)</NextMarker>", x)
+        if not m:
+            break
+        marker = m.group(1)
+    hits = sorted(n for n in names if re.search(pat, n.rsplit("/", 1)[-1]))
+    if not hits:
+        return dict(url="", how="no matching file in the insurer's folder", http="", error="no match", found=False)
+    root = base.split("?")[0]
+    return dict(url=f"{root}/{hits[-1]}", how=f"newest in the insurer's folder ({hits[-1].rsplit('/', 1)[-1][:10]})",
+                http="200", error="", found=True)
+
+
 def find(row, today, since):
     """Returns dict(url, how, http, error). since = date of the file we already have."""
+    finder = row.get("finder", "")
+    try:
+        if finder == "cigna_toc":
+            return cigna_toc(row["finder_arg"])
+        if finder == "azure_list":
+            return azure_list(row["finder_arg"])
+    except Exception as e:
+        return dict(url=row["current_url"], how=f"could not read the file list: {type(e).__name__}", http="",
+                    error=str(e)[:200], found=False)
     t = row["url_template"]
     if "{" not in t:
         h = check.headers(t)

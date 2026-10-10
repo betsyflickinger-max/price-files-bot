@@ -67,12 +67,17 @@ def move(src, dst):
 def one(job):
     t0 = time.time()
     url, label = job["url"], job["network_label"]
-    new = stem(Path(url.split("?")[0]).name)
+    src, extra = url, []
+    if url.split("?")[0].endswith(".7z"):  # BSW posts 7-Zip archives: unpack the rate file first
+        src, extra = unpack_7z(url), ["--source-url", url.split("?")[0]]
+    new = stem(Path(src.split("?")[0]).name)
     res = dict(slot=job["slot"], url=url, table=new, prev_table=job.get("prev_table", ""), ok=False)
     for sub in ("rates", "membership"):
         (DATA / sub / f"{new}.parquet").unlink(missing_ok=True)
-    p = subprocess.run([sys.executable, str(PIPE / "06f_full_extract.py"), url, "--network", label,
-                        "--scope", str(DATA / "scope.parquet")], cwd=PIPE, capture_output=True, text=True)
+    p = subprocess.run([sys.executable, str(PIPE / "06f_full_extract.py"), src, "--network", label,
+                        "--scope", str(DATA / "scope.parquet")] + extra, cwd=PIPE, capture_output=True, text=True)
+    if src != url:
+        Path(src).unlink(missing_ok=True)
     tail = (p.stdout + p.stderr).strip().splitlines()[-6:]
     log(f"[{job['slot']}]", *tail)
     rates, memb = DATA / "rates" / f"{new}.parquet", DATA / "membership" / f"{new}.parquet"
@@ -97,6 +102,24 @@ def one(job):
         res["retired"] = old
     res.update(ok=True, secs=round(time.time() - t0))
     return res
+
+
+def unpack_7z(url):
+    """Download a .7z and extract its rate file (the largest .json inside). Returns the local path."""
+    import py7zr
+    arc = DATA / "dl.7z"
+    with requests.get(url, stream=True, timeout=600) as r:
+        r.raise_for_status()
+        with open(arc, "wb") as f:
+            for ch in r.iter_content(8 << 20):
+                f.write(ch)
+    out = DATA / "unpacked"
+    out.mkdir(exist_ok=True)
+    with py7zr.SevenZipFile(arc) as z:
+        member = max((i for i in z.list() if i.filename.endswith(".json")), key=lambda i: i.uncompressed).filename
+        z.extract(path=out, targets=[member])
+    arc.unlink()
+    return str(out / member)
 
 
 def self_delete():
