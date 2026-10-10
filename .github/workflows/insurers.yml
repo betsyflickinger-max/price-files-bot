@@ -2,7 +2,7 @@ name: Insurer price files
 
 on:
   schedule:
-    - cron: "47 10 * * *"   # every day, 5:47am Central: collect results, check for new files, rent machines if needed
+    - cron: "47 */6 * * *"   # every 6 hours: collect results, check for new files, start waiting files as machine slots free up
   workflow_dispatch:
     inputs:
       dry_run:
