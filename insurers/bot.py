@@ -223,7 +223,8 @@ def launch(s3, b, man, now, dry):
     except Exception:
         free = 1
     run_id = now.strftime("%Y%m%d-%H%M")
-    env = {k: store.env(k) for k in ("R2_ACCOUNT_ID", "R2_ACCESS_KEY_ID", "R2_SECRET_ACCESS_KEY", "R2_BUCKET", "DIGITALOCEAN_TOKEN")}
+    env = {k: store.env(k) for k in ("R2_ACCOUNT_ID", "R2_ACCESS_KEY_ID", "R2_SECRET_ACCESS_KEY", "R2_BUCKET", "DIGITALOCEAN_TOKEN",
+                                     "BOT_GITHUB_TOKEN")}
     launched = []
     for name, g, ms in loads:
         size = SIZES.get(g, droplets.DEFAULT_SIZE)

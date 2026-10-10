@@ -27,7 +27,8 @@ import requests
 HERE = Path(__file__).resolve().parent
 PIPE, DATA = HERE / "pipeline", HERE / "data"
 E = {k: "".join(os.environ.get(k, "").split()) for k in
-     ("R2_ACCOUNT_ID", "R2_ACCESS_KEY_ID", "R2_SECRET_ACCESS_KEY", "R2_BUCKET", "DIGITALOCEAN_TOKEN", "RUN_ID", "GROUP")}
+     ("R2_ACCOUNT_ID", "R2_ACCESS_KEY_ID", "R2_SECRET_ACCESS_KEY", "R2_BUCKET", "DIGITALOCEAN_TOKEN", "RUN_ID", "GROUP",
+      "BOT_GITHUB_TOKEN")}
 s3 = boto3.client("s3", endpoint_url=f"https://{E['R2_ACCOUNT_ID']}.r2.cloudflarestorage.com",
                   aws_access_key_id=E["R2_ACCESS_KEY_ID"], aws_secret_access_key=E["R2_SECRET_ACCESS_KEY"],
                   region_name="auto")
@@ -128,6 +129,19 @@ def unpack_7z(url):
     return str(out / member)
 
 
+def wake_github():
+    """Tell GitHub this machine is done, so a waiting file starts right away instead of at the next 10-minute pass."""
+    if not E["BOT_GITHUB_TOKEN"]:
+        return
+    try:
+        r = requests.post("https://api.github.com/repos/betsyflickinger-max/price-files-bot/actions/workflows/insurers.yml/dispatches",
+                          headers={"Authorization": f"Bearer {E['BOT_GITHUB_TOKEN']}", "Accept": "application/vnd.github+json"},
+                          json={"ref": "main", "inputs": {"dry_run": "false", "fill": "true"}}, timeout=30)
+        log(f"asked GitHub to fill this slot: HTTP {r.status_code}")
+    except Exception as e:
+        log("could not reach GitHub (the 10-minute pass will fill the slot):", e)
+
+
 def self_delete():
     try:
         did = requests.get("http://169.254.169.254/metadata/v1/id", timeout=5).text.strip()
@@ -164,3 +178,5 @@ if __name__ == "__main__":
     finally:
         if os.environ.get("NO_SELF_DELETE") != "1":
             self_delete()
+            time.sleep(20)  # let the machine's deletion register before GitHub counts free slots
+            wake_github()

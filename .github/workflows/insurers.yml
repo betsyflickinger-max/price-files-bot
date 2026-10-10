@@ -13,6 +13,10 @@ on:
       scope:
         description: "Area: dfw (the live DFW tables) or tx (all of Texas, written to data/tx/)"
         default: "dfw"
+      fill:
+        description: "Quick fill only (collect results, start waiting files on free machines; used by finished machines)"
+        type: boolean
+        default: false
       only:
         description: "Only these networks (slot names from insurers/networks.csv, comma-separated; blank = all)"
         required: false
@@ -36,6 +40,7 @@ jobs:
       R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
       R2_BUCKET: ${{ secrets.R2_BUCKET }}
       DIGITALOCEAN_TOKEN: ${{ secrets.DIGITALOCEAN_TOKEN }}
+      BOT_GITHUB_TOKEN: ${{ secrets.BOT_GITHUB_TOKEN }}
       GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
@@ -51,24 +56,26 @@ jobs:
           [ -n "${{ inputs.only }}" ] && ARGS="$ARGS --only ${{ inputs.only }}"
           ARGS="$ARGS --scope ${{ inputs.scope || 'dfw' }}"
           [ "${{ github.event.schedule }}" = "*/10 * * * *" ] && ARGS="$ARGS --fill"
+          [ "${{ inputs.fill }}" = "true" ] && ARGS="$ARGS --fill"
           if [ -z "$DIGITALOCEAN_TOKEN" ] && [[ "$ARGS" != *--dry-run* ]]; then
             echo "::warning::DIGITALOCEAN_TOKEN is not set, so this run only checks (no machines rented)."
             ARGS="--dry-run"
           fi
           python insurers/bot.py $ARGS
       - name: All of Texas (scheduled runs only; manual runs use the inputs above)
-        if: github.event_name == 'schedule'
+        if: github.event_name == 'schedule' || inputs.fill
         run: |
           cp out/insurer_summary.md out/insurer_summary_dfw.md
           [ -f out/insurer_alerts.md ] && mv out/insurer_alerts.md out/insurer_alerts_dfw.md
           FILL=""; [ "${{ github.event.schedule }}" = "*/10 * * * *" ] && FILL="--fill"
+          [ "${{ inputs.fill }}" = "true" ] && FILL="--fill"
           python insurers/bot.py --scope tx $FILL
           cat out/insurer_summary_dfw.md >> "$GITHUB_STEP_SUMMARY"
           [ -f out/insurer_alerts_dfw.md ] && cat out/insurer_alerts_dfw.md >> out/insurer_alerts.md || true
       - run: cat out/insurer_summary.md >> "$GITHUB_STEP_SUMMARY"
         if: always()
       - name: Open an issue for problems
-        if: always() && github.event.schedule != '*/10 * * * *'
+        if: always() && github.event.schedule != '*/10 * * * *' && !inputs.fill
         run: |
           if [ -f out/insurer_alerts.md ]; then
             gh label create insurer-file-alert --color B22222 --description "Insurer file failed, shrank, or went stale" 2>/dev/null || true
