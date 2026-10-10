@@ -3,16 +3,22 @@
 Hospitals with no index_domain and no mrf_url in data/hospitals.csv are skipped by the daily run as
 "no price file found" without anything being tried. This script tries three sources of candidate websites:
 
-  osm    OpenStreetMap hospitals with a website tag, matched on name AND (ZIP or city)
-  chain  the corporate site of a hospital chain named in the hospital's name (Encompass, Select, Kindred...)
-  guess  domains built from the hospital's name (e.g. "Mat-Su Regional" -> matsuregional.com)
+  osm      OpenStreetMap hospitals with a website tag, matched on name AND (ZIP or city)
+  chain    the corporate site of a hospital chain named in the hospital's name (Encompass, Select, Kindred...)
+  sibling  the price-file index of every other hospital already found in the same state: health systems
+           list all their hospitals in one cms-hpt.txt, so a missing hospital is often in a sister's index
+           (stricter: score >= 90, and the location must not better match another hospital in the state)
+  guess    domains built from the hospital's name (e.g. "Mat-Su Regional" -> matsuregional.com)
+Each index is tried over https and http, with and without www, and retried once (discover.fetch_index).
 
 A candidate is accepted ONLY if https://<domain>/cms-hpt.txt exists and lists a location whose name matches
 the hospital (score >= 85, or a single-location index for an OSM match, which is already place-checked).
 For chain/guess matches, a name shared by hospitals in other states is not accepted automatically
 (same-named hospitals in different states were the known failure mode of the Oct 5 domain guessing).
 
-Writes index_domain + found_by into data/hospitals.csv and every result into data/found_sites.csv.
+Writes index_domain + found_by into data/hospitals.csv, every result into data/found_sites.csv, and
+data/search_log.csv: for each hospital still missing, when it was first and last searched, how many
+times, and how many sites were tried (evidence for the Price File Watch that we looked, repeatedly).
 Usage: python bot/find_sites.py [--limit N]
 """
 import argparse
@@ -30,7 +36,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import discover  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
-LIST, REPORT = ROOT / "data" / "hospitals.csv", ROOT / "data" / "found_sites.csv"
+LIST, REPORT, LOG = ROOT / "data" / "hospitals.csv", ROOT / "data" / "found_sites.csv", ROOT / "data" / "search_log.csv"
 CMS = "https://data.cms.gov/provider-data/api/1/datastore/query/{}/0/download?format=csv"
 OVERPASS = ["https://overpass-api.de/api/interpreter", "https://overpass.kumi.systems/api/interpreter"]
 OSM_Q = """[out:json][timeout:900];area["ISO3166-1"="US"][admin_level=2]->.us;
@@ -122,13 +128,17 @@ def osm_candidates(h, z, places):
     return list(dict.fromkeys(found))
 
 
-def try_domain(h, dom, src, dup_names):
+def try_domain(h, dom, src, dup_names, rivals=None):
     idx, ents = discover.fetch_index(dom)
     if not ents:
         return None
     best = max(((discover.score(h["name"], e.get("location-name", "")), e) for e in ents), key=lambda x: x[0])
     sc, e = best
-    ok = sc >= 85 or (src == "osm" and len(ents) == 1)
+    if src == "sibling":
+        loc = e.get("location-name", "")
+        ok = sc >= 90 and not any(discover.score(o, loc) > sc for o in (rivals or []))
+    else:
+        ok = sc >= 85 or (src == "osm" and len(ents) == 1)
     if ok and src != "osm" and h["_norm"] in dup_names:
         return dict(domain=dom, found_by=src, score=round(sc), location=e.get("location-name", ""), index_url=idx,
                     accepted="no - same name in another state, check by hand")
@@ -138,11 +148,12 @@ def try_domain(h, dom, src, dup_names):
                 accepted="yes")
 
 
-def search(h, z, places, dup_names):
+def search(h, z, places, dup_names, siblings, rivals):
     tried = set()
     lname = " " + h["name"].lower() + " "
     plan = [(d, "osm") for d in osm_candidates(h, z, places)]
     plan += [(d, "chain") for k, ds in CHAINS.items() if k in lname for d in ds]
+    plan += [(d, "sibling") for d in siblings.get(h["state"], [])]
     plan += [(d, "guess") for d in guesses(h["name"])]
     fallback = None
     for dom, src in plan:
@@ -150,13 +161,13 @@ def search(h, z, places, dup_names):
             continue
         tried.add(dom)
         try:
-            res = try_domain(h, dom, src, dup_names)
+            res = try_domain(h, dom, src, dup_names, [n for n in rivals.get(h["state"], []) if n != h["name"]])
         except Exception:
             res = None
         if res and res["accepted"] == "yes":
-            return res
+            return res, len(tried)
         fallback = fallback or res
-    return fallback
+    return fallback, len(tried)
 
 
 def main():
@@ -176,6 +187,12 @@ def main():
     if a.limit:
         todo = todo[:a.limit]
     print(f"{len(todo):,} hospitals have no website or file link", flush=True)
+    siblings, rivals = {}, {}
+    for r in rows:
+        rivals.setdefault(r["state"], []).append(r["name"])
+        d = discover.index_domain(r)
+        if d and d not in siblings.setdefault(r["state"], []):
+            siblings[r["state"]].append(d)
     z, pl = zips(), osm()
     places = {"zip": {}, "city": {}}
     for p in pl:
@@ -185,11 +202,17 @@ def main():
             places["city"].setdefault(p["city"], []).append(p)
 
     def one(h):
-        return h, search(h, z.get(h["ccn"], ""), places, dup_names)
+        res, n = search(h, z.get(h["ccn"], ""), places, dup_names, siblings, rivals)
+        return h, res, n
 
+    log = {r["ccn"]: r for r in csv.DictReader(open(LOG, encoding="utf-8"))} if LOG.exists() else {}
+    today = date.today().isoformat()
     report, n_ok = [], 0
     with ThreadPoolExecutor(a.workers) as ex:
-        for i, (h, res) in enumerate(ex.map(one, todo), 1):
+        for i, (h, res, n_tried) in enumerate(ex.map(one, todo), 1):
+            L = log.setdefault(h["ccn"], dict(ccn=h["ccn"], name=h["name"], state=h["state"], first_searched=today, times_searched="0"))
+            L.update(last_searched=today, times_searched=str(int(L.get("times_searched") or 0) + 1), sites_tried_last=str(n_tried),
+                     result="found" if res and res["accepted"] == "yes" else "held for hand check" if res else "not found")
             if res:
                 report.append(dict(ccn=h["ccn"], name=h["name"], city=h["city"], state=h["state"], type=h["type"], **res))
                 if res["accepted"] == "yes":
@@ -212,6 +235,11 @@ def main():
     for r in report:
         if r["accepted"] == "yes":
             by[r["found_by"]] = by.get(r["found_by"], 0) + 1
+    lf = ["ccn", "name", "state", "first_searched", "last_searched", "times_searched", "sites_tried_last", "result"]
+    with open(LOG, "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, lf, extrasaction="ignore")
+        w.writeheader()
+        w.writerows(sorted(log.values(), key=lambda r: (r["state"], r["ccn"])))
     held = sum(r["accepted"] != "yes" for r in report)
     print(f"done: {n_ok:,} of {len(todo):,} hospitals now have a website ({by}); {held} held for a hand check")
 

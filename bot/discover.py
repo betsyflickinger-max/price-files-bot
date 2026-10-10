@@ -87,11 +87,15 @@ def fetch_index(domain):
         return _CACHE[domain]
     res = (f"https://{domain}/cms-hpt.txt", None)
     alt = domain[4:] if domain.startswith("www.") else "www." + domain
-    for h in (domain, alt):
-        url = f"https://{h}/cms-hpt.txt"
-        try:
-            r = requests.get(url, headers={"User-Agent": UA}, timeout=30, allow_redirects=True, verify=False)
-        except requests.RequestException:
+    for url in (f"{sch}://{h}/cms-hpt.txt" for h in (domain, alt) for sch in ("https", "http")):
+        r = None
+        for attempt in range(2):  # one retry: slow or flaky hospital sites often answer the second time
+            try:
+                r = requests.get(url, headers={"User-Agent": UA}, timeout=30, allow_redirects=True, verify=False)
+                break
+            except requests.RequestException:
+                r = None
+        if r is None:
             continue
         body = r.text.lstrip()
         if r.status_code == 200 and "html" not in r.headers.get("content-type", "").lower() and not body.startswith("<"):
