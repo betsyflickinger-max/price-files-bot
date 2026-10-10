@@ -9,6 +9,9 @@ on:
         description: "Dry run: check for new files but rent no machines and change nothing"
         type: boolean
         default: true
+      scope:
+        description: "Area: dfw (the live DFW tables) or tx (all of Texas, written to data/tx/)"
+        default: "dfw"
       only:
         description: "Only these networks (slot names from insurers/networks.csv, comma-separated; blank = all)"
         required: false
@@ -45,7 +48,8 @@ jobs:
           ARGS=""
           [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.dry_run }}" = "true" ] && ARGS="--dry-run"
           [ -n "${{ inputs.only }}" ] && ARGS="$ARGS --only ${{ inputs.only }}"
-          if [ -z "$DIGITALOCEAN_TOKEN" ] && [ -z "$ARGS" ]; then
+          ARGS="$ARGS --scope ${{ inputs.scope || 'dfw' }}"
+          if [ -z "$DIGITALOCEAN_TOKEN" ] && [[ "$ARGS" != *--dry-run* ]]; then
             echo "::warning::DIGITALOCEAN_TOKEN is not set, so this run only checks (no machines rented)."
             ARGS="--dry-run"
           fi

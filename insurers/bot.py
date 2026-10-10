@@ -31,11 +31,16 @@ import find_links  # noqa: E402
 import store  # noqa: E402
 
 P = "bot/insurers/"
+SCOPES = {  # name: (state prefix in R2, provider list, where tables go)
+    "dfw": ("bot/insurers/", "data/2026-09-29/dfw_npis_all.parquet", "data/full/"),
+    "tx": ("bot/insurers/tx/", "data/scope/tx_npis_all.parquet", "data/tx/"),
+}
 REPO = "https://github.com/betsyflickinger-max/price-files-bot"
 FIELDS = ["slot", "insurer", "network_label", "machine_group", "url", "url_date", "table", "etag", "size",
           "file_last_updated_on", "rows", "status", "detail", "last_checked", "last_changed", "processed_on",
           "run_id", "droplet_id", "launched_at", "fails", "problem"]
-SIZES = {"uhc": "s-4vcpu-16gb-amd", "aetna": "s-4vcpu-16gb-amd"}  # biggest files; anything else: 4 vCPU / 8 GB
+SIZES = {"uhc": "s-4vcpu-16gb-amd", "aetna": "s-4vcpu-16gb-amd"}
+SCOPE = "dfw"  # biggest files; anything else: 4 vCPU / 8 GB
 MAX_MACHINES = 5
 STUCK_HOURS = 48
 STALE_DAYS = 45      # flag a network whose file hasn't changed in this long
@@ -73,15 +78,22 @@ def peek(url):
     return dict(etag=etag, size=size, file_last_updated_on=m.group(1).decode() if m else "")
 
 
-def load(s3, b):
+def load(s3, b, scope):
     man = {r["slot"]: r for r in store.read_csv(s3, b, P + "manifest.csv")}
     for n in csv.DictReader(open(HERE / "networks.csv")):
-        if n["slot"] not in man:  # first run: start from the tables already in R2
+        if n["slot"] in man:
+            pass
+        elif scope == "dfw":  # first run: start from the tables already in R2
             man[n["slot"]] = dict(slot=n["slot"], insurer=n["insurer"], network_label=n["network_label"],
                                   machine_group=n["machine_group"], url=n["current_url"],
                                   url_date=url_date(n["current_url"]), table=n["current_table"],
                                   file_last_updated_on=n["last_updated_on"], status="processed",
                                   processed_on="(before the bot)", fails="0")
+        else:  # a new area: nothing read yet, so every network gets read once
+            man[n["slot"]] = dict(slot=n["slot"], insurer=n["insurer"], network_label=n["network_label"],
+                                  machine_group=n["machine_group"], url=n["current_url"],
+                                  url_date=(date.today() - timedelta(days=40)).isoformat(), table="",
+                                  status="new", fails="0")
         man[n["slot"]]["_net"] = n
     return man
 
@@ -168,6 +180,7 @@ def check_all(man, today, only):
 
 
 def user_data(run_id, group, env):
+    env = dict(env, SCOPE_KEY=SCOPES[SCOPE][1], OUT_PREFIX=SCOPES[SCOPE][2], RUN_PREFIX=P)
     exports = "\n".join(f"export {k}='{v}'" for k, v in env.items())
     return f"""#!/bin/bash
 exec > /var/log/job.log 2>&1
@@ -213,7 +226,7 @@ def launch(s3, b, man, now, dry):
             continue
         s3.put_object(Bucket=b, Key=f"{P}runs/{run_id}/{g}.csv", Body=buf.getvalue().encode())
         try:
-            d = droplets.create(f"upfront-bot-{g}-{run_id}", user_data(run_id, g, env), SIZES.get(g, droplets.DEFAULT_SIZE))
+            d = droplets.create(f"upfront-bot-{SCOPE}-{g}-{run_id}", user_data(run_id, g, env), SIZES.get(g, droplets.DEFAULT_SIZE))
         except Exception as e:
             for m in ms:
                 m["detail"] = f"could not rent a machine: {str(e)[:200]}"
@@ -230,11 +243,14 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true", help="check only; rent nothing, change nothing in R2")
     ap.add_argument("--only", default="", help="comma-separated slots")
+    ap.add_argument("--scope", default="dfw", choices=sorted(SCOPES), help="dfw (default) or tx (all of Texas)")
     a = ap.parse_args()
+    global P, SCOPE
+    SCOPE, P = a.scope, SCOPES[a.scope][0]
     s3, b = store.r2()
     now = datetime.now(timezone.utc)
     today = now.date()
-    man = load(s3, b)
+    man = load(s3, b, a.scope)
     notes = collect(s3, b, man, now, a.dry_run)
     notes += check_all(man, today, {s.strip() for s in a.only.split(",") if s.strip()})
     hold = ""

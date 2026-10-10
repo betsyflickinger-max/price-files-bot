@@ -32,7 +32,8 @@ s3 = boto3.client("s3", endpoint_url=f"https://{E['R2_ACCOUNT_ID']}.r2.cloudflar
                   aws_access_key_id=E["R2_ACCESS_KEY_ID"], aws_secret_access_key=E["R2_SECRET_ACCESS_KEY"],
                   region_name="auto")
 B = E["R2_BUCKET"]
-RUN = f"bot/insurers/runs/{E['RUN_ID']}/"
+RUN = os.environ.get("RUN_PREFIX", "bot/insurers/") + f"runs/{E['RUN_ID']}/"
+OUT = os.environ.get("OUT_PREFIX", "data/full/")  # data/full/ = DFW tables, data/tx/ = all of Texas
 SCOPE_KEY = os.environ.get("SCOPE_KEY", "data/2026-09-29/dfw_npis_all.parquet")
 LOG = []
 
@@ -89,16 +90,16 @@ def one(job):
     res["roster_rows"] = con.execute(f"select count(*) from '{memb}'").fetchone()[0]
     meta = con.execute(f"select any_value(reporting_entity_name), any_value(last_updated_on) from '{memb}'").fetchone()
     res["reporting_entity_name"], res["file_last_updated_on"] = meta[0] or "", meta[1] or ""
-    s3.upload_file(str(rates), B, f"data/full/rates/{new}.parquet")
-    s3.upload_file(str(memb), B, f"data/full/membership/{new}.parquet")
+    s3.upload_file(str(rates), B, f"{OUT}rates/{new}.parquet")
+    s3.upload_file(str(memb), B, f"{OUT}membership/{new}.parquet")
     rates.unlink(); memb.unlink()
     old = job.get("prev_table", "")
     if old and old != new:
         month = date.today().strftime("%Y-%m")
         for sub in ("rates", "membership"):
-            k = f"data/full/{sub}/{old}.parquet"
+            k = f"{OUT}{sub}/{old}.parquet"
             if exists(k):
-                move(k, f"work/retired/{month}/{sub}/{old}.parquet")
+                move(k, f"work/retired/{month}/{OUT.strip('/').replace('/', '_')}/{sub}/{old}.parquet")
         res["retired"] = old
     res.update(ok=True, secs=round(time.time() - t0))
     return res
