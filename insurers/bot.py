@@ -39,9 +39,11 @@ REPO = "https://github.com/betsyflickinger-max/price-files-bot"
 FIELDS = ["slot", "insurer", "network_label", "machine_group", "url", "url_date", "table", "etag", "size",
           "file_last_updated_on", "rows", "status", "detail", "last_checked", "last_changed", "processed_on",
           "run_id", "droplet_id", "launched_at", "fails", "problem"]
-SIZES = {"uhc": "s-4vcpu-16gb-amd", "aetna": "s-4vcpu-16gb-amd"}
+SIZES = {"uhc": "s-8vcpu-16gb-amd", "aetna": "s-8vcpu-16gb-amd"}  # 320 GB disk for the biggest files
+PER_MACHINE = {"uhc": 1, "aetna": 1, "bcbstx": 2, "cigna": 2, "small": 12}  # files per machine
+RESERVE = 1  # leave one slot free for other jobs (site builds)
 SCOPE = "dfw"  # biggest files; anything else: 4 vCPU / 8 GB
-MAX_MACHINES = 5
+MAX_MACHINES = 9
 STUCK_HOURS = 48
 STALE_DAYS = 45      # flag a network whose file hasn't changed in this long
 PEEK = 256 * 1024
@@ -174,6 +176,9 @@ def check_all(man, today, only):
             continue
         if m.get("status") == "failed" and int(m.get("fails") or 0) >= 3 and url == m["url"]:
             continue  # gave up on this file; it's in the issue already
+        if m.get("status") == "failed" and url == m["url"]:
+            m.update(status="queued", next_url=url, detail=f"retry {m.get('fails')} of 3: {(m.get('detail') or '')[:150]}")
+            continue
         m.update(status="queued", next_url=url, etag=info["etag"], size=info["size"],
                  detail=f"{f['how']}; internal date {info['file_last_updated_on'] or '?'}")
     return notes
@@ -202,21 +207,26 @@ curl -s -X DELETE -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" https://api.dig
 
 
 def launch(s3, b, man, now, dry):
+    """Split queued files into machine loads (big files alone, small ones together) and rent as many
+    machines as the account allows. Anything that doesn't fit waits for the next daily run."""
     queued = [m for m in man.values() if m.get("status") == "queued"]
     groups = {}
     for m in queued:
         groups.setdefault(m["machine_group"], []).append(m)
-    running = {m["machine_group"] for m in man.values() if m.get("status") == "running"}
+    loads = []
+    for g, ms in groups.items():
+        n = PER_MACHINE.get(g, 2)
+        loads += [(f"{g}{i // n + 1}" if len(ms) > n else g, g, ms[i:i + n]) for i in range(0, len(ms), n)]
+    loads.sort(key=lambda x: (x[1] not in ("uhc", "aetna"), x[0]))  # biggest first: they take longest
     try:  # stay inside both our own cap and the account's limit (other jobs may be using machines)
-        free = min(MAX_MACHINES - len(droplets.mine()), droplets.room()) if not dry else MAX_MACHINES
+        free = min(MAX_MACHINES - len(droplets.mine()), droplets.room() - RESERVE) if not dry else MAX_MACHINES
     except Exception:
         free = 1
     run_id = now.strftime("%Y%m%d-%H%M")
     env = {k: store.env(k) for k in ("R2_ACCOUNT_ID", "R2_ACCESS_KEY_ID", "R2_SECRET_ACCESS_KEY", "R2_BUCKET", "DIGITALOCEAN_TOKEN")}
     launched = []
-    for g, ms in sorted(groups.items(), key=lambda kv: -len(kv[1])):
-        if g in running:
-            continue
+    for name, g, ms in loads:
+        size = SIZES.get(g, droplets.DEFAULT_SIZE)
         if free <= 0:
             for m in ms:
                 m["detail"] = "waiting for a free machine slot (account limit); starts on a later run"
@@ -226,11 +236,11 @@ def launch(s3, b, man, now, dry):
         w = csv.DictWriter(buf, ["slot", "url", "network_label", "prev_table"])
         w.writeheader(); w.writerows(jobs)
         if dry:
-            print(f"[dry run] would rent a {SIZES.get(g, droplets.DEFAULT_SIZE)} machine for {g}: {len(jobs)} files")
+            print(f"[dry run] would rent a {size} machine for {name}: {len(jobs)} files")
             continue
-        s3.put_object(Bucket=b, Key=f"{P}runs/{run_id}/{g}.csv", Body=buf.getvalue().encode())
+        s3.put_object(Bucket=b, Key=f"{P}runs/{run_id}/{name}.csv", Body=buf.getvalue().encode())
         try:
-            d = droplets.create(f"upfront-bot-{SCOPE}-{g}-{run_id}", user_data(run_id, g, env), SIZES.get(g, droplets.DEFAULT_SIZE))
+            d = droplets.create(f"upfront-bot-{SCOPE}-{name}-{run_id}", user_data(run_id, name, env), size)
         except Exception as e:
             for m in ms:
                 m["detail"] = f"could not rent a machine: {str(e)[:200]}"
@@ -239,7 +249,7 @@ def launch(s3, b, man, now, dry):
         for m in ms:
             m.update(status="running", run_id=run_id, droplet_id=str(d["id"]), launched_at=now.strftime("%Y-%m-%dT%H:%M:%SZ"),
                      url=m.pop("next_url"), url_date=url_date(m["url"]) or m.get("url_date", ""))
-        launched.append((g, len(ms)))
+        launched.append((name, len(ms)))
     return launched
 
 

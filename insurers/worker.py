@@ -80,10 +80,15 @@ def one(job):
     if src != url:
         Path(src).unlink(missing_ok=True)
     tail = (p.stdout + p.stderr).strip().splitlines()[-6:]
+    if p.returncode != 0:  # record why: the program's own error, plus any out-of-memory kill
+        err = p.stderr.strip().splitlines()[-12:]
+        oom = subprocess.run("dmesg 2>/dev/null | grep -iE 'out of memory|killed process' | tail -2; df -h / | tail -1",
+                             shell=True, capture_output=True, text=True).stdout.strip().splitlines()
+        tail = tail + [f"exit code {p.returncode}"] + err + oom
     log(f"[{job['slot']}]", *tail)
     rates, memb = DATA / "rates" / f"{new}.parquet", DATA / "membership" / f"{new}.parquet"
     if p.returncode != 0 or not rates.exists() or not memb.exists():
-        res["error"] = " | ".join(tail)[-500:] or f"06f exit {p.returncode}"
+        res["error"] = " | ".join(tail)[-1500:] or f"06f exit {p.returncode}"
         return res
     con = duckdb.connect()
     res["rows"] = con.execute(f"select count(*) from '{rates}'").fetchone()[0]
