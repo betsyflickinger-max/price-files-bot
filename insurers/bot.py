@@ -237,7 +237,16 @@ def main():
     man = load(s3, b)
     notes = collect(s3, b, man, now, a.dry_run)
     notes += check_all(man, today, {s.strip() for s in a.only.split(",") if s.strip()})
-    launched = launch(s3, b, man, now, a.dry_run)
+    hold = ""
+    try:
+        hold = s3.get_object(Bucket=b, Key=P + "hold.txt")["Body"].read().decode().strip()
+    except Exception:
+        pass
+    if hold:  # e.g. while a site build is reading data/full/rates; delete bot/insurers/hold.txt to resume
+        print(f"ON HOLD (bot/insurers/hold.txt): {hold[:200]} -- checking only, no machines rented")
+        launched = []
+    else:
+        launched = launch(s3, b, man, now, a.dry_run)
     # Only raise an issue the first time a problem appears (Molina's 47 dead links shouldn't open one every day)
     flagged = {}
     for k, m in notes:
@@ -260,6 +269,8 @@ def main():
     from collections import Counter
     c = Counter(m.get("status") for m in rows)
     lines = [f"## Insurer files, {today}", "", f"{len(rows)} networks: " + ", ".join(f"{v} {k}" for k, v in c.most_common())]
+    if hold:
+        lines.append(f"On hold, no machines rented: {hold[:200]}")
     if launched:
         lines.append("Rented machines: " + ", ".join(f"{g} ({n} files)" for g, n in launched))
     lines += ["", "| Insurer | Network | Status | Detail |", "|---|---|---|---|"]
