@@ -1,0 +1,56 @@
+name: Dashboard data (hospital side)
+
+# Builds the hospital-side files for Betsy's "Price Transparency Metrics" dashboard from the bot's
+# latest checks, then force-pushes them to the dashboard-data branch (one commit, no history).
+# A daily Claude scheduled task picks them up from that branch and uploads changed files to the dashboard.
+on:
+  workflow_run:
+    workflows: ["Hospital price files"]
+    types: [completed]
+  schedule:
+    - cron: "40 16 * * *"   # fallback, 11:40am Central
+  workflow_dispatch:
+
+concurrency:
+  group: dashboard-data
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+      R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      R2_BUCKET: ${{ secrets.R2_BUCKET }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install boto3==1.35.36
+      - run: python dashboard/build.py | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Sanity check
+        run: |
+          python3 - <<'PY'
+          import json
+          s = json.load(open("out/dashboard/states.json")); h = json.load(open("out/dashboard/hospitals.json"))
+          assert len(s) == 51, len(s)
+          assert len(h) > 4000, len(h)
+          assert sum(x["have"] for x in s) > 0
+          print("ok", len(h), "hospitals")
+          PY
+      - name: Publish to the dashboard-data branch
+        run: |
+          cd out/dashboard
+          printf '%s\n' "Hospital-side data for the Price Transparency Metrics dashboard, built $(date -u +%FT%TZ) by .github/workflows/dashboard.yml on main." > README.md
+          git init -q -b dashboard-data
+          git config user.name "price-files-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A && git commit -qm "Dashboard data $(date -u +%F)"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" dashboard-data
