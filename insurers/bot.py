@@ -38,7 +38,7 @@ SCOPES = {  # name: (state prefix in R2, provider list, where tables go)
 REPO = "https://github.com/betsyflickinger-max/price-files-bot"
 FIELDS = ["slot", "insurer", "network_label", "machine_group", "url", "url_date", "table", "etag", "size",
           "file_last_updated_on", "rows", "status", "detail", "last_checked", "last_changed", "processed_on",
-          "run_id", "droplet_id", "launched_at", "fails", "problem"]
+          "run_id", "droplet_id", "launched_at", "fails", "problem", "next_url"]
 SIZES = {"uhc": "s-8vcpu-16gb-amd", "aetna": "s-8vcpu-16gb-amd"}  # 320 GB disk for the biggest files
 PER_MACHINE = {"uhc": 1, "aetna": 1, "bcbstx": 2, "cigna": 2, "small": 12}  # files per machine
 RESERVE = 0  # slots to leave free for other jobs; 0 = use every free machine
@@ -209,7 +209,8 @@ curl -s -X DELETE -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" https://api.dig
 def launch(s3, b, man, now, dry):
     """Split queued files into machine loads (big files alone, small ones together) and rent as many
     machines as the account allows. Anything that doesn't fit waits for the next daily run."""
-    queued = [m for m in man.values() if m.get("status") == "queued"]
+    # a queued file needs its new link; older manifests lost it, so those wait for the next full check
+    queued = [m for m in man.values() if m.get("status") == "queued" and m.get("next_url")]
     groups = {}
     for m in queued:
         groups.setdefault(m["machine_group"], []).append(m)
