@@ -128,6 +128,25 @@ def osm_candidates(h, z, places):
     return list(dict.fromkeys(found))
 
 
+DROP = {"llc", "inc", "ii", "iii", "iv", "lp", "corp", "hospital", "hospitals", "medical", "center", "centre", "health",
+        "healthcare", "the", "of", "and", "at"}
+
+
+def core_words(name):
+    return {w for w in discover._toks(name) if w not in DROP and not (len(w) == 2 and w.isalpha() and w.upper() in STATES)}
+
+
+def words_in(name, loc):
+    """Every distinctive word of name is in loc; the name's last word may be cut off (CMS truncates long names)."""
+    toks, ws = set(discover._toks(loc)), discover._toks(name)
+    last = ws[-1] if ws else ""
+    return all(w in toks or (w == last and any(t.startswith(w) for t in toks)) for w in core_words(name))
+
+
+STATES = set("AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA "
+             "RI SC SD TN TX UT VT VA WA WV WI WY DC PR".split())
+
+
 def try_domain(h, dom, src, dup_names, rivals=None):
     idx, ents = discover.fetch_index(dom)
     if not ents:
@@ -135,8 +154,12 @@ def try_domain(h, dom, src, dup_names, rivals=None):
     best = max(((discover.score(h["name"], e.get("location-name", "")), e) for e in ents), key=lambda x: x[0])
     sc, e = best
     if src == "sibling":
+        # A sister index can be a national system's (CommonSpirit, Kaiser) listing hospitals in many states, so a
+        # close name is not enough ("St Bernards" vs "St. Bernardine", "Santa Clara Valley" vs Kaiser "Santa Clara"):
+        # every distinctive word of the hospital's name must appear in the listed location.
         loc = e.get("location-name", "")
-        ok = sc >= 90 and not any(discover.score(o, loc) > sc for o in (rivals or []))
+        ok = sc >= 90 and words_in(h["name"], loc) \
+            and not any(discover.score(o, loc) > sc for o in (rivals or []))
     else:
         ok = sc >= 85 or (src == "osm" and len(ents) == 1)
     if ok and src != "osm" and h["_norm"] in dup_names:

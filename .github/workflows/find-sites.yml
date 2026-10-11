@@ -40,7 +40,7 @@ jobs:
         run: |
           git config user.name "price-files-bot"
           git config user.email "price-files-bot@users.noreply.github.com"
-          git add data/hospitals.csv data/found_sites.csv
+          git add data/hospitals.csv data/found_sites.csv data/search_log.csv
           git commit -m "Missing-hospital search $(date -u +%F): $(tail -1 out.txt)" || exit 0
           git pull --rebase -q origin main && git push origin HEAD:main
       - name: Open an issue for matches that need a hand check
