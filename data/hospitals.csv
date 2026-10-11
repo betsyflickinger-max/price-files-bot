@@ -20,7 +20,7 @@ ccn,name,city,state,type,index_domain,mrf_url,last_key,last_sha256,last_bytes,la
 021312,SAMUEL SIMMONDS MEMORIAL HOSPITAL,BARROW,AK,Critical Access Hospitals,,,,,,,
 021313,SOUTH PENINSULA HOSPITAL,HOMER,AK,Critical Access Hospitals,sphosp.org,,,,,,osm 2026-10-10
 021314,SOUTHEAST ALASKA REGIONAL HEALTH CONSORTIUM,SITKA,AK,Critical Access Hospitals,,,,,,,
-022001,ST ELIAS SPECIALTY HOSPITAL,ANCHORAGE,AK,Long-term,,,,,,,
+022001,ST ELIAS SPECIALTY HOSPITAL,ANCHORAGE,AK,Long-term,providence.org,,,,,,sibling 2026-10-11
 024001,NORTH STAR HOSPITAL,ANCHORAGE,AK,Psychiatric,,,,,,,
 024002,ALASKA PSYCHIATRIC INSTITUTE,ANCHORAGE,AK,Psychiatric,,,,,,,
 010001,SOUTHEAST HEALTH MEDICAL CENTER,DOTHAN,AL,Acute Care Hospitals,southeasthealth.org,https://www.southeasthealth.org/wp-content/uploads/636004476_Southeast-Health-Medical-Center-_standardcharges.csv,raw/hospitals/2026-10/AL/814f2d67c3f8_636004476_Southeast-Health-Medical-Center-_standardcharges.csv.zst,814f2d67c3f8c949a43d397ec35f534cf99690e01ec29a4176726e04b37ee0e6,45715847,2026-10-04/p2do,
@@ -111,9 +111,9 @@ ccn,name,city,state,type,index_domain,mrf_url,last_key,last_sha256,last_bytes,la
 012006,INFIRMARY LTAC HOSPITAL,MOBILE,AL,Long-term,,,,,,,
 012008,SELECT SPECIALTY HOSPITAL - BIRMINGHAM,BIRMINGHAM,AL,Long-term,,,,,,,
 012009,"NOLAND HOSPITAL BIRMINGHAM II, LLC",BIRMINGHAM,AL,Long-term,nolandhospitals.com,,,,,,osm 2026-10-10
-012010,"NOLAND HOSPITAL DOTHAN II, LLC",DOTHAN,AL,Long-term,,,,,,,
-012011,"NOLAND HOSPITAL ANNISTON II, LLC",ANNISTON,AL,Long-term,,,,,,,
-012012,"NOLAND HOSPITAL TUSCALOOSA II, LLC",TUSCALOOSA,AL,Long-term,,,,,,,
+012010,"NOLAND HOSPITAL DOTHAN II, LLC",DOTHAN,AL,Long-term,nolandhospitals.com,,,,,,sibling 2026-10-11
+012011,"NOLAND HOSPITAL ANNISTON II, LLC",ANNISTON,AL,Long-term,nolandhospitals.com,,,,,,sibling 2026-10-11
+012012,"NOLAND HOSPITAL TUSCALOOSA II, LLC",TUSCALOOSA,AL,Long-term,nolandhospitals.com,,,,,,sibling 2026-10-11
 012014,NORTH ALABAMA SPECIALTY HOSPITAL,HUNTSVILLE,AL,Long-term,,,,,,,
 013025,ENCOMPASS HEALTH LAKESHORE REHABILITATION HOSPITAL,BIRMINGHAM,AL,Inpatient Rehabilitation,encompasshealth.com,,,,,,osm 2026-10-10
 013028,ENCOMPASS REHABILITATION HOSPITAL OF MONTGOMERY,MONTGOMERY,AL,Inpatient Rehabilitation,encompasshealth.com,,,,,,osm 2026-10-10
@@ -121,7 +121,7 @@ ccn,name,city,state,type,index_domain,mrf_url,last_key,last_sha256,last_bytes,la
 013030,ENCOMPASS HEALTH REHABILITATION HOSPITAL OF DOTHAN,DOTHAN,AL,Inpatient Rehabilitation,encompasshealth.com,,,,,,chain 2026-10-10
 013031,ENCOMPASS HEALTH REHABILITATION HOSPITAL OF SHELBY,PELHAM,AL,Inpatient Rehabilitation,encompasshealth.com,,,,,,chain 2026-10-10
 013032,ENCOMPASS HEALTH REHABILITATION HOSPITAL GADSDEN,GADSDEN,AL,Inpatient Rehabilitation,encompasshealth.com,,,,,,chain 2026-10-10
-013033,REHABILITATION HOSPITAL OF PHENIX CITY,PHENIX CITY,AL,Inpatient Rehabilitation,,,,,,,
+013033,REHABILITATION HOSPITAL OF PHENIX CITY,PHENIX CITY,AL,Inpatient Rehabilitation,encompasshealth.com,,,,,,sibling 2026-10-11
 013300,THE CHILDREN'S HOSPITAL OF ALABAMA,BIRMINGHAM,AL,Childrens,,https://cdnepic01.chsys.org/public-webserver/price-transparency/CS/630307306_the-childrens-hospital-of-alabama_standardcharges.csv,raw/hospitals/2026-10/AL/bd555c1af9eb_630307306_the-childrens-hospital-of-alabama_standardcharges.csv.zst,bd555c1af9eb03eefe225f25a5951a2e9c768477fffb0a58f213195ce7044ce9,1880636,2026-10-09/find,
 013301,USA HEALTH CHILDREN'S & WOMEN'S HOSPITAL,MOBILE,AL,Childrens,usahealthsystem.com,https://sthpiprd.blob.core.windows.net/machine-readable-files/12726/630477348_usa-health-children's-&-women's-hospital_standardcharges.csv,raw/hospitals/2026-10/AL/25be46d7df28_630477348_usa-health-children_s-_-women_s-hospital_standardcharges.csv.zst,25be46d7df28d14f51c031725b0c690fc27f4122c532dc4a77d6684110666f6b,620898173,2026-10-04/p2do,
 014000,HILL CREST BEHAVIORAL HEALTH SERVICES,BIRMINGHAM,AL,Psychiatric,hillcrestbhs.com,https://uhsfilecdn.eskycity.net/bh/630862148_hill-crest_standardcharges.csv,raw/hospitals/2026-10/AL/8176ff83bac9_630862148_hill-crest_standardcharges.csv.zst,8176ff83bac9f8e1b3066aaa47adf43866b7c5813e403ad3863d9fea5e418bd8,,2026-10-09/retry,
@@ -144,7 +144,7 @@ ccn,name,city,state,type,index_domain,mrf_url,last_key,last_sha256,last_bytes,la
 040017,NORTH ARKANSAS REGIONAL MEDICAL CENTER,HARRISON,AR,Acute Care Hospitals,narmc.com,,,,,,osm 2026-10-10
 040018,BAPTIST HEALTH - VAN BUREN,VAN BUREN,AR,Acute Care Hospitals,baptist-health.org,,,,,,osm 2026-10-10
 040019,FORREST CITY MEDICAL CENTER,FORREST CITY,AR,Acute Care Hospitals,,https://apps.para-hcfs.com/PTT/FinalLinks/Reports.aspx?dbName=dbFCMCFORRESTCITYAR&type=CDMWithoutLabel&fileType=CSV,raw/hospitals/2026-10/AR/618115e9d109_Reports.aspx.zst,618115e9d109ec20d7eba9d8cad9e2795343b6b34183266976cdde8b40503dc3,11039717,2026-10-05/nat,
-040020,ST BERNARDS MEDICAL CENTER,JONESBORO,AR,Acute Care Hospitals,,,,,,,
+040020,ST BERNARDS MEDICAL CENTER,JONESBORO,AR,Acute Care Hospitals,commonspirit.org,,,,,,sibling 2026-10-11
 040022,NORTHWEST MEDICAL CENTER-SPRINGDALE,SPRINGDALE,AR,Acute Care Hospitals,,,,,,,
 040026,CHI ST. VINCENT HOSPITAL HOT SPRINGS,HOT SPRINGS,AR,Acute Care Hospitals,commonspirit.org,https://www.commonspirit.org/content/dam/commonspiritorg/en/chisv/soar/finance/price-transparency/710236913-1689628232_chi-st-vincent-hospital-hot-springs_standardcharges.json,raw/hospitals/2026-10/AR/4917e5e7067e_710236913-1689628232_chi-st-vincent-hospital-hot-springs_standardcharges.json.zst,4917e5e7067e6b8ee5ba8a5f694ad416ccfccae9c9f71737223f56e420dc2467,41509239,2026-10-05/nat,
 040027,BAXTER HEALTH,MOUNTAIN HOME,AR,Acute Care Hospitals,,,,,,,
@@ -223,7 +223,7 @@ ccn,name,city,state,type,index_domain,mrf_url,last_key,last_sha256,last_bytes,la
 043033,CONWAY REGIONAL REHABILITATION HOSPITAL,CONWAY,AR,Inpatient Rehabilitation,conwayregional.org,,,,,,osm 2026-10-10
 043034,SOUTHEAST REHABILITATION HOSPITAL,LAKE VILLAGE,AR,Inpatient Rehabilitation,,,,,,,
 043035,"CHI ST VINCENT HS REHAB HOSP, A PART OF ENCOMPASS",HOT SPRINGS,AR,Inpatient Rehabilitation,,,,,,,
-043036,MERCY REHABILITATION HOSPITAL NORTHWEST AR,ROGERS,AR,Inpatient Rehabilitation,,,,,,,
+043036,MERCY REHABILITATION HOSPITAL NORTHWEST AR,ROGERS,AR,Inpatient Rehabilitation,mercy.net,,,,,,sibling 2026-10-11
 043037,MERCY REHABILITATION HOSPITAL,FORT SMITH,AR,Inpatient Rehabilitation,,,,,,,
 043038,JEFFERSON REGIONAL SPECIALTY HOSPITAL,WHITE HALL,AR,Inpatient Rehabilitation,jeffersonregionalspecialty.com,,,,,,guess 2026-10-10
 043300,ARKANSAS CHILDREN'S HOSPITAL,LITTLE ROCK,AR,Childrens,archildrens.org,https://apim.services.craneware.com/api-pricing-transparency/api/public/d3b6b861569568a87f28dfbc66463efd/charges/mrf,,,,,
@@ -302,7 +302,7 @@ ccn,name,city,state,type,index_domain,mrf_url,last_key,last_sha256,last_bytes,la
 030152,EXCEPTIONAL COMMUNITY HOSPITAL - MARICOPA,MARICOPA,AZ,Acute Care Hospitals,,https://ehc24.com/wp-content/uploads/2026/04/851516898_exceptional-community-hospital-maricopa_standardcharges.csv,,,,,
 030153,EAST VALLEY ER & HOSPITAL,GILBERT,AZ,Acute Care Hospitals,,https://okerhospital.com/wp-content/uploads/2025/10/815038663_oklahoma-er-hospital-llc_standardcharges-1in.csv,,,,,
 030154,EXCEPTIONAL COMMUNITY HOSPITAL YUMA,YUMA,AZ,Acute Care Hospitals,,https://ehc24.com/wp-content/uploads/2026/04/851514572_exceptional-community-hospital-yuma_standardcharges.csv,raw/hospitals/2026-10/AZ/47dcf2af8fae_851514572_exceptional-community-hospital-yuma_standardcharges.csv.zst,47dcf2af8fae0e7acdf706b4dd30f631cca4754609140713e14159c807305d8e,196752,2026-10-09/find,
-030155,EXCEPTIONAL COMMUNITY HOSPITAL BULLHEAD CITY,BULLHEAD CITY,AZ,Acute Care Hospitals,,,,,,,
+030155,EXCEPTIONAL COMMUNITY HOSPITAL BULLHEAD CITY,BULLHEAD CITY,AZ,Acute Care Hospitals,ehc24.com,,,,,,sibling 2026-10-11
 030195,KAYENTA ALTERNATIVE RURAL HOSPITAL,KAYENTA,AZ,Acute Care Hospitals,,,,,,,
 030196,EXCEPTIONAL COMMUNITY HOSPITAL PRESCOTT,PRESCOTT,AZ,Acute Care Hospitals,,https://ehc24.com/wp-content/uploads/2026/04/884230887_exceptional-community-hospital-prescott_standardcharges.csv,,,,,
 031300,WICKENBURG COMMUNITY HOSPITAL,WICKENBURG,AZ,Critical Access Hospitals,,https://cdn.accureg.net/trans/wickenburg/860096775_Wickenburg-Community-Hospital_standardcharges.csv,raw/hospitals/2026-10/AZ/6ff0cf39fcda_860096775_Wickenburg-Community-Hospital_standardcharges.csv.zst,6ff0cf39fcdaf09aae401f09b774364b171cff3852d4056ad2f745d4c9db0d5f,164198135,2026-10-09/find,
@@ -381,8 +381,8 @@ ccn,name,city,state,type,index_domain,mrf_url,last_key,last_sha256,last_bytes,la
 050028,MAD RIVER COMMUNITY HOSPITAL,ARCATA,CA,Acute Care Hospitals,madriverhospital.com,https://sthpiprd.blob.core.windows.net/machine-readable-files/8531/941698406_american-hospital-management-corporation_standardcharges.csv,raw/hospitals/2026-10/CA/4561f43ce488_941698406_american-hospital-management-corporation_standardcharges.csv.zst,4561f43ce4881506f24c1ac2db8e79947d16ab5c2a19566affd3803b6662e084,34724913,2026-10-08/fill11,
 050030,OROVILLE HOSPITAL,OROVILLE,CA,Acute Care Hospitals,orovillehospital.com,https://secure.claraprice.net/price-transparency/ZZKG-1724785095238/machine-readable/94-1634554_oroville-hospital_standardcharges.json,raw/hospitals/2026-10/CA/377171f0af74_94-1634554_oroville-hospital_standardcharges.json.zst,377171f0af74c4526da8b316f7771253a2d548032a0305ca7ad2d40849ddb9eb,65494528,2026-10-05/nat,
 050036,BAKERSFIELD MEMORIAL HOSPITAL,BAKERSFIELD,CA,Acute Care Hospitals,commonspirit.org,https://www.commonspirit.org/content/dam/commonspiritorg/en/dhcva/cacv/finance/price-transparency/951802779-1467538520_bakersfield-memorial-hospital_standardcharges.json,raw/hospitals/2026-10/CA/cfc8c2911c25_951802779-1467538520_bakersfield-memorial-hospital_standardcharges.json.zst,cfc8c2911c25d5889a7d273b47e4ee4b64ada55c18f65246c2d115419e3bdfb5,131880832,2026-10-08/fill11,
-050038,SANTA CLARA VALLEY MEDICAL CENTER,SAN JOSE,CA,Acute Care Hospitals,,,,,,,
-050039,ENLOE HEALTH,CHICO,CA,Acute Care Hospitals,,,,,,,
+050038,SANTA CLARA VALLEY MEDICAL CENTER,SAN JOSE,CA,Acute Care Hospitals,healthy.kaiserpermanente.org,,,,,,sibling 2026-10-11
+050039,ENLOE HEALTH,CHICO,CA,Acute Care Hospitals,enloehealth.org,,,,,,guess 2026-10-11
 050040,LAC/OLIVE VIEW-UCLA MEDICAL CENTER,SYLMAR,CA,Acute Care Hospitals,,https://file.lacounty.gov/SDSInter/dhs/1157355_956000927_OliveView-UCLAMedicalCenter_standardcharges.csv,raw/hospitals/2026-10/CA/78e818968462_1157355_956000927_OliveView-UCLAMedicalCenter_standardcharges.csv.zst,78e818968462ba28de7536f079099fc71bb6e16a313ac28d2d51e9146aafbe12,52893405,2026-10-09/find,
 050042,ST ELIZABETH COMMUNITY HOSPITAL,RED BLUFF,CA,Acute Care Hospitals,commonspirit.org,https://www.commonspirit.org/content/dam/commonspiritorg/en/dhnst/cans/finance/price-transparency/941196203-1083732853_dignity-health_standardcharges.json,raw/hospitals/2026-10/CA/b2c666b59d0b_941196203-1083732853_dignity-health_standardcharges.json.zst,b2c666b59d0b1e622a80b7dd63b55edccd6fad0a5b50570f56d105309f9ac794,70464563,2026-10-08/fill11,
 050043,ALTA BATES SUMMIT MEDICAL CENTER,OAKLAND,CA,Acute Care Hospitals,,,,,,,
