@@ -7,7 +7,7 @@ Output:
   OUT/hosp_index.json  {src, ins, cover, plans:[], desc:[], codes:{}}  (replaces D.hosp in the page embed)
 usage: h2_build.py ROWS_GLOB MAPPING_CSV PAGE_HTML OUT_DIR
 """
-import base64, csv, gzip, json, os, re, sys
+import base64, csv, glob, gzip, json, os, re, sys, time
 from collections import defaultdict
 import duckdb
 
@@ -93,52 +93,74 @@ for pa, pl in pairs:
 con.execute("CREATE TABLE cls(payer VARCHAR, plan VARCHAR, ins VARCHAR, prod INTEGER, plabel VARCHAR)")
 con.executemany("INSERT INTO cls VALUES (?,?,?,?,?)", cls)
 print('payer/plan pairs', len(cls), flush=True)
+CAPR, CAPC = int(os.environ.get('CAPR', '500')), int(os.environ.get('CAPC', '100'))
+# reference tables to disk so every worker process can read them
+os.makedirs(f'{out}/ref', exist_ok=True); os.makedirs(f'{out}/part', exist_ok=True)
 con.execute("CREATE TABLE okc(code VARCHAR)")
 con.executemany("INSERT INTO okc VALUES (?)", [[c] for c in codes_ok])
+for t in ('okc', 'cls', 'srcmap'): con.execute(f"COPY {t} TO '{out}/ref/{t}.parquet' (FORMAT parquet)")
+files = sorted(glob.glob(rows_glob), key=os.path.getsize, reverse=True)
+con.close()
 
-base = f"""SELECT m.s, upper(trim(r.code)) code,
-  CASE WHEN lower(trim(coalesce(r.billing_class,'')))='professional' THEN 1 ELSE 0 END fee,
-  CASE lower(trim(coalesce(r.setting,''))) WHEN 'outpatient' THEN 'o' WHEN 'inpatient' THEN 'i' WHEN 'both' THEN 'b' ELSE '' END st,
-  coalesce(try_cast(r.source_row AS BIGINT),0) rw, r.* EXCLUDE (code)
-  FROM raw r JOIN srcmap m ON left(r.sha256,16)=m.sha16 JOIN okc ON okc.code=upper(trim(r.code))"""
-con.execute(f"""CREATE TABLE cash AS SELECT s, code, st, cash, coalesce(gross,0) gross, min(rw) rw, fee, arg_min(dsc, rw) dsc FROM (
-  SELECT s, code, fee, st, rw, {NUM('discounted_cash')} cash, {NUM('gross_charge')} gross, left(trim(coalesce(description,'')),90) dsc FROM ({base}))
-  WHERE cash>0 GROUP BY s, code, fee, st, cash, gross""")
-print('cash lines', con.execute("SELECT count(*) FROM cash").fetchone()[0], flush=True)
-con.execute(f"""CREATE TABLE rates AS SELECT s, code, ins, prod, plabel, fee, pct, val, min(rw) rw, st FROM (
-  SELECT b.s, b.code, c.ins, c.prod, c.plabel, b.fee, b.st, b.rw,
-    CASE WHEN dol>0 THEN 0 ELSE 1 END pct, round(CASE WHEN dol>0 THEN dol ELSE pc END, 2) val
-  FROM (SELECT s, code, fee, st, rw, payer_name, plan_name, {NUM('negotiated_dollar')} dol, {NUM('negotiated_percentage')} pc FROM ({base})
-        WHERE trim(coalesce(payer_name,''))<>'') b
-  JOIN cls c ON c.payer=coalesce(b.payer_name,'') AND c.plan=coalesce(b.plan_name,'')
-  WHERE dol>0 OR pc>0)
-  GROUP BY s, code, ins, prod, plabel, fee, st, pct, val""")
-print('payer lines', con.execute("SELECT count(*) FROM rates").fetchone()[0], flush=True)
-# flat case rate: identical dollar amount, same file + insurer + plan + fee type, on 5+ codes
-con.execute("""CREATE TABLE flat AS SELECT s, ins, plabel, fee, val FROM rates WHERE pct=0
-  GROUP BY s, ins, plabel, fee, val HAVING count(DISTINCT code)>=5""")
+def one_file(path):
+    """everything that only depends on one hospital file: dedupe, flat-rate flag, per-file caps"""
+    tag = os.path.basename(path)[:-8]
+    if os.path.exists(f'{out}/part/c_{tag}.parquet'): return tag
+    c = duckdb.connect()
+    c.execute(f"SET memory_limit='{os.environ.get('FMEM', '1500MB')}'; SET threads=1; SET temp_directory='{out}/duck/{tag}'; SET preserve_insertion_order=false")
+    for t in ('okc', 'cls', 'srcmap'): c.execute(f"CREATE VIEW {t} AS SELECT * FROM '{out}/ref/{t}.parquet'")
+    c.execute(f"CREATE VIEW raw AS SELECT * FROM read_parquet('{path}')")
+    base = f"""SELECT m.s, upper(trim(r.code)) code,
+      CASE WHEN lower(trim(coalesce(r.billing_class,'')))='professional' THEN 1 ELSE 0 END fee,
+      CASE lower(trim(coalesce(r.setting,''))) WHEN 'outpatient' THEN 'o' WHEN 'inpatient' THEN 'i' WHEN 'both' THEN 'b' ELSE '' END st,
+      coalesce(try_cast(r.source_row AS BIGINT),0) rw, r.* EXCLUDE (code)
+      FROM raw r JOIN srcmap m ON left(r.sha256,16)=m.sha16 JOIN okc ON okc.code=upper(trim(r.code))"""
+    c.execute(f"""CREATE TABLE cash AS SELECT s, code, st, cash, coalesce(gross,0) gross, min(rw) rw, fee, arg_min(dsc, rw) dsc FROM (
+      SELECT s, code, fee, st, rw, {NUM('discounted_cash')} cash, {NUM('gross_charge')} gross, left(trim(coalesce(description,'')),90) dsc FROM ({base}))
+      WHERE cash>0 GROUP BY s, code, fee, st, cash, gross""")
+    c.execute(f"""CREATE TABLE rates AS SELECT s, code, ins, prod, plabel, fee, pct, val, min(rw) rw, st FROM (
+      SELECT b.s, b.code, cl.ins, cl.prod, cl.plabel, b.fee, b.st, b.rw,
+        CASE WHEN dol>0 THEN 0 ELSE 1 END pct, round(CASE WHEN dol>0 THEN dol ELSE pc END, 2) val
+      FROM (SELECT s, code, fee, st, rw, payer_name, plan_name, {NUM('negotiated_dollar')} dol, {NUM('negotiated_percentage')} pc FROM ({base})
+            WHERE trim(coalesce(payer_name,''))<>'') b
+      JOIN cls cl ON cl.payer=coalesce(b.payer_name,'') AND cl.plan=coalesce(b.plan_name,'')
+      WHERE dol>0 OR pc>0)
+      GROUP BY s, code, ins, prod, plabel, fee, st, pct, val""")
+    # flat case rate: identical dollar amount, same file + insurer + plan + fee type, on 5+ codes
+    c.execute("""CREATE TABLE flat AS SELECT s, ins, plabel, fee, val FROM rates WHERE pct=0
+      GROUP BY s, ins, plabel, fee, val HAVING count(DISTINCT code)>=5""")
+    # lines ranked within hospital file + code (lowest first) so a file listing thousands of lines for one code is capped
+    c.execute(f"""COPY (SELECT r.code, r.s, r.ins, r.prod, r.plabel, r.fee, r.pct, r.val, r.rw, r.st,
+      CASE WHEN f.s IS NULL THEN 0 ELSE 1 END fl, row_number() OVER (PARTITION BY r.code ORDER BY r.pct, r.val, r.rw) k,
+      count(*) OVER (PARTITION BY r.code) n FROM rates r
+      LEFT JOIN flat f ON f.s=r.s AND f.ins=r.ins AND f.plabel=r.plabel AND f.fee=r.fee AND f.val=r.val AND r.pct=0)
+      TO '{out}/part/r_{tag}.parquet' (FORMAT parquet)""")
+    c.execute(f"""COPY (SELECT *, row_number() OVER (PARTITION BY code ORDER BY cash, rw) k, count(*) OVER (PARTITION BY code) n FROM cash)
+      TO '{out}/part/c_{tag}.parquet' (FORMAT parquet)""")
+    c.close()
+    return tag
 
-ins_l = [x[0] for x in con.execute("SELECT ins FROM rates GROUP BY ins ORDER BY count(*) DESC").fetchall()]
+from multiprocessing import Pool
+with Pool(NP, maxtasksperchild=4) as P:
+    for k_, t_ in enumerate(P.imap_unordered(one_file, files), 1):
+        print(f'file {k_}/{len(files)} {t_}', time.strftime('%H:%M:%S'), flush=True)
+c0 = duckdb.connect()
+c0.execute(f"CREATE VIEW rates AS SELECT * FROM read_parquet('{out}/part/r_*.parquet')")
+ins_l = [x[0] for x in c0.execute("SELECT ins FROM rates GROUP BY ins ORDER BY count(*) DESC").fetchall()]
 ins_i = {v: k for k, v in enumerate(ins_l)}
-cover = {str(ins_i[a]): n for a, n in con.execute("SELECT ins, count(DISTINCT s) FROM rates GROUP BY ins").fetchall()}
-
-CAPR, CAPC = int(os.environ.get('CAPR', '500')), int(os.environ.get('CAPC', '100'))
+cover = {str(ins_i[a]): n for a, n in c0.execute("SELECT ins, count(DISTINCT s) FROM rates GROUP BY ins").fetchall()}
+print('payer lines', c0.execute("SELECT count(*) FROM rates").fetchone()[0], '| cash lines',
+      c0.execute(f"SELECT count(*) FROM read_parquet('{out}/part/c_*.parquet')").fetchone()[0], flush=True)
+c0.close()
 json.dump({'src': src, 'ins': ins_l, 'cover': cover, 'plans': [], 'desc': [], 'codes': {}},
           open(f'{out}/hosp_index.json', 'w'), separators=(',', ':'))
-# lines ranked within hospital file + code (lowest first) so a file listing thousands of lines for one code is capped
-con.execute(f"""CREATE TABLE rout AS SELECT r.code, r.s, r.ins, r.prod, r.plabel, r.fee, r.pct, r.val, r.rw, r.st,
-  CASE WHEN f.s IS NULL THEN 0 ELSE 1 END fl, row_number() OVER (PARTITION BY r.code, r.s ORDER BY r.pct, r.val, r.rw) k,
-  count(*) OVER (PARTITION BY r.code, r.s) n FROM rates r
-  LEFT JOIN flat f ON f.s=r.s AND f.ins=r.ins AND f.plabel=r.plabel AND f.fee=r.fee AND f.val=r.val AND r.pct=0""")
-con.execute(f"""CREATE TABLE cout AS SELECT *, row_number() OVER (PARTITION BY code, s ORDER BY cash, rw) k,
-  count(*) OVER (PARTITION BY code, s) n FROM cash""")
-con.close()
 
 def part(k):
     import boto3
     from concurrent.futures import ThreadPoolExecutor
-    c2 = duckdb.connect(DB, read_only=True)
-    c2.execute("SET threads=1; SET memory_limit='1500MB'")
+    c2 = duckdb.connect()
+    c2.execute(f"SET threads=1; SET memory_limit='{os.environ.get('FMEM', '1500MB')}'; SET temp_directory='{out}/duck/p{k}'")
+    c2.execute(f"CREATE VIEW rout AS SELECT * FROM read_parquet('{out}/part/r_*.parquet'); CREATE VIEW cout AS SELECT * FROM read_parquet('{out}/part/c_*.parquet')")
     E = os.environ
     s3 = boto3.client('s3', endpoint_url=f"https://{E['R2_ACCOUNT_ID']}.r2.cloudflarestorage.com", aws_access_key_id=E['R2_ACCESS_KEY_ID'],
                       aws_secret_access_key=E['R2_SECRET_ACCESS_KEY'], region_name='auto') if E.get('UPLOAD') else None
