@@ -87,15 +87,20 @@ def fetch_index(domain):
         return _CACHE[domain]
     res = (f"https://{domain}/cms-hpt.txt", None)
     alt = domain[4:] if domain.startswith("www.") else "www." + domain
-    for url in (f"{sch}://{h}/cms-hpt.txt" for h in (domain, alt) for sch in ("https", "http")):
-        r = None
-        for attempt in range(2):  # one retry: slow or flaky hospital sites often answer the second time
-            try:
-                r = requests.get(url, headers={"User-Agent": UA}, timeout=30, allow_redirects=True, verify=False)
-                break
-            except requests.RequestException:
-                r = None
-        if r is None:
+    urls = [f"https://{domain}/cms-hpt.txt", f"https://{domain}/cms-hpt.txt", f"https://{alt}/cms-hpt.txt",
+            f"http://{domain}/cms-hpt.txt"]  # the repeat is one retry: flaky sites often answer the second time
+    dead = set()  # hosts that don't exist (DNS failure): no retry, no http
+    for url in urls:
+        h = urllib.parse.urlsplit(url).netloc
+        if h in dead:
+            continue
+        try:
+            r = requests.get(url, headers={"User-Agent": UA}, timeout=20, allow_redirects=True, verify=False)
+        except requests.exceptions.ConnectionError as e:
+            if "NameResolution" in str(e) or "Name or service not known" in str(e) or "nodename nor servname" in str(e):
+                dead.add(h)
+            continue
+        except requests.RequestException:
             continue
         body = r.text.lstrip()
         if r.status_code == 200 and "html" not in r.headers.get("content-type", "").lower() and not body.startswith("<"):
