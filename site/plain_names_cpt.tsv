@@ -1,0 +1,318 @@
+87804	Rapid flu test
+99213	Office visit, returning patient (low complexity, about 20 min)
+99214	Office visit, returning patient (moderate complexity, about 30 min)
+99211	Brief nurse or staff visit, returning patient
+99212	Office visit, returning patient (simple, about 10 min)
+99215	Office visit, returning patient (high complexity, about 40 min)
+99202	Office visit, new patient (simple, about 15 min)
+90480	COVID-19 vaccine shot (giving the vaccine)
+96127	Brief emotional or behavioral screening questionnaire
+87880	Rapid strep test
+99232	Hospital follow-up visit by doctor (moderate complexity)
+96372	Injection into muscle or under the skin (giving the shot)
+99233	Hospital follow-up visit by doctor (high complexity)
+36415	Blood draw from a vein
+81025	Urine pregnancy test
+99238	Hospital discharge day, 30 minutes or less
+99223	First hospital visit by doctor (high complexity)
+99284	Emergency room visit (moderately severe)
+83036	Hemoglobin A1C blood test (diabetes)
+99417	Extra time on an office visit, each 15 minutes
+87426	Rapid COVID-19 antigen test
+90471	Vaccine shot, first vaccine (giving the shot)
+99231	Hospital follow-up visit by doctor (simple)
+99239	Hospital discharge day, more than 30 minutes
+93010	EKG reading and report only
+96160	Health risk questionnaire
+96132	Neuropsychological testing evaluation, first hour
+90715	Tdap vaccine (tetanus, diphtheria, whooping cough)
+90791	Mental health intake evaluation
+97140	Manual therapy (hands-on physical therapy), each 15 min
+99291	Critical care, first hour
+99395	Annual checkup, returning patient, age 18 to 39
+73110	Wrist X-ray (3 or more views)
+20610	Joint injection or drainage, large joint (knee, shoulder, hip)
+97112	Balance and coordination therapy, each 15 min
+99406	Quit-smoking counseling, 3 to 10 minutes
+99396	Annual checkup, returning patient, age 40 to 64
+97530	Therapeutic activities (physical or occupational therapy), each 15 min
+99490	Chronic care management by clinical staff, first 20 min a month
+99221	First hospital visit by doctor (simple or low complexity)
+99404	Preventive counseling, about 60 minutes
+96138	Psychological testing given by a technician, first 30 min
+99222	First hospital visit by doctor (moderate complexity)
+73630	Foot X-ray (3 or more views)
+87635	COVID-19 PCR test
+82962	Blood sugar test with a home-type meter
+71046	Chest X-ray, 2 views
+90472	Vaccine shot, each additional vaccine
+80305	Urine drug screen (cup or dipstick read by eye)
+96130	Psychological testing evaluation, first hour
+73130	Hand X-ray (3 or more views)
+82306	Vitamin D blood test
+96136	Psychological testing given by the psychologist, first 30 min
+90460	Child vaccine with counseling, first part of the vaccine
+99283	Emergency room visit (low severity)
+80047	Basic metabolic panel with ionized calcium (blood test)
+99401	Preventive counseling, about 15 minutes
+73610	Ankle X-ray (3 or more views)
+97802	Nutrition counseling, first visit, each 15 min
+80050	General health panel (blood tests)
+99285	Emergency room visit (high severity)
+73030	Shoulder X-ray (2 or more views)
+73502	Hip X-ray, one side (2 to 3 views)
+96110	Child development screening
+72100	Lower back X-ray (2 to 3 views)
+72040	Neck X-ray (2 to 3 views)
+97535	Self-care and home management training, each 15 min
+98006	Video visit, returning patient (moderate complexity)
+84439	Free T4 thyroid blood test
+98966	Phone call with a non-physician clinician, 5 to 10 min
+73560	Knee X-ray (1 or 2 views)
+83540	Iron blood test
+83550	Iron binding capacity blood test
+99242	Specialist consultation in office (simple)
+95816	EEG brain wave test, awake and drowsy
+99245	Specialist consultation in office (high complexity)
+99254	Specialist consultation in hospital (moderate complexity)
+98005	Video visit, returning patient (low complexity)
+93306	Echocardiogram (heart ultrasound), complete with Doppler
+90833	Psychotherapy, 30 min, added to a medical visit
+72070	Mid-back X-ray (2 views)
+90792	Psychiatric intake evaluation with medical services
+82728	Ferritin blood test (iron stores)
+73562	Knee X-ray (3 views)
+99309	Nursing home follow-up visit (moderate complexity)
+98004	Video visit, returning patient (simple)
+10060	Draining a skin abscess, simple
+73080	Elbow X-ray (3 or more views)
+96139	Psychological testing by a technician, each extra 30 min
+76942	Ultrasound guidance for a needle procedure
+97161	Physical therapy evaluation (low complexity)
+82947	Blood sugar (glucose) lab test
+73620	Foot X-ray (2 views)
+97162	Physical therapy evaluation (moderate complexity)
+74018	Abdominal X-ray, 1 view
+82607	Vitamin B12 blood test
+76882	Ultrasound of a joint or soft tissue, limited
+98967	Phone call with a non-physician clinician, 11 to 20 min
+71045	Chest X-ray, 1 view
+99152	Moderate sedation by the same doctor, first 15 min, age 5+
+85018	Hemoglobin blood test
+11900	Injection into skin lesions (up to 7)
+73090	Forearm X-ray (2 views)
+87651	Strep A lab test (DNA)
+83001	FSH hormone blood test
+96156	Health behavior assessment
+73100	Wrist X-ray (2 views)
+94640	Breathing treatment (nebulizer or inhaler)
+87811	Rapid COVID-19 test, read with an instrument
+20605	Joint injection or drainage, medium joint (wrist, elbow, ankle)
+98968	Phone call with a non-physician clinician, 21 to 30 min
+83735	Magnesium blood test
+99050	After-hours office visit add-on
+99384	Annual checkup, new patient, age 12 to 17
+90734	Meningococcal (MenACWY) vaccine
+96133	Neuropsychological testing evaluation, each extra hour
+99457	Remote patient monitoring management, first 20 min a month
+17110	Wart removal (up to 14)
+94760	Pulse oximetry (blood oxygen check)
+73590	Lower leg X-ray (2 views)
+96365	IV infusion, first hour
+90677	Pneumonia vaccine (PCV20)
+84403	Total testosterone blood test
+84146	Prolactin blood test
+73564	Knee X-ray (4 or more views)
+97014	Electrical stimulation therapy (unattended)
+76937	Ultrasound guidance to place an IV or line
+96375	IV push of an additional drug
+11042	Wound debridement, under the skin, first 20 sq cm
+85652	Sed rate blood test (inflammation)
+97116	Gait (walking) training, each 15 min
+99423	Online patient-portal visit, 21 minutes or more
+97803	Nutrition counseling, follow-up, each 15 min
+69210	Earwax removal with instruments, one ear
+20551	Injection into a tendon
+99308	Nursing home follow-up visit (low complexity)
+99349	Home visit, returning patient (moderate complexity)
+98012	Audio-only visit, returning patient (simple)
+96137	Psychological testing by the psychologist, each extra 30 min
+93971	Ultrasound of leg or arm veins, one side or limited
+99402	Preventive counseling, about 30 minutes
+99439	Chronic care management by clinical staff, each extra 20 min
+99397	Annual checkup, returning patient, age 65 and over
+84481	Free T3 thyroid blood test
+98007	Video visit, returning patient (high complexity)
+20611	Joint injection or drainage, large joint, with ultrasound
+88312	Special stains on a tissue sample (pathology)
+93005	EKG tracing only (no reading)
+20552	Trigger point injection, 1 or 2 muscles
+99393	Annual checkup, returning patient, age 5 to 11
+72170	Pelvis X-ray (1 or 2 views)
+95117	Allergy shots, 2 or more injections
+99282	Emergency room visit (minor)
+36620	Placing an arterial line for monitoring
+73060	Upper arm X-ray (2 views)
+99394	Annual checkup, returning patient, age 12 to 17
+90651	HPV vaccine (Gardasil 9)
+80307	Drug screen by lab instrument
+99255	Specialist consultation in hospital (high complexity)
+98014	Audio-only visit, returning patient (moderate complexity)
+73120	Hand X-ray (2 views)
+99407	Quit-smoking counseling, more than 10 minutes
+20550	Injection into a tendon sheath or ligament
+73600	Ankle X-ray (2 views)
+87491	Chlamydia lab test (DNA)
+76705	Abdominal ultrasound, limited
+96131	Psychological testing evaluation, each extra hour
+77063	3D mammogram (tomosynthesis) add-on for screening
+99484	Behavioral health care management, 20 min a month
+99391	Well-baby checkup, returning patient, under age 1
+71100	Rib X-ray, one side (2 views)
+64450	Nerve block injection, other peripheral nerve
+93880	Carotid artery ultrasound, both sides
+99235	Same-day hospital admission and discharge (moderate complexity)
+84550	Uric acid blood test
+87591	Gonorrhea lab test (DNA)
+82570	Urine creatinine test
+82670	Estradiol hormone blood test
+99358	Extra time on a patient's care without the patient present, first hour
+11104	Punch biopsy of skin, one spot
+72050	Neck X-ray (4 or 5 views)
+82043	Urine albumin test (kidney)
+97032	Electrical stimulation therapy (attended), each 15 min
+73070	Elbow X-ray (2 views)
+73140	Finger X-ray (2 or more views)
+95930	Visual evoked potential test (vision nerve pathway)
+92507	Speech, language or hearing therapy
+76770	Kidney and back-of-abdomen ultrasound, complete
+84703	hCG pregnancy blood test
+98960	Self-management education, one patient, each 30 min
+73521	Hip X-rays, both sides (2 views)
+96116	Neurobehavioral status exam, first hour
+99496	Follow-up care after a hospital stay (high complexity, seen within 7 days)
+87636	COVID-19 and flu A/B combined lab test
+87210	Wet mount smear (vaginal or skin sample under microscope)
+93923	Leg or arm artery blood-flow test, 3 or more levels
+87400	Rapid flu A/B test
+72141	MRI of the neck spine without contrast
+72220	Tailbone and sacrum X-ray
+71260	CT scan of the chest with contrast
+99392	Annual checkup, returning patient, age 1 to 4
+98001	Video visit, new patient (low complexity)
+82948	Blood sugar test with a test strip
+90619	Meningococcal (MenACWY-TT) vaccine
+77080	Bone density scan (DXA), hips and spine
+73552	Thigh bone (femur) X-ray (2 or more views)
+90656	Flu shot, preservative-free (trivalent)
+87086	Urine culture with colony count
+99458	Remote patient monitoring management, each extra 20 min
+76856	Pelvic ultrasound, complete
+80503	Pathology consultation (simple)
+99252	Specialist consultation in hospital (simple)
+93325	Color Doppler add-on to an echocardiogram
+76536	Ultrasound of head and neck soft tissue
+86592	Syphilis screening blood test
+95004	Allergy skin prick tests
+36556	Placing a central IV line (age 5 and over)
+95923	Autonomic nervous system test (sweat function)
+72082	Full spine X-ray (2 or 3 views)
+72131	CT scan of the lower back without contrast
+96374	IV push of a drug, first drug
+99421	Online patient-portal visit, 5 to 10 minutes
+99495	Follow-up care after a hospital stay (moderate complexity, seen within 14 days)
+90461	Child vaccine with counseling, each additional part
+83690	Lipase blood test (pancreas)
+96112	Developmental testing by a clinician, first hour
+20600	Joint injection or drainage, small joint (finger, toe)
+71101	Rib and chest X-ray, one side
+95886	Needle EMG muscle test, add-on to a nerve study
+98013	Audio-only visit, returning patient (low complexity)
+90744	Hepatitis B vaccine, child or teen
+85014	Hematocrit blood test
+96146	Psychological test scored by computer
+93320	Doppler add-on to an echocardiogram
+97597	Wound debridement (removing dead tissue), first 20 sq cm
+87502	Flu lab test (DNA)
+82565	Creatinine blood test (kidney)
+73000	Collarbone X-ray
+29125	Applying a forearm splint
+94010	Breathing test (spirometry)
+97750	Physical performance test, each 15 min
+84132	Potassium blood test
+93970	Ultrasound of leg or arm veins, both sides
+99000	Handling and sending a specimen to a lab
+99497	Advance care planning conversation, first 30 min
+99236	Same-day hospital admission and discharge (high complexity)
+73221	MRI of an arm joint (shoulder, elbow, wrist) without contrast
+69209	Earwax removal by flushing, one ear
+93040	Heart rhythm strip with report
+17250	Chemical cautery of granulation tissue
+99173	Vision screening (eye chart)
+99253	Specialist consultation in hospital (low complexity)
+90836	Psychotherapy, 45 min, added to a medical visit
+99305	First nursing home visit (moderate complexity)
+20553	Trigger point injections, 3 or more muscles
+77002	X-ray guidance for a needle procedure
+76815	Pregnancy ultrasound, limited
+92250	Photos of the back of the eye (retina)
+95921	Autonomic nervous system test (heart rate response)
+31500	Emergency breathing tube placement
+84436	Total T4 thyroid blood test
+74019	Abdominal X-ray, 2 views
+82746	Folate blood test
+29515	Applying a lower leg splint
+90661	Flu shot, cell-based, preservative-free
+17000	Removing a precancerous skin spot, first spot
+82550	CK (creatine kinase) blood test
+90686	Flu shot, preservative-free (quadrivalent)
+84402	Free testosterone blood test
+97012	Mechanical traction therapy
+74178	CT scan of abdomen and pelvis, without then with contrast
+84270	Sex hormone binding globulin blood test
+10061	Draining a skin abscess, complicated or multiple
+86140	C-reactive protein blood test (inflammation)
+73660	Toe X-ray (2 or more views)
+99234	Same-day hospital admission and discharge (simple or low complexity)
+71250	CT scan of the chest without contrast
+96366	IV infusion, each additional hour
+74176	CT scan of abdomen and pelvis without contrast
+76998	Ultrasound guidance during surgery
+77001	X-ray guidance to place a central line
+93018	Cardiac stress test, interpretation and report only
+99306	First nursing home visit (high complexity)
+98002	Video visit, new patient (moderate complexity)
+83002	LH hormone blood test
+64615	Botox injections for chronic migraine
+99292	Critical care, each additional 30 min
+93922	Leg or arm artery blood-flow test, 1 or 2 levels
+99153	Moderate sedation by the same doctor, each extra 15 min
+99051	Evening, weekend or holiday office visit add-on
+98941	Chiropractic adjustment, 3 to 4 spine regions
+93925	Leg artery ultrasound, both sides
+93308	Echocardiogram (heart ultrasound), limited or follow-up
+99387	First checkup, new patient, age 65 and over
+12002	Repairing a superficial cut, 2.6 to 7.5 cm
+64494	Lower-back facet joint injection, second level
+84100	Phosphorus blood test
+84480	Total T3 thyroid blood test
+99383	Annual checkup, new patient, age 5 to 11
+99350	Home visit, returning patient (high complexity)
+98000	Video visit, new patient (simple)
+98003	Video visit, new patient (high complexity)
+98008	Audio-only visit, new patient (simple)
+98009	Audio-only visit, new patient (low complexity)
+98010	Audio-only visit, new patient (moderate complexity)
+98011	Audio-only visit, new patient (high complexity)
+98015	Audio-only visit, returning patient (high complexity)
+98016	Brief virtual check-in, 5 to 10 min
+99203	Office visit, new patient (low complexity, about 30 min)
+99204	Office visit, new patient (moderate complexity, about 45 min)
+99205	Office visit, new patient (high complexity, about 60 min)
+80053	Comprehensive metabolic panel (blood test)
+80048	Basic metabolic panel (blood test)
+85025	Complete blood count (CBC) with differential
+80061	Cholesterol (lipid) panel
+84443	TSH thyroid blood test
+81001	Urinalysis with microscope
+81003	Urinalysis, automated, without microscope

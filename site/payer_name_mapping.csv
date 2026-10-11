@@ -1,0 +1,1288 @@
+payer_name,plan_name,grid_column,product_line
+90 DEGREE BENEFIT [3057],MHS HB 90 DEGREE MCEL,(not in grid),
+90 DEGREE BENEFIT [3057],MHS HB 90 DEGREE MCMC,(not in grid),
+90 DEGREE BENEFIT [3057],MHS HB 90 DEGREE MDMC,(not in grid),
+90 DEGREE BENEFIT [3057],MHS HB 90 DEGREE MLMC,(not in grid),
+90 DEGREE BENEFIT [3057],MHS HB 90 DEGREE MMMC,(not in grid),
+90 DEGREE BENEFIT [3057],MHS HB 90 DEGREE MRMC,(not in grid),
+90 DEGREE BENEFIT [3057],MHS HB 90 DEGREE MSMC,(not in grid),
+90 Degree Benefits,PPO,(not in grid),
+AETNA BETTER HEALTH [1317],ABOVE FPIL AETNA CHIP PERINATE [131703],Aetna,Mcd
+AETNA BETTER HEALTH [1317],AETNA BETTER HEALTH CHIP [131701],Aetna,Mcd
+AETNA BETTER HEALTH [1317],AETNA BETTER HEALTH STAR [131700],Aetna,Mcd
+AETNA BETTER HEALTH [1317],BELOW FPIL AETNA CHIP PERINATE [131702],Aetna,Mcd
+AETNA COMMERCIAL [2042],MHS HB AETNA TEXAS ADVANTAGE MDMC,Aetna,Com
+AETNA COMMERCIAL [2042],MHS HB AETNA TEXAS ADVANTAGE MSMC,Aetna,Com
+AETNA COMMERCIAL [2042],MHS HB AETNA TX PREF PLUS II MDMC,Aetna,Com
+AETNA COMMERCIAL [2042],MHS HB AETNA TX PREF PLUS II MSMC,Aetna,Com
+AETNA HEALTHCARE [1004],AETNA [100400],Aetna,?
+AETNA MANAGED CARE [2068],MHS HB AETNA TEXAS ADVANTAGE MDMC,Aetna,?
+AETNA MANAGED CARE [2068],MHS HB AETNA TEXAS ADVANTAGE MSMC,Aetna,?
+AETNA MANAGED CARE [2068],MHS HB AETNA TX PREF PLUS II MDMC,Aetna,Com
+AETNA MANAGED CARE [2068],MHS HB AETNA TX PREF PLUS II MSMC,Aetna,Com
+AETNA MANAGED CARE [2068],MHS HB AETNA WHOLE HEALTH MDMC,Aetna,Com
+AETNA MANAGED CARE [2068],MHS HB AETNA WHOLE HEALTH MSMC,Aetna,Com
+AETNA MEDICARE MANAGED CARE [7000],MHS HB AETNA GOLDEN MCEL,Aetna,MA
+AETNA MEDICARE MANAGED CARE [7000],MHS HB AETNA GOLDEN MCMC,Aetna,MA
+AETNA MEDICARE MANAGED CARE [7000],MHS HB AETNA GOLDEN MDMC,Aetna,MA
+AETNA MEDICARE MANAGED CARE [7000],MHS HB AETNA GOLDEN MLMC,Aetna,MA
+AETNA MEDICARE MANAGED CARE [7000],MHS HB AETNA GOLDEN MMMC,Aetna,MA
+AETNA MEDICARE MANAGED CARE [7000],MHS HB AETNA GOLDEN MRMC,Aetna,MA
+AETNA MEDICARE MANAGED CARE [7000],MHS HB AETNA GOLDEN MSMC,Aetna,MA
+AETNA TRANSPLANT NETWORK [3025],MHS HB AETNA TRANSPLANT NETWORK MDMC,Aetna,Com
+AETNA [3000],MHS HB AETNA BAYLOR SCOTT AND WHITE MDMC,Aetna,?
+AETNA [3000],MHS HB AETNA BAYLOR SCOTT AND WHITE MSMC,Aetna,?
+AETNA [3000],MHS HB AETNA CVS MCEL,Aetna,Com
+AETNA [3000],MHS HB AETNA CVS MCMC,Aetna,Com
+AETNA [3000],MHS HB AETNA CVS MDMC,Aetna,Com
+AETNA [3000],MHS HB AETNA CVS MLMC,Aetna,Com
+AETNA [3000],MHS HB AETNA CVS MMMC,Aetna,Com
+AETNA [3000],MHS HB AETNA CVS MRMC,Aetna,Com
+AETNA [3000],MHS HB AETNA CVS MSMC,Aetna,Com
+AETNA [3000],MHS HB AETNA EXCHANGE MCEL,Aetna,Ex
+AETNA [3000],MHS HB AETNA EXCHANGE MCMC,Aetna,Ex
+AETNA [3000],MHS HB AETNA EXCHANGE MDMC,Aetna,Ex
+AETNA [3000],MHS HB AETNA EXCHANGE MLMC,Aetna,Ex
+AETNA [3000],MHS HB AETNA EXCHANGE MMMC,Aetna,Ex
+AETNA [3000],MHS HB AETNA EXCHANGE MRMC,Aetna,Ex
+AETNA [3000],MHS HB AETNA EXCHANGE MSMC,Aetna,Ex
+AETNA [3000],MHS HB AETNA HMO PPO MDMC,Aetna,Com
+AETNA [3000],MHS HB AETNA HMO PPO MSMC,Aetna,Com
+ALLIED NATIONAL [2031],MHS HB 90 DEGREE MCEL,(not in grid),
+ALLIED NATIONAL [2031],MHS HB 90 DEGREE MCMC,(not in grid),
+ALLIED NATIONAL [2031],MHS HB 90 DEGREE MDMC,(not in grid),
+ALLIED NATIONAL [2031],MHS HB 90 DEGREE MLMC,(not in grid),
+ALLIED NATIONAL [2031],MHS HB 90 DEGREE MMMC,(not in grid),
+ALLIED NATIONAL [2031],MHS HB 90 DEGREE MRMC,(not in grid),
+ALLIED NATIONAL [2031],MHS HB 90 DEGREE MSMC,(not in grid),
+ALTERNATIVE SERVICE CONCEPTS [8005],MHS HB CITY OF PLANO MCMC,(not in grid),
+ALTERNATIVE SERVICE CONCEPTS [8005],MHS HB CITY OF PLANO MDMC,(not in grid),
+ALTERNATIVE SERVICE CONCEPTS [8005],MHS HB CITY OF PLANO MLMC,(not in grid),
+ALTERNATIVE SERVICE CONCEPTS [8005],MHS HB CITY OF PLANO MMMC,(not in grid),
+ALTERNATIVE SERVICE CONCEPTS [8005],MHS HB CITY OF PLANO MRMC,(not in grid),
+ALTERNATIVE SERVICE CONCEPTS [8005],MHS HB CITY OF PLANO MSMC,(not in grid),
+AMBETTER SUPERIOR [3051],MHS HB AMBETTER SUPERIOR MCMC,Superior/Ambetter/Wellcare (Centene),Ex
+AMBETTER SUPERIOR [3051],MHS HB AMBETTER SUPERIOR MDMC,Superior/Ambetter/Wellcare (Centene),Ex
+AMBETTER SUPERIOR [3051],MHS HB AMBETTER SUPERIOR MLMC,Superior/Ambetter/Wellcare (Centene),Ex
+AMBETTER SUPERIOR [3051],MHS HB AMBETTER SUPERIOR MMMC,Superior/Ambetter/Wellcare (Centene),Ex
+AMBETTER SUPERIOR [3051],MHS HB AMBETTER SUPERIOR MRMC,Superior/Ambetter/Wellcare (Centene),Ex
+AMBETTER SUPERIOR [3051],MHS HB AMBETTER SUPERIOR MSMC,Superior/Ambetter/Wellcare (Centene),Ex
+AMERICAN HEALTH ADVANTAGE OF TEXAS [7099],MHS HB 105% MEDICARE MCEL,(not in grid),
+AMERICAN HEALTH ADVANTAGE OF TEXAS [7099],MHS HB 105% MEDICARE MCMC,(not in grid),
+AMERICAN HEALTH ADVANTAGE OF TEXAS [7099],MHS HB 105% MEDICARE MDMC,(not in grid),
+AMERICAN HEALTH ADVANTAGE OF TEXAS [7099],MHS HB 105% MEDICARE MLMC,(not in grid),
+AMERICAN HEALTH ADVANTAGE OF TEXAS [7099],MHS HB 105% MEDICARE MMMC,(not in grid),
+AMERICAN HEALTH ADVANTAGE OF TEXAS [7099],MHS HB 105% MEDICARE MRMC,(not in grid),
+AMERICAN HEALTH ADVANTAGE OF TEXAS [7099],MHS HB 105% MEDICARE MSMC,(not in grid),
+Accountable Health Plans,GroupHealth,(not in grid),
+Accountable Health Plans,OccupationalHealth,(not in grid),
+Accountable PPO,,(not in grid),
+Aetna,,Aetna,?
+Aetna,ALL PRODUCTS,Aetna,Com
+Aetna,ASA,Aetna,Com
+Aetna,Aetna Commercial,Aetna,Com
+Aetna,Aetna Exchange,Aetna,Ex
+Aetna,Aetna Medicare Advantage,Aetna,MA
+Aetna,Aetna Workers Compensation,(not in grid),
+Aetna,BETTER HEALTH CHIP,Aetna,Mcd
+Aetna,BETTER HEALTH STAR Kids,Aetna,Mcd
+Aetna,BETTER HEALTH STAR UHRIP,Aetna,Mcd
+Aetna,BMT,Aetna,?
+Aetna,Better Health Medicaid Managed Care Plan,Aetna,Mcd
+Aetna,COMM,Aetna,Com
+Aetna,COMMTransplant,Aetna,Com
+Aetna,Commercial,Aetna,Com
+Aetna,Coventry,Aetna,Com
+Aetna,Coventry Workers Compensation,(not in grid),
+Aetna,Default,Aetna,?
+Aetna,EMPLOYEE,Aetna,Com
+Aetna,Exchange,Aetna,Ex
+Aetna,HMO,Aetna,Com
+Aetna,HMO/POS/EPO/PPO,Aetna,Com
+Aetna,HMO/POS/PPO,Aetna,Com
+Aetna,Hmo,Aetna,Com
+Aetna,MCR,Aetna,MA
+Aetna,Managed Medicaid,Aetna,Mcd
+Aetna,Medicaid,Aetna,Mcd
+Aetna,Medicaid Managed Care Plan,Aetna,Mcd
+Aetna,Medicare Advantage,Aetna,MA
+Aetna,Medicare Managed Care Plan,Aetna,MA
+Aetna,Medicare Transplant,Aetna,MA
+Aetna,Meritain,Aetna,Com
+Aetna,NewBusiness,Aetna,Com
+Aetna,OON,Aetna,?
+Aetna,PPO/POS/EPO,Aetna,Com
+Aetna,Ppo/Pos/Epo,Aetna,Com
+Aetna,WCOMP,(not in grid),
+Aetna,Whole Health,Aetna,Com
+Aetna ASA,,Aetna,Com
+Aetna ASA Signature PPO,,Aetna,Com
+Aetna Behavioral Health,COMM,Aetna,Com
+Aetna Better Health,CHIP,Aetna,Mcd
+Aetna Better Health,MCD,Aetna,Mcd
+Aetna Better Health,Managed Medicaid,Aetna,Mcd
+Aetna Coventry First Health,COMM,Aetna,Com
+Aetna Coventry First Health,EXCLUSIVE,Aetna,Com
+Aetna Coventry First Health,NONEXCLUSIVE,Aetna,Com
+Aetna Medicaid,,Aetna,Mcd
+Aetna Medicare,,Aetna,MA
+Aetna Medicare Advantage,Default,Aetna,MA
+Aetna Walmart/Home Depot,,Aetna,Com
+AmBetter,,Superior/Ambetter/Wellcare (Centene),Ex
+AmeriGroup Wellpoint,Default,Wellpoint/Amerigroup,Mcd
+American Correction Healthcare,American Correction Healthcare,(not in grid),
+American Correction Healthcare,American Correction Healthcare Medicare,(not in grid),
+American Health,Medicare Advantage,(not in grid),
+American Health Plan,American Health Plan,(not in grid),
+American Health Plan,Medicare Advantage,(not in grid),
+"American Health Plan of Texas, Inc.",MGMCR,(not in grid),
+American Hospice,MCR,(not in grid),
+Amerigroup,,Wellpoint/Amerigroup,Mcd
+Amerigroup,CHIP,Wellpoint/Amerigroup,Mcd
+Amerigroup,DualEligible,Wellpoint/Amerigroup,MA
+Amerigroup,MGMCD,Wellpoint/Amerigroup,Mcd
+Amerigroup,Managed Medicaid,Wellpoint/Amerigroup,Mcd
+Amerigroup,Medicaid Managed Care Plan,Wellpoint/Amerigroup,Mcd
+Amerigroup,Medicare Advantage,Wellpoint/Amerigroup,MA
+Amerigroup,Medicare Advantage HMO,Wellpoint/Amerigroup,MA
+Amerigroup,Medicare Managed Care Plan,Wellpoint/Amerigroup,MA
+"Averde Health, Inc",PPO,(not in grid),
+BCBS,BCBS Blue Essentials Medicare-HMO,BCBSTX,MA
+BCBS,BCBS HMO,BCBSTX,Com
+BCBS,BCBS HMO Advantage,BCBSTX,Com
+BCBS,BCBS Medicare Advantage,BCBSTX,MA
+BCBS,BCBS PPO,BCBSTX,Com
+BCBS,BCBS TX STAR,BCBSTX,Mcd
+BCBS,BCBS Traditional,BCBSTX,Com
+BCBS,BDCT - Blue Distinction Centers for Transplant,BCBSTX,Com
+BCBS,Blue Advantage Other Commercial Plan,BCBSTX,Com
+BCBS,Blue Cross Blue Shield PAR (BCBSPAR) - Indemnity,BCBSTX,Com
+BCBS,BlueAdvantageHMO,BCBSTX,Com
+BCBS,BlueEssentials,BCBSTX,Com
+BCBS,BlueEssentialsAccess,BCBSTX,Com
+BCBS,BlueEssentialsHMO,BCBSTX,Com
+BCBS,BluePremier,BCBSTX,Com
+BCBS,CHIP,BCBSTX,Mcd
+BCBS,CHIP STAR KIDS,BCBSTX,Mcd
+BCBS,EPOSOA,BCBSTX,Com
+BCBS,HMO,BCBSTX,Com
+BCBS,MCRPPO,BCBSTX,MA
+BCBS,MGMCR,BCBSTX,MA
+BCBS,MGMCRHMO,BCBSTX,MA
+BCBS,Medicaid Managed Care Plan,BCBSTX,Mcd
+BCBS,Medicare Managed Care Plan,BCBSTX,MA
+BCBS,MyBlueHealth,BCBSTX,Ex
+BCBS,POS,BCBSTX,Com
+BCBS,PPO,BCBSTX,Com
+BCBS,PPO/POS,BCBSTX,Com
+BCBS,Traditional,BCBSTX,Com
+BCBS,TriWestGOV,(not in grid),
+BCBS Advantage,,BCBSTX,?
+BCBS MEDICARE MANAGED CARE [7002],MHS HB BCBS MEDICARE ADVANTAGE MCEL,BCBSTX,MA
+BCBS MEDICARE MANAGED CARE [7002],MHS HB BCBS MEDICARE ADVANTAGE MCMC,BCBSTX,MA
+BCBS MEDICARE MANAGED CARE [7002],MHS HB BCBS MEDICARE ADVANTAGE MDMC,BCBSTX,MA
+BCBS MEDICARE MANAGED CARE [7002],MHS HB BCBS MEDICARE ADVANTAGE MLMC,BCBSTX,MA
+BCBS MEDICARE MANAGED CARE [7002],MHS HB BCBS MEDICARE ADVANTAGE MMMC,BCBSTX,MA
+BCBS MEDICARE MANAGED CARE [7002],MHS HB BCBS MEDICARE ADVANTAGE MRMC,BCBSTX,MA
+BCBS MEDICARE MANAGED CARE [7002],MHS HB BCBS MEDICARE ADVANTAGE MSMC,BCBSTX,MA
+BCBS MEDICARE MANAGED CARE [7002],MHS HB MANAGED MEDICARE 106% MCEL,BCBSTX,MA
+BCBS MEDICARE MANAGED CARE [7002],MHS HB MANAGED MEDICARE 106% MCMC,BCBSTX,MA
+BCBS MEDICARE MANAGED CARE [7002],MHS HB MANAGED MEDICARE 106% MDMC,BCBSTX,MA
+BCBS MEDICARE MANAGED CARE [7002],MHS HB MANAGED MEDICARE 106% MLMC,BCBSTX,MA
+BCBS MEDICARE MANAGED CARE [7002],MHS HB MANAGED MEDICARE 106% MMMC,BCBSTX,MA
+BCBS MEDICARE MANAGED CARE [7002],MHS HB MANAGED MEDICARE 106% MRMC,BCBSTX,MA
+BCBS MEDICARE MANAGED CARE [7002],MHS HB MANAGED MEDICARE 106% MSMC,BCBSTX,MA
+BCBS Medicare Advantage HMO,,BCBSTX,MA
+BCBS Medicare Advantage PPO,,BCBSTX,MA
+BCBS Of TX,BCBS Blue Advantage (07-01-2023 to 12-31-2026),BCBSTX,Com
+BCBS Of TX,BCBS HMO/Blue Essentials (05-01-2023 to 12-31-2026),BCBSTX,Com
+BCBS Of TX,BCBS Medicaid,BCBSTX,Mcd
+BCBS Of TX,BCBS Medicare HMO/PPO,BCBSTX,MA
+BCBS Of TX,BCBS PPO/POS (05-01-2023 to 12-31-2026),BCBSTX,Com
+BCBS Of TX,BCBS Traditional (05-01-2023 to 12-31-2026),BCBSTX,Com
+BCBS Traditional,,BCBSTX,Com
+BCBS [3001],MHS HB BCBS CITY OF DALLAS MCEL,BCBSTX,Com
+BCBS [3001],MHS HB BCBS CITY OF DALLAS MCMC,BCBSTX,Com
+BCBS [3001],MHS HB BCBS CITY OF DALLAS MDMC,BCBSTX,Com
+BCBS [3001],MHS HB BCBS CITY OF DALLAS MMMC,BCBSTX,Com
+BCBS [3001],MHS HB BCBS CITY OF DALLAS MRMC,BCBSTX,Com
+BCBS [3001],MHS HB BCBS CITY OF DALLAS MSMC,BCBSTX,Com
+BCBS [3001],MHS HB BCBS HIGH PERFORMANCE NETWORK MCEL,BCBSTX,?
+BCBS [3001],MHS HB BCBS HIGH PERFORMANCE NETWORK MCMC,BCBSTX,?
+BCBS [3001],MHS HB BCBS HIGH PERFORMANCE NETWORK MDMC,BCBSTX,?
+BCBS [3001],MHS HB BCBS HIGH PERFORMANCE NETWORK MMMC,BCBSTX,?
+BCBS [3001],MHS HB BCBS HIGH PERFORMANCE NETWORK MRMC,BCBSTX,?
+BCBS [3001],MHS HB BCBS HIGH PERFORMANCE NETWORK MSMC,BCBSTX,?
+BCBS [3001],MHS HB BCBS HMO MCEL,BCBSTX,Com
+BCBS [3001],MHS HB BCBS HMO MCMC,BCBSTX,Com
+BCBS [3001],MHS HB BCBS HMO MDMC,BCBSTX,Com
+BCBS [3001],MHS HB BCBS HMO MMMC,BCBSTX,Com
+BCBS [3001],MHS HB BCBS HMO MRMC,BCBSTX,Com
+BCBS [3001],MHS HB BCBS HMO MSMC,BCBSTX,Com
+BCBS [3001],MHS HB BCBS MY BLUE HEALTH MCEL,BCBSTX,?
+BCBS [3001],MHS HB BCBS MY BLUE HEALTH MCMC,BCBSTX,?
+BCBS [3001],MHS HB BCBS MY BLUE HEALTH MDMC,BCBSTX,?
+BCBS [3001],MHS HB BCBS MY BLUE HEALTH MMMC,BCBSTX,?
+BCBS [3001],MHS HB BCBS MY BLUE HEALTH MRMC,BCBSTX,?
+BCBS [3001],MHS HB BCBS MY BLUE HEALTH MSMC,BCBSTX,?
+BCBS [3001],MHS HB BCBS PPO MCEL,BCBSTX,Com
+BCBS [3001],MHS HB BCBS PPO MCMC,BCBSTX,Com
+BCBS [3001],MHS HB BCBS PPO MDMC,BCBSTX,Com
+BCBS [3001],MHS HB BCBS PPO MMMC,BCBSTX,Com
+BCBS [3001],MHS HB BCBS PPO MRMC,BCBSTX,Com
+BCBS [3001],MHS HB BCBS PPO MSMC,BCBSTX,Com
+BCBS [3001],MHS HB BCBS PREMIER MCEL,BCBSTX,?
+BCBS [3001],MHS HB BCBS PREMIER MCMC,BCBSTX,?
+BCBS [3001],MHS HB BCBS PREMIER MDMC,BCBSTX,?
+BCBS [3001],MHS HB BCBS PREMIER MMMC,BCBSTX,?
+BCBS [3001],MHS HB BCBS PREMIER MRMC,BCBSTX,?
+BCBS [3001],MHS HB BCBS PREMIER MSMC,BCBSTX,?
+BCBS [3001],MHS HB BCBS TRADITIONAL MCEL,BCBSTX,Com
+BCBS [3001],MHS HB BCBS TRADITIONAL MCMC,BCBSTX,Com
+BCBS [3001],MHS HB BCBS TRADITIONAL MDMC,BCBSTX,Com
+BCBS [3001],MHS HB BCBS TRADITIONAL MMMC,BCBSTX,Com
+BCBS [3001],MHS HB BCBS TRADITIONAL MRMC,BCBSTX,Com
+BCBS [3001],MHS HB BCBS TRADITIONAL MSMC,BCBSTX,Com
+BEACON,ALL PRODUCTS,(not in grid),
+BEACON,CHIP,(not in grid),
+BEACON,HEALTH OPTIONS,(not in grid),
+BEACON,STAR,(not in grid),
+BIND BENEFITS INC [1004],MHS HB UNITED HEALTHCARE MSMC,(not in grid),
+BLUE CROSS BLUE SHIELD [1012],BCBS FEDERAL EMPLOYEE [101203],BCBSTX,Com
+BLUE CROSS BLUE SHIELD [1012],BCBS OUT OF STATE [101202],BCBSTX,?
+BLUE CROSS BLUE SHIELD [1012],BCBS TRADITIONAL [101200],BCBSTX,Com
+BLUE CROSS BLUE SHIELD [1012],BLUE ADVANTAGE HMO ACA [101204],BCBSTX,Ex
+BLUE CROSS BLUE SHIELD [1012],BLUE CROSS BLUE SHIELD HMO [101208],BCBSTX,Com
+BLUE CROSS BLUE SHIELD [1012],BLUE CROSS BLUE SHIELD PPO [101207],BCBSTX,Com
+BRIGHT HEALTHCARE [2222],MHS HB BRIGHT HEALTH MCMC,(not in grid),
+BRIGHT HEALTHCARE [2222],MHS HB BRIGHT HEALTH MDMC,(not in grid),
+BRIGHT HEALTHCARE [2222],MHS HB BRIGHT HEALTH MLMC,(not in grid),
+BRIGHT HEALTHCARE [2222],MHS HB BRIGHT HEALTH MMMC,(not in grid),
+BRIGHT HEALTHCARE [2222],MHS HB BRIGHT HEALTH MRMC,(not in grid),
+BRIGHT HEALTHCARE [2222],MHS HB BRIGHT HEALTH MSMC,(not in grid),
+Baylor Scott & White Health Plan,All BSW Plans (Excluding DTE & Premier Individual),BSW Health Plan,MA
+Baylor Scott & White Health Plan,BSW Plus - Large Group/BSW Premier Direct to Employer (Rate 2),BSW Health Plan,?
+Baylor Scott & White Health Plan,BSW Plus - Small Group,BSW Health Plan,Com
+Baylor Scott & White Health Plan,BSW Premier - Individual,BSW Health Plan,MA
+Baylor Scott & White Health Plan,BSW Premier - Large Group/BSW Premier Direct to Employer (Rate 1)/BSWH Employee,BSW Health Plan,Com
+Baylor Scott & White Health Plan,BSW Premier - Small Group,BSW Health Plan,Com
+Baylor Scott & White Health Plan,BSW Premier Direct to Employer (Rate 1)/BSW Premier Direct to Employer (Rate 2),BSW Health Plan,?
+Baylor Scott & White Health Plan,Medicare Advantage,BSW Health Plan,MA
+Baylor Scott And White,Medicaid Managed Care Plan,BSW Health Plan,Mcd
+Baylor Scott And White,Medicare Managed Care Plan,BSW Health Plan,MA
+Baylor Scott and White,Medicaid Managed Care Plan,BSW Health Plan,Mcd
+Baylor Scott and White,Medicare Managed Care Plan,BSW Health Plan,MA
+Bcbs,Blue Advantage Other Commercial Plan,BCBSTX,Com
+Bcbs,Hmo,BCBSTX,Com
+Bcbs,Medicare Managed Care Plan,BCBSTX,MA
+Bcbs,Ppo/Pos,BCBSTX,Com
+Bcbs,Traditional,BCBSTX,Com
+Blue Cross Blue Shield,Blue Advantage,BCBSTX,Com
+Blue Cross Blue Shield,Blue Essentials (HMO),BCBSTX,Com
+Blue Cross Blue Shield,Blue Premier/High Performance Network/My BlueHealth,BCBSTX,?
+Blue Cross Blue Shield,BlueChoice (PPO),BCBSTX,Com
+Blue Cross Blue Shield,City of Dallas,BCBSTX,Com
+Blue Cross Blue Shield,Exchange,BCBSTX,Ex
+Blue Cross Blue Shield,HMO,BCBSTX,Com
+Blue Cross Blue Shield,Managed Medicaid,BCBSTX,Mcd
+Blue Cross Blue Shield,Medicare Advantage,BCBSTX,MA
+Blue Cross Blue Shield,MyBlueHealth,BCBSTX,Ex
+Blue Cross Blue Shield,PPO,BCBSTX,Com
+Blue Cross Blue Shield,Traditional,BCBSTX,Com
+Blue Cross Blue Shield of IA Wellmark,Default,(not in grid),
+Blue Cross Blue Shield of IA Wellmark,HMO,(not in grid),
+Blue Cross PPO,,BCBSTX,Com
+Blue Cross and Blue Shield of Texas,Blue Advantage,BCBSTX,Com
+Blue Cross and Blue Shield of Texas,Blue Essentials,BCBSTX,Com
+Blue Cross and Blue Shield of Texas,Commercial,BCBSTX,Com
+Blue Cross and Blue Shield of Texas,Medicare Advantage,BCBSTX,MA
+Bravo Health,,(not in grid),
+Bravo Health,MCRHMO,(not in grid),
+Bravo Health,MCRPFFS,(not in grid),
+Bravo Health,MCRPOS,(not in grid),
+Bravo Health,MCRPPO,(not in grid),
+Bravo Health,MCRSNP,(not in grid),
+Brentwood Clinic of Denton,COMMPPO,(not in grid),
+CARE IMPROVEMENT PLUS [1104],CARE IMPROVEMENT PLUS [110400],(not in grid),
+CARE N CARE MEDICARE MANAGED CARE [7003],MHS HB SCOTT AND WHITE MEDICARE MCMC,(not in grid),
+CARE N CARE MEDICARE MANAGED CARE [7003],MHS HB SCOTT AND WHITE MEDICARE MDMC,(not in grid),
+CARE N CARE MEDICARE MANAGED CARE [7003],MHS HB SCOTT AND WHITE MEDICARE MLMC,(not in grid),
+CARE N CARE MEDICARE MANAGED CARE [7003],MHS HB SCOTT AND WHITE MEDICARE MMMC,(not in grid),
+CARE N CARE MEDICARE MANAGED CARE [7003],MHS HB SCOTT AND WHITE MEDICARE MRMC,(not in grid),
+CARE N CARE MEDICARE MANAGED CARE [7003],MHS HB SCOTT AND WHITE MEDICARE MSMC,(not in grid),
+CC Young Memorial Home,Hospice,(not in grid),
+CCHP,Medicaid Managed Care Plan,(not in grid),
+CHAMPUS/TRICARE,,(not in grid),
+CHAMPVA [1000],MHS HB TRICARE MCEL,(not in grid),
+CHAMPVA [1000],MHS HB TRICARE MSMC,(not in grid),
+CIGNA,CIGNA-MGD,Cigna,?
+CIGNA,LIFESOURCE,Cigna,?
+CIGNA HMO,,Cigna,Com
+CIGNA Indemnity,,Cigna,Com
+CIGNA MEDICARE [7011],MHS HB 105% MEDICARE MCEL,Cigna,MA
+CIGNA MEDICARE [7011],MHS HB 105% MEDICARE MCMC,Cigna,MA
+CIGNA MEDICARE [7011],MHS HB 105% MEDICARE MDMC,Cigna,MA
+CIGNA MEDICARE [7011],MHS HB 105% MEDICARE MLMC,Cigna,MA
+CIGNA MEDICARE [7011],MHS HB 105% MEDICARE MMMC,Cigna,MA
+CIGNA MEDICARE [7011],MHS HB 105% MEDICARE MRMC,Cigna,MA
+CIGNA MEDICARE [7011],MHS HB 105% MEDICARE MSMC,Cigna,MA
+CIGNA MEDICARE [7011],MHS HB UHC WELLMED MCEL,Cigna,MA
+CIGNA MEDICARE [7011],MHS HB UHC WELLMED MCMC,Cigna,MA
+CIGNA MEDICARE [7011],MHS HB UHC WELLMED MDMC,Cigna,MA
+CIGNA MEDICARE [7011],MHS HB UHC WELLMED MMMC,Cigna,MA
+CIGNA MEDICARE [7011],MHS HB UHC WELLMED MRMC,Cigna,MA
+CIGNA MEDICARE [7011],MHS HB UHC WELLMED MSMC,Cigna,MA
+CIGNA PARKLAND HEALTH EMPLOYEES [1094],CIGNA PARKLAND HEALTH EMPLOYEES [109400],Cigna,Mcd
+CIGNA PPO,,Cigna,Com
+CIGNA [1021],CIGNA [102100],Cigna,?
+CIGNA [3004],MHS HB CUSTOM INK MCEL,Cigna,?
+CIGNA [3004],MHS HB CUSTOM INK MCMC,Cigna,?
+CIGNA [3004],MHS HB CUSTOM INK MDMC,Cigna,?
+CIGNA [3004],MHS HB CUSTOM INK MLMC,Cigna,?
+CIGNA [3004],MHS HB CUSTOM INK MMMC,Cigna,?
+CIGNA [3004],MHS HB CUSTOM INK MRMC,Cigna,?
+CIGNA [3004],MHS HB CUSTOM INK MSMC,Cigna,?
+COMMUNITY HOSPICE OF TEXAS [2005],MHS HB HOSPICE MMMC,(not in grid),
+COOK CHILDREN HEALTH PLAN [1380],ABOVE FPIL COOK CHIP PERINATE [138003],Cook Children's Health Plan,Mcd
+COOK CHILDREN HEALTH PLAN [1380],BELOW FPIL COOK CHIP PERINATE [138004],Cook Children's Health Plan,Mcd
+COOK CHILDREN HEALTH PLAN [1380],COOK CHILDREN CHIP PERINATE POST PARTUM [138002],Cook Children's Health Plan,Mcd
+COOK CHILDREN HEALTH PLAN [1380],COOK CHILDREN STAR MEDICAID [138000],Cook Children's Health Plan,Mcd
+COOK CHILDREN HEALTH PLAN [1380],COOK CHILDRENS CHIP [138006],Cook Children's Health Plan,Mcd
+COOK CHILDREN HEALTH PLAN [1380],COOK CHILDRENS STAR KIDS [138005],Cook Children's Health Plan,Mcd
+CORALVITA [9216],MHS HB VIBRA MRMC MCMC MDMC,(not in grid),
+CORVEL,Worker's Compensation,(not in grid),
+COVID19 HRSA UNINSURED TESTING AND TREATMENT FUND [6005],MHS HB UNINSURED COVID-19 MCMC,(not in grid),
+COVID19 HRSA UNINSURED TESTING AND TREATMENT FUND [6005],MHS HB UNINSURED COVID-19 MDMC,(not in grid),
+COVID19 HRSA UNINSURED TESTING AND TREATMENT FUND [6005],MHS HB UNINSURED COVID-19 MLMC,(not in grid),
+COVID19 HRSA UNINSURED TESTING AND TREATMENT FUND [6005],MHS HB UNINSURED COVID-19 MMMC,(not in grid),
+COVID19 HRSA UNINSURED TESTING AND TREATMENT FUND [6005],MHS HB UNINSURED COVID-19 MRMC,(not in grid),
+Care N Care,MGMCR,(not in grid),
+Care N Care Insurance Company,Care N Care Insurance Company,(not in grid),
+Care N Care Insurance Company,Care NCare Insurance Company Medicare Advantage,(not in grid),
+Care N Care MCare Advantage,,(not in grid),
+Carelon,Behavioral Health,(not in grid),
+Careworks  FKA (ROCKPORT COMMUNITY NETWORK) WorkerComp,Careworks Workers Compensation,(not in grid),
+Careworks Fka (Rockport Community Network),Careworks Fka - Rockport Community Network Workers Compensation,(not in grid),
+Cchp,Medicaid Managed Care Plan,(not in grid),
+Cenpatico,BHMGMCD,Superior/Ambetter/Wellcare (Centene),Mcd
+Cenpatico,BHMGMCR,Superior/Ambetter/Wellcare (Centene),MA
+Century Hospice,MCD,(not in grid),
+Century Hospice,MCR,(not in grid),
+Cigna,AllOther,Cigna,?
+Cigna,Behavioral Health Plan,Cigna,?
+Cigna,Commercial,Cigna,Com
+Cigna,Default,Cigna,?
+Cigna,HMO,Cigna,Com
+Cigna,HMO-PPO,Cigna,Com
+Cigna,HMO/POS/PPO,Cigna,Com
+Cigna,HMO/PPO,Cigna,Com
+Cigna,HealthSprings Medicare Managed Care Plan,Cigna,MA
+Cigna,Healthsprings Medicare Managed Care Plan,Cigna,MA
+Cigna,Hmo/Pos/Ppo,Cigna,Com
+Cigna,IFP,Cigna,Ex
+Cigna,IFP Other Commercial Plan,Cigna,Ex
+Cigna,Ifp Other Commercial Plan,Cigna,Ex
+Cigna,Indemnity,Cigna,Com
+Cigna,Local Plus,Cigna,?
+Cigna,LocalPlus,Cigna,Com
+Cigna,NetworkBenefit,Cigna,Com
+Cigna,NewBusiness,Cigna,Com
+Cigna,OAP/HMO,Cigna,Com
+Cigna,OpenAccessPlus,Cigna,Com
+Cigna,PPO,Cigna,Com
+Cigna,QHP,Cigna,Ex
+Cigna (EverNorth),Behavioral Health,Cigna,?
+Cigna Behavioral Health,COMM,Cigna,Com
+Cigna Behavioral Health,Commercial,Cigna,Com
+Cigna Healthspring,Cigna HealthSpring MMP (Dual-Eligible),Cigna,MA
+Cigna Healthspring,Cigna Healthspring MMP Dual Eligible,Cigna,MA
+Cigna Healthspring,Cigna Healthspring Medicaid,Cigna,Mcd
+Cigna Healthspring,Cigna Healthspring Medicare Advantage,Cigna,MA
+Cigna Healthspring,Cigna Healthspring Medicare Advantage PPO,Cigna,MA
+Cigna Healthspring,MGMCD,Cigna,MA
+Cigna Healthspring,MGMCR,Cigna,MA
+Cigna Healthspring Medicaid,,Cigna,Mcd
+Cigna Lifesource,COMM,Cigna,Com
+Cigna Quantum Allegiance,,Cigna,?
+City of Euless,,(not in grid),
+City of Fort Worth,Commercial,(not in grid),
+City of McKinney,COMM,(not in grid),
+Coastal Comp,Coastal Comp,(not in grid),
+Coastal Comp,Workers Compensation,(not in grid),
+Coastal Comp Health Networks,WCOMP,(not in grid),
+ComPsych Corporation,COMM,(not in grid),
+Commerical Non Contracted,,(not in grid),
+Community Hospice,COMM,(not in grid),
+Cook Children's Health Plan,Medicaid,Cook Children's Health Plan,Mcd
+Cook Childrens,,(not in grid),
+Cook Childrens,Managed Medicaid,(not in grid),
+Cook Childrens Health Plan,CHIP,Cook Children's Health Plan,Mcd
+Cook Childrens Health Plan,STAR,Cook Children's Health Plan,Mcd
+Corporate Remedies,Corporate Remedies,(not in grid),
+Corporate Remedies Workers Comp,Corporate Remedies Workers Compensation,(not in grid),
+Corvel Corporation,WORKERSCOMP,(not in grid),
+Cosmetic-Private Pay,,(not in grid),
+Coventry,,Aetna,Com
+Coventry,National/Medical Rental Products,Aetna,Com
+Curative,Commercial,Curative,Com
+Curative Administrators,COMM,Curative,Com
+DART Healthscope,,(not in grid),
+DART MEMBER CARE [3039],MHS HB DART MEMBER CARE MCMC,(not in grid),
+DART MEMBER CARE [3039],MHS HB DART MEMBER CARE MDMC,(not in grid),
+DART MEMBER CARE [3039],MHS HB DART MEMBER CARE MLMC,(not in grid),
+DART MEMBER CARE [3039],MHS HB DART MEMBER CARE MMMC,(not in grid),
+DART MEMBER CARE [3039],MHS HB DART MEMBER CARE MRMC,(not in grid),
+DART MEMBER CARE [3039],MHS HB DART MEMBER CARE MSMC,(not in grid),
+DEFINITY HEALTH [3006],MHS HB UNITED HEALTHCARE MSMC,(not in grid),
+DELTA DENTAL INSURANCE COMPANY [1151],DELTA DENTAL MEDICARE ADVANTAGE PLAN [115101],(not in grid),
+DEPARTMENT OF LABOR [8004],MHS HB WORKERS COMP MCEL,(not in grid),
+DEPARTMENT OF LABOR [8004],MHS HB WORKERS COMP MCMC,(not in grid),
+DEPARTMENT OF LABOR [8004],MHS HB WORKERS COMP MDMC,(not in grid),
+DEPARTMENT OF LABOR [8004],MHS HB WORKERS COMP MLMC,(not in grid),
+DEPARTMENT OF LABOR [8004],MHS HB WORKERS COMP MMMC,(not in grid),
+DEPARTMENT OF LABOR [8004],MHS HB WORKERS COMP MSMC,(not in grid),
+DOL Office Worker Compensation,DOL Office Worker Compensation,(not in grid),
+Department of Labor,,(not in grid),
+Devoted Health,HMO,Devoted,MA
+Devoted Health,MCR,Devoted,MA
+Devoted Health,MME,Devoted,MA
+Devoted Health,POS,Devoted,MA
+Devoted Health,PPO,Devoted,MA
+Devoted Health,SNP,Devoted,MA
+EL PASO HEALTH FIRST,CHIP,(not in grid),
+EL PASO HEALTH FIRST,STAR,(not in grid),
+EL PASO HEALTH FIRST,STAR MEDICAID,(not in grid),
+ENTRUST/90 DEGREE [2058],MHS HB 90 DEGREE MCEL,(not in grid),
+ENTRUST/90 DEGREE [2058],MHS HB 90 DEGREE MCMC,(not in grid),
+ENTRUST/90 DEGREE [2058],MHS HB 90 DEGREE MDMC,(not in grid),
+ENTRUST/90 DEGREE [2058],MHS HB 90 DEGREE MLMC,(not in grid),
+ENTRUST/90 DEGREE [2058],MHS HB 90 DEGREE MMMC,(not in grid),
+ENTRUST/90 DEGREE [2058],MHS HB 90 DEGREE MRMC,(not in grid),
+ENTRUST/90 DEGREE [2058],MHS HB 90 DEGREE MSMC,(not in grid),
+ETS fka LifeTrac,Transplant,(not in grid),
+EVRY HEALTH [1013],MHS HB EVRY MCEL,(not in grid),
+EVRY HEALTH [1013],MHS HB EVRY MCMC,(not in grid),
+EVRY HEALTH [1013],MHS HB EVRY MDMC,(not in grid),
+EVRY HEALTH [1013],MHS HB EVRY MLMC,(not in grid),
+EVRY HEALTH [1013],MHS HB EVRY MMMC,(not in grid),
+EVRY HEALTH [1013],MHS HB EVRY MRMC,(not in grid),
+EVRY HEALTH [1013],MHS HB EVRY MSMC,(not in grid),
+Elap Services,Elap Services Commercial,(not in grid),
+Emerging Therapy Solutions,COMM,(not in grid),
+Emerging Therapy Solutions,Commercial,(not in grid),
+Emerging Therapy Solutions,MCD,(not in grid),
+Emerging Therapy Solutions,MCR,(not in grid),
+Emerging Therapy Solutions,MGMCD,(not in grid),
+Emerging Therapy Solutions,MGMCR,(not in grid),
+Employee Direct Healthcare,Employer Direct Healthcare,(not in grid),
+Employer Direct,COMM,(not in grid),
+Employer Direct Healthcare,Employer Direct Healthcare Commercial,(not in grid),
+Employers Health Network,,(not in grid),
+Employers Health Network,BSWQA Direct/EHN Rental,(not in grid),
+Employers Health Network,EHN Network,(not in grid),
+Evry Health,COMM,(not in grid),
+FAITH HOSPICE [2008],MHS HB HOSPICE MMMC,(not in grid),
+FIRST HEALTH,PPO,Rental PPO networks,Com
+FIRSTCARE,ALL PRODUCTS,(not in grid),
+FIRSTCARE,STAR,(not in grid),
+FREEDOM LIFE INSURANCE COMPANY [2029],MHS HB UNITED HEALTHCARE MSMC,(not in grid),
+FRIDAY HEALTH PLAN [2061],MHS HB FRIDAY HEALTH MCMC,(not in grid),
+FRIDAY HEALTH PLAN [2061],MHS HB FRIDAY HEALTH MDMC,(not in grid),
+FRIDAY HEALTH PLAN [2061],MHS HB FRIDAY HEALTH MLMC,(not in grid),
+FRIDAY HEALTH PLAN [2061],MHS HB FRIDAY HEALTH MMMC,(not in grid),
+FRIDAY HEALTH PLAN [2061],MHS HB FRIDAY HEALTH MRMC,(not in grid),
+FRIDAY HEALTH PLAN [2061],MHS HB FRIDAY HEALTH MSMC,(not in grid),
+Fidelis SecureCare,MGMCR,Superior/Ambetter/Wellcare (Centene),MA
+First Health,PPO,Rental PPO networks,Com
+First Health TX HCN WC,,Rental PPO networks,Com
+Fort Worth Firefighters,Commercial,(not in grid),
+GALAXY HEALTH,ALL PRODUCTS,Rental PPO networks,Com
+GEHA FEDERAL [3066],MHS HB UNITED HEALTHCARE MSMC,(not in grid),
+GENERIC HOSPICE [2011],MHS HB HOSPICE MMMC,(not in grid),
+GENERIC MEDICARE MANAGED CARE [7004],MHS HB MANAGED MEDICARE PART A & B MCEL,(not in grid),
+GENERIC MEDICARE MANAGED CARE [7004],MHS HB MANAGED MEDICARE PART A & B MCMC,(not in grid),
+GENERIC MEDICARE MANAGED CARE [7004],MHS HB MANAGED MEDICARE PART A & B MDMC,(not in grid),
+GENERIC MEDICARE MANAGED CARE [7004],MHS HB MANAGED MEDICARE PART A & B MLMC,(not in grid),
+GENERIC MEDICARE MANAGED CARE [7004],MHS HB MANAGED MEDICARE PART A & B MMMC,(not in grid),
+GENERIC MEDICARE MANAGED CARE [7004],MHS HB MANAGED MEDICARE PART A & B MRMC,(not in grid),
+GENERIC MEDICARE MANAGED CARE [7004],MHS HB MANAGED MEDICARE PART A & B MSMC,(not in grid),
+GENERIC WORKERS COMP TX NON PAR [9010],MHS HB WORKERS COMP MCEL,(not in grid),
+GENERIC WORKERS COMP TX NON PAR [9010],MHS HB WORKERS COMP MCMC,(not in grid),
+GENERIC WORKERS COMP TX NON PAR [9010],MHS HB WORKERS COMP MDMC,(not in grid),
+GENERIC WORKERS COMP TX NON PAR [9010],MHS HB WORKERS COMP MLMC,(not in grid),
+GENERIC WORKERS COMP TX NON PAR [9010],MHS HB WORKERS COMP MMMC,(not in grid),
+GENERIC WORKERS COMP TX NON PAR [9010],MHS HB WORKERS COMP MSMC,(not in grid),
+GENERIC WORKERS COMP TX PAR [8002],MHS HB WORKERS COMP MCEL,(not in grid),
+GENERIC WORKERS COMP TX PAR [8002],MHS HB WORKERS COMP MCMC,(not in grid),
+GENERIC WORKERS COMP TX PAR [8002],MHS HB WORKERS COMP MDMC,(not in grid),
+GENERIC WORKERS COMP TX PAR [8002],MHS HB WORKERS COMP MLMC,(not in grid),
+GENERIC WORKERS COMP TX PAR [8002],MHS HB WORKERS COMP MMMC,(not in grid),
+GENERIC WORKERS COMP TX PAR [8002],MHS HB WORKERS COMP MSMC,(not in grid),
+GENERIC WORKERS COMP TX PAR [9011],MHS HB WORKERS COMP MCEL,(not in grid),
+GENERIC WORKERS COMP TX PAR [9011],MHS HB WORKERS COMP MCMC,(not in grid),
+GENERIC WORKERS COMP TX PAR [9011],MHS HB WORKERS COMP MDMC,(not in grid),
+GENERIC WORKERS COMP TX PAR [9011],MHS HB WORKERS COMP MLMC,(not in grid),
+GENERIC WORKERS COMP TX PAR [9011],MHS HB WORKERS COMP MMMC,(not in grid),
+GENERIC WORKERS COMP TX PAR [9011],MHS HB WORKERS COMP MSMC,(not in grid),
+GLOBALHEALTH [1003],MHS HB GLOBAL HEALTH MCMC,(not in grid),
+GLOBALHEALTH [1003],MHS HB GLOBAL HEALTH MDMC,(not in grid),
+GLOBALHEALTH [1003],MHS HB GLOBAL HEALTH MLMC,(not in grid),
+GLOBALHEALTH [1003],MHS HB GLOBAL HEALTH MMMC,(not in grid),
+GLOBALHEALTH [1003],MHS HB GLOBAL HEALTH MRMC,(not in grid),
+GLOBALHEALTH [1003],MHS HB GLOBAL HEALTH MSMC,(not in grid),
+GREAT WEST HEALTHCARE [1037],GREAT WEST HEALTHCARE [103700],(not in grid),
+Galaxy,Commercial,Rental PPO networks,Com
+Galaxy Health Network,,Rental PPO networks,Com
+Galaxy Health Network,Commercial,Rental PPO networks,Com
+Global Sports Services,COMMPPO,(not in grid),
+HEALTH PLAN w. UHRIP,STAR,(not in grid),
+HEALTH PLAN w/o UHRIP,CHIP,(not in grid),
+HEALTH PLAN w/o UHRIP,STAR KIDS,(not in grid),
+HEALTH PLANS INC [5017],MHS HB EMPLOYERS HEALTH NETWORK MCEL,(not in grid),
+HEALTH PLANS INC [5017],MHS HB EMPLOYERS HEALTH NETWORK MCMC,(not in grid),
+HEALTH PLANS INC [5017],MHS HB EMPLOYERS HEALTH NETWORK MDMC,(not in grid),
+HEALTH PLANS INC [5017],MHS HB EMPLOYERS HEALTH NETWORK MLMC,(not in grid),
+HEALTH PLANS INC [5017],MHS HB EMPLOYERS HEALTH NETWORK MMMC,(not in grid),
+HEALTH PLANS INC [5017],MHS HB EMPLOYERS HEALTH NETWORK MRMC,(not in grid),
+HEALTH PLANS INC [5017],MHS HB EMPLOYERS HEALTH NETWORK MSMC,(not in grid),
+HEALTHEZ AETNA SIGNATURE ADMINISTRATORS [3074],MHS HB AETNA HMO PPO MDMC,Aetna,Com
+HEALTHEZ AETNA SIGNATURE ADMINISTRATORS [3074],MHS HB AETNA HMO PPO MSMC,Aetna,Com
+HEALTHSCOPE,ALL PRODUCTS,(not in grid),
+HEALTHSCOPE BENEFITS [2052],MHS HB DART MEMBER CARE MCMC,(not in grid),
+HEALTHSCOPE BENEFITS [2052],MHS HB DART MEMBER CARE MDMC,(not in grid),
+HEALTHSCOPE BENEFITS [2052],MHS HB DART MEMBER CARE MLMC,(not in grid),
+HEALTHSCOPE BENEFITS [2052],MHS HB DART MEMBER CARE MMMC,(not in grid),
+HEALTHSCOPE BENEFITS [2052],MHS HB DART MEMBER CARE MRMC,(not in grid),
+HEALTHSCOPE BENEFITS [2052],MHS HB DART MEMBER CARE MSMC,(not in grid),
+HEALTHSCOPE BENEFITS [3063],MHS HB DART MEMBER CARE MCMC,(not in grid),
+HEALTHSCOPE BENEFITS [3063],MHS HB DART MEMBER CARE MDMC,(not in grid),
+HEALTHSCOPE BENEFITS [3063],MHS HB DART MEMBER CARE MLMC,(not in grid),
+HEALTHSCOPE BENEFITS [3063],MHS HB DART MEMBER CARE MMMC,(not in grid),
+HEALTHSCOPE BENEFITS [3063],MHS HB DART MEMBER CARE MRMC,(not in grid),
+HEALTHSCOPE BENEFITS [3063],MHS HB DART MEMBER CARE MSMC,(not in grid),
+HEART TO HEART HOSPICE [2012],MHS HB HOSPICE MMMC,(not in grid),
+HI Card,HI Card Medicare Advantage,(not in grid),
+HMO Blue,,BCBSTX,Com
+HOMEBOUND CARDINAL HOSPICE [4019],MHS HB HOSPICE MMMC,(not in grid),
+HOSPICE PLUS [2013],MHS HB HOSPICE MMMC,(not in grid),
+HUMANA,CHOICECARE PPO,Humana,Com
+HUMANA,CONCENTRIC PPO,Humana,Com
+HUMANA,TRANSPLANT NETWORK,Humana,Com
+HUMANA COMMERCIAL [2051],MHS HB HUMANA MEDICARE MCEL,Humana,MA
+HUMANA COMMERCIAL [2051],MHS HB HUMANA MEDICARE MCMC,Humana,MA
+HUMANA COMMERCIAL [2051],MHS HB HUMANA MEDICARE MDMC,Humana,MA
+HUMANA COMMERCIAL [2051],MHS HB HUMANA MEDICARE MLMC,Humana,MA
+HUMANA COMMERCIAL [2051],MHS HB HUMANA MEDICARE MMMC,Humana,MA
+HUMANA COMMERCIAL [2051],MHS HB HUMANA MEDICARE MRMC,Humana,MA
+HUMANA COMMERCIAL [2051],MHS HB HUMANA MEDICARE MSMC,Humana,MA
+HUMANA MEDICARE MANAGED CARE [7005],MHS HB HUMANA MEDICARE MCEL,Humana,MA
+HUMANA MEDICARE MANAGED CARE [7005],MHS HB HUMANA MEDICARE MCMC,Humana,MA
+HUMANA MEDICARE MANAGED CARE [7005],MHS HB HUMANA MEDICARE MDMC,Humana,MA
+HUMANA MEDICARE MANAGED CARE [7005],MHS HB HUMANA MEDICARE MLMC,Humana,MA
+HUMANA MEDICARE MANAGED CARE [7005],MHS HB HUMANA MEDICARE MMMC,Humana,MA
+HUMANA MEDICARE MANAGED CARE [7005],MHS HB HUMANA MEDICARE MRMC,Humana,MA
+HUMANA MEDICARE MANAGED CARE [7005],MHS HB HUMANA MEDICARE MSMC,Humana,MA
+HUMANA MEDICARE MANAGED CARE [7005],MHS HB UHC WELLMED MCMC,Humana,MA
+HUMANA MEDICARE TRANSPLANT [7013],MHS HB HUMANA MEDICARE MCEL,Humana,MA
+HUMANA MEDICARE TRANSPLANT [7013],MHS HB HUMANA MEDICARE MCMC,Humana,MA
+HUMANA MEDICARE TRANSPLANT [7013],MHS HB HUMANA MEDICARE MDMC,Humana,MA
+HUMANA MEDICARE TRANSPLANT [7013],MHS HB HUMANA MEDICARE MLMC,Humana,MA
+HUMANA MEDICARE TRANSPLANT [7013],MHS HB HUMANA MEDICARE MMMC,Humana,MA
+HUMANA MEDICARE TRANSPLANT [7013],MHS HB HUMANA MEDICARE MRMC,Humana,MA
+HUMANA MEDICARE TRANSPLANT [7013],MHS HB HUMANA MEDICARE MSMC,Humana,MA
+HealthFirst,Commercial,(not in grid),
+HealthSmart,Accel Network,Rental PPO networks,Com
+HealthSmart,Commercial,Rental PPO networks,Com
+HealthSmart,Preferred Network,Rental PPO networks,Com
+HealthSmart Non PEBC,,Rental PPO networks,Com
+HealthSmart Preferred Care,PPO,Rental PPO networks,Com
+HealthSpring,Medicare Advantage,Cigna,MA
+Healthcare Highways,CityofPlano,(not in grid),
+Healthcare Highways,NarrowNetwork,(not in grid),
+Healthcare Highways,PPO,(not in grid),
+Healthsmart,ALL PRODUCTS,Rental PPO networks,Com
+Healthsmart,Commercial,Rental PPO networks,Com
+Healthspring Life,MCD,Cigna,MA
+Holman Professional Counseling Center,COMM,(not in grid),
+Hospice Plus,COMM,(not in grid),
+Humana,Choice Care Commercial,Humana,Com
+Humana,Choice Care Humana Medicare Advantage,Humana,MA
+Humana,Commercial PPO,Humana,Com
+Humana,HMO/PPO,Humana,Com
+Humana,Humana Military Tricare,Humana,?
+Humana,MGMCD,Humana,?
+Humana,MGMCR,Humana,MA
+Humana,Medicare,Humana,MA
+Humana,Medicare Advantage,Humana,MA
+Humana,Medicare Advantage PPO,Humana,MA
+Humana,Medicare Managed Care Plan,Humana,MA
+Humana,Medicare Transplant,Humana,MA
+Humana,Tricare,Humana,?
+Humana,TricareBH,Humana,?
+Humana Choice Care Network,,Humana,Com
+Humana Medicare Advantage HMO,,Humana,MA
+Humana Medicare Advantage PPO,,Humana,MA
+Humana National Transplant,MCRHMO,Humana,MA
+Humana National Transplant,MCRPPO,Humana,MA
+Humana National Transplant,PFFS,Humana,Com
+IMAGINE HEALTH,ALL PRODUCTS,(not in grid),
+IMPERIAL INSURANCE COMPANIES [3073],MHS HB IMPERIAL MANAGED CARE MCEL,Imperial,Com
+IMPERIAL INSURANCE COMPANIES [3073],MHS HB IMPERIAL MANAGED CARE MCMC,Imperial,Com
+IMPERIAL INSURANCE COMPANIES [3073],MHS HB IMPERIAL MANAGED CARE MDMC,Imperial,Com
+IMPERIAL INSURANCE COMPANIES [3073],MHS HB IMPERIAL MANAGED CARE MLMC,Imperial,Com
+IMPERIAL INSURANCE COMPANIES [3073],MHS HB IMPERIAL MANAGED CARE MMMC,Imperial,Com
+IMPERIAL INSURANCE COMPANIES [3073],MHS HB IMPERIAL MANAGED CARE MRMC,Imperial,Com
+IMPERIAL INSURANCE COMPANIES [3073],MHS HB IMPERIAL MANAGED CARE MSMC,Imperial,Com
+Imagine Health,Commercial,(not in grid),
+Imaging Providers of Texas,HMOBlue,(not in grid),
+Imperial Insurance Companies MCR,Imperial Insurance Companies Medicare Advantage,Imperial,MA
+Imperial Insurance Company,Imperial Medicare Advantage,Imperial,MA
+Imperial Insurance Company,MCR,Imperial,MA
+Independent Medical System,Commercial PPO,(not in grid),
+Independent Medical Systems,COMM,(not in grid),
+Injury Management Org,Injury Management Org,(not in grid),
+Integranet,MGMCR,(not in grid),
+Integrated Health,MCR,(not in grid),
+Interface EAP,COMM,(not in grid),
+Interlink,Transplant,(not in grid),
+Iowa Total Care MCD Adv (active 7/1/19),Default,(not in grid),
+JPS Health Network,Specific Services,(not in grid),
+Jostens,WCOMP,(not in grid),
+"KEMPTON GROUP ADMINISTRATORS, TOWER EXTRUSIONS [3061]",MHS HB TOWER EXTRUSIONS MCEL,(not in grid),
+"KEMPTON GROUP ADMINISTRATORS, TOWER EXTRUSIONS [3061]",MHS HB TOWER EXTRUSIONS MCMC,(not in grid),
+"KEMPTON GROUP ADMINISTRATORS, TOWER EXTRUSIONS [3061]",MHS HB TOWER EXTRUSIONS MDMC,(not in grid),
+"KEMPTON GROUP ADMINISTRATORS, TOWER EXTRUSIONS [3061]",MHS HB TOWER EXTRUSIONS MLMC,(not in grid),
+"KEMPTON GROUP ADMINISTRATORS, TOWER EXTRUSIONS [3061]",MHS HB TOWER EXTRUSIONS MMMC,(not in grid),
+"KEMPTON GROUP ADMINISTRATORS, TOWER EXTRUSIONS [3061]",MHS HB TOWER EXTRUSIONS MSMC,(not in grid),
+KINDFUL HEALTH HOSPICE [4016],MHS HB HOSPICE MMMC,(not in grid),
+Keenan,Keenan,(not in grid),
+LEWISVILLE ISD/DLS CONSULTING,COMMPPO,(not in grid),
+LIFE SYNCH MEDICARE MANAGED CARE [7006],MHS HB MANAGED MEDICARE PART A & B MRMC,(not in grid),
+LIONS HOSPICE [2015],MHS HB HOSPICE MMMC,(not in grid),
+LifeCare Hospitals,MGMCD,(not in grid),
+LifeCare Hospitals,MGMCR,(not in grid),
+Lion Hospice,MCD,(not in grid),
+Lion Hospice,MCR,(not in grid),
+"MCS ADVANTAGE, INC CLASSICARE [7021]",MHS HB MANAGED MEDICARE PART A & B MCEL,(not in grid),
+"MCS ADVANTAGE, INC CLASSICARE [7021]",MHS HB MCS ADVANTAGE MCMC,(not in grid),
+"MCS ADVANTAGE, INC CLASSICARE [7021]",MHS HB MCS ADVANTAGE MDMC,(not in grid),
+"MCS ADVANTAGE, INC CLASSICARE [7021]",MHS HB MCS ADVANTAGE MLMC,(not in grid),
+"MCS ADVANTAGE, INC CLASSICARE [7021]",MHS HB MCS ADVANTAGE MMMC,(not in grid),
+"MCS ADVANTAGE, INC CLASSICARE [7021]",MHS HB MCS ADVANTAGE MRMC,(not in grid),
+"MCS ADVANTAGE, INC CLASSICARE [7021]",MHS HB MCS ADVANTAGE MSMC,(not in grid),
+MEDICAID [4000],MHS HB TEXAS HEALTHY WOMEN MCMC,(not in grid),
+MEDICAID [4000],MHS HB TEXAS HEALTHY WOMEN MDMC,(not in grid),
+MEDICAID [4000],MHS HB TEXAS HEALTHY WOMEN MLMC,(not in grid),
+MEDICAID [4000],MHS HB TEXAS HEALTHY WOMEN MMMC,(not in grid),
+MEDICAID [4000],MHS HB TEXAS HEALTHY WOMEN MRMC,(not in grid),
+MEDICAL CARD SYSTEM [2063],MHS HB MCS ADVANTAGE MCMC,(not in grid),
+MEDICAL CARD SYSTEM [2063],MHS HB MCS ADVANTAGE MDMC,(not in grid),
+MEDICAL CARD SYSTEM [2063],MHS HB MCS ADVANTAGE MLMC,(not in grid),
+MEDICAL CARD SYSTEM [2063],MHS HB MCS ADVANTAGE MMMC,(not in grid),
+MEDICAL CARD SYSTEM [2063],MHS HB MCS ADVANTAGE MRMC,(not in grid),
+MEDICAL CARD SYSTEM [2063],MHS HB MCS ADVANTAGE MSMC,(not in grid),
+MEDICAL COST CONTAINMENT PROFESSIONALS [3059],MHS HB MEDICAL COST CONTAINMENT MCEL,(not in grid),
+MEDICAL COST CONTAINMENT PROFESSIONALS [3059],MHS HB MEDICAL COST CONTAINMENT MCMC,(not in grid),
+MEDICAL COST CONTAINMENT PROFESSIONALS [3059],MHS HB MEDICAL COST CONTAINMENT MDMC,(not in grid),
+MEDICAL COST CONTAINMENT PROFESSIONALS [3059],MHS HB MEDICAL COST CONTAINMENT MLMC,(not in grid),
+MEDICAL COST CONTAINMENT PROFESSIONALS [3059],MHS HB MEDICAL COST CONTAINMENT MMMC,(not in grid),
+MEDICAL COST CONTAINMENT PROFESSIONALS [3059],MHS HB MEDICAL COST CONTAINMENT MRMC,(not in grid),
+MEDICAL COST CONTAINMENT PROFESSIONALS [3059],MHS HB MEDICAL COST CONTAINMENT MSMC,(not in grid),
+MOLINA,CHIP,Molina,Mcd
+MOLINA,STAR,Molina,Mcd
+MOLINA,STAR KIDS,Molina,Mcd
+MOLINA ACA [1337],MOLINA ACA [133700],Molina,Ex
+MOLINA MEDICAID MANAGED CARE [5005],MHS HB MEDICAID 110% STAR PLUS MCMC,Molina,Mcd
+MOLINA MEDICAID MANAGED CARE [5005],MHS HB MEDICAID 110% STAR PLUS MDMC,Molina,Mcd
+MOLINA MEDICAID MANAGED CARE [5005],MHS HB MEDICAID 110% STAR PLUS MLMC,Molina,Mcd
+MOLINA MEDICAID MANAGED CARE [5005],MHS HB MEDICAID 110% STAR PLUS MMMC,Molina,Mcd
+MOLINA MEDICAID MANAGED CARE [5005],MHS HB MEDICAID 110% STAR PLUS MRMC,Molina,Mcd
+MOLINA MEDICAID MANAGED CARE [5005],MHS HB MEDICAID 110% STAR PLUS MSMC,Molina,Mcd
+MOLINA MEDICARE ADVANTAGE [1333],MOLINA DUAL MEDICARE-MEDICAID PLAN [133301],Molina,MA
+MOLINA MEDICARE ADVANTAGE [1333],MOLINA MEDICARE ADVANTAGE [133300],Molina,MA
+MOLINA MEDICARE MANAGED CARE [7007],MHS HB MOLINA MEDICARE MCEL,Molina,MA
+MOLINA MEDICARE MANAGED CARE [7007],MHS HB MOLINA MEDICARE MCMC,Molina,MA
+MOLINA MEDICARE MANAGED CARE [7007],MHS HB MOLINA MEDICARE MDMC,Molina,MA
+MOLINA MEDICARE MANAGED CARE [7007],MHS HB MOLINA MEDICARE MLMC,Molina,MA
+MOLINA MEDICARE MANAGED CARE [7007],MHS HB MOLINA MEDICARE MMMC,Molina,MA
+MOLINA MEDICARE MANAGED CARE [7007],MHS HB MOLINA MEDICARE MRMC,Molina,MA
+MOLINA MEDICARE MANAGED CARE [7007],MHS HB MOLINA MEDICARE MSMC,Molina,MA
+MOLINA [1382],ABOVE FPIL MOLINA CHIP PERINATE [138210],Molina,Mcd
+MOLINA [1382],BELOW FPIL MOLINA CHIP PERINATE [138211],Molina,Mcd
+MOLINA [1382],MOLINA CHIP [138201],Molina,Mcd
+MOLINA [1382],MOLINA RSA MEDICAID [138203],Molina,Mcd
+MOLINA [1382],MOLINA STAR MEDICAID [138204],Molina,Mcd
+MOLINA [1382],MOLINA STAR PLUS [138200],Molina,Mcd
+MOLINA [1382],POST PARTUM VST-MOLINA CHIP [138205],Molina,Mcd
+MOLINA [3017],MHS HB MOLINA MARKETPLACE MCEL,Molina,Ex
+MOLINA [3017],MHS HB MOLINA MARKETPLACE MCMC,Molina,Ex
+MOLINA [3017],MHS HB MOLINA MARKETPLACE MDMC,Molina,Ex
+MOLINA [3017],MHS HB MOLINA MARKETPLACE MLMC,Molina,Ex
+MOLINA [3017],MHS HB MOLINA MARKETPLACE MMMC,Molina,Ex
+MOLINA [3017],MHS HB MOLINA MARKETPLACE MRMC,Molina,Ex
+MOLINA [3017],MHS HB MOLINA MARKETPLACE MSMC,Molina,Ex
+MULTIPLAN,ALL PRODUCTS,Rental PPO networks,Com
+MULTIPLAN,MULTIPLAN Commercial,Rental PPO networks,Com
+MULTIPLAN,MULTIPLAN Medicare,Rental PPO networks,MA
+MULTIPLAN,PHCS,Rental PPO networks,Com
+MULTIPLAN MEDICARE MANAGED CARE [7022],MHS HB MULTIPLAN ADVANTAGE MCEL,Rental PPO networks,MA
+MULTIPLAN MEDICARE MANAGED CARE [7022],MHS HB MULTIPLAN ADVANTAGE MCMC,Rental PPO networks,MA
+MULTIPLAN MEDICARE MANAGED CARE [7022],MHS HB MULTIPLAN ADVANTAGE MDMC,Rental PPO networks,MA
+MULTIPLAN MEDICARE MANAGED CARE [7022],MHS HB MULTIPLAN ADVANTAGE MLMC,Rental PPO networks,MA
+MULTIPLAN MEDICARE MANAGED CARE [7022],MHS HB MULTIPLAN ADVANTAGE MMMC,Rental PPO networks,MA
+MULTIPLAN MEDICARE MANAGED CARE [7022],MHS HB MULTIPLAN ADVANTAGE MRMC,Rental PPO networks,MA
+MULTIPLAN MEDICARE MANAGED CARE [7022],MHS HB MULTIPLAN ADVANTAGE MSMC,Rental PPO networks,MA
+MUTUAL OF OMAHA MEDICARE MANAGED CARE [7019],MHS HB MUTUAL OF OMAHA MCMC,(not in grid),
+MUTUAL OF OMAHA MEDICARE MANAGED CARE [7019],MHS HB MUTUAL OF OMAHA MDMC,(not in grid),
+MUTUAL OF OMAHA MEDICARE MANAGED CARE [7019],MHS HB MUTUAL OF OMAHA MLMC,(not in grid),
+MUTUAL OF OMAHA MEDICARE MANAGED CARE [7019],MHS HB MUTUAL OF OMAHA MMMC,(not in grid),
+MUTUAL OF OMAHA MEDICARE MANAGED CARE [7019],MHS HB MUTUAL OF OMAHA MRMC,(not in grid),
+MUTUAL OF OMAHA MEDICARE MANAGED CARE [7019],MHS HB MUTUAL OF OMAHA MSMC,(not in grid),
+Maestro Health/Fort Worth Firefighters,Commercial,(not in grid),
+Magellan,CHIP/Navigator Networks/Pinnacle Networks/STAR/STAR Kids/Summit Networks,(not in grid),
+Magellan BH,Pinnacle,(not in grid),
+Magellan BH,Summit,(not in grid),
+Magellan Behavior Health,Pinnacle,(not in grid),
+Magellan Behavior Health,Summit,(not in grid),
+Mark Cuban,Commercial,(not in grid),
+Medicaid,,(not in grid),
+Medicaid Iowa,Default,(not in grid),
+Medicare,,(not in grid),
+Medicare A IA J5,Default,(not in grid),
+Medicare B IA J5,Default,(not in grid),
+Mega Life,MGMCRPPO,(not in grid),
+Menninger Care,COMM,(not in grid),
+Mental Health Associates,CoordinatedCareNetwork,(not in grid),
+Mental Health Associates,PreferredProviderNetwork,(not in grid),
+Molina,CHIP,Molina,Mcd
+Molina,Commercial,Molina,Com
+Molina,Exchange,Molina,Ex
+Molina,MCDSTAR,Molina,Mcd
+Molina,MCR,Molina,MA
+Molina,MME,Molina,MA
+Molina,MMP,Molina,MA
+Molina,Managed Medicaid,Molina,Mcd
+Molina,Medicaid Managed Care Plan,Molina,Mcd
+Molina,Medicare Advantage,Molina,MA
+Molina,Medicare Managed Care Plan,Molina,MA
+Molina,Molina CHIP Medicaid,Molina,Mcd
+Molina,Molina Exchange,Molina,Ex
+Molina,Molina Medicare Advantage MMP,Molina,MA
+Molina,Molina Medicare Advantage/MMP,Molina,MA
+Molina,Molina STAR Medicaid,Molina,Mcd
+Molina,Molina STAR PLUS Medicaid,Molina,Mcd
+Molina,STAR+PLUS,Molina,Mcd
+Molina,STARKIDS,Molina,Mcd
+Molina Healthcare,HIX,Molina,Ex
+Molina Healthcare,Medicaid Managed Care Plan,Molina,Mcd
+Molina Healthcare,Medicare Managed Care Plan,Molina,MA
+Molina Healthcare of Iowa MCD Rep,Default,Molina,Mcd
+Molina Medicaid,,Molina,Mcd
+MultiPlan,PPO,Rental PPO networks,Com
+Multiplan,,Rental PPO networks,Com
+Multiplan,All Commercial Plans,Rental PPO networks,Com
+Multiplan,Commercial,Rental PPO networks,Com
+Multiplan,ComplementaryNetwork,Rental PPO networks,Com
+Multiplan,PHCSPrimaryNetwork,Rental PPO networks,Com
+Multiplan,PPO,Rental PPO networks,Com
+Multiplan,Ppo,Rental PPO networks,Com
+Mutual of Omaha,MGMCR,(not in grid),
+NATIONAL HEALTHCARE SOLUTIONS,NATIONAL HEALTHCARE SOLUTIONS,(not in grid),
+NEW CENTURY HOSPICE [2003],MHS HB HOSPICE MMMC,(not in grid),
+Naphcare,Naphcare Medicare,(not in grid),
+Naphcare -Prison,Naphcare Prison,(not in grid),
+National ChoiceCare,WCOMP,(not in grid),
+National Healthcare Solutions,COMM,(not in grid),
+ODYSSEY HOSPICE [2018],MHS HB HOSPICE MMMC,(not in grid),
+OPTUM TRANSPLANT NETWORK MEDICARE [7012],MHS HB MANAGED MEDICARE 106% MCEL,(not in grid),
+OPTUM TRANSPLANT NETWORK MEDICARE [7012],MHS HB MANAGED MEDICARE 106% MCMC,(not in grid),
+OPTUM TRANSPLANT NETWORK MEDICARE [7012],MHS HB MANAGED MEDICARE 106% MDMC,(not in grid),
+OPTUM TRANSPLANT NETWORK MEDICARE [7012],MHS HB MANAGED MEDICARE 106% MLMC,(not in grid),
+OPTUM TRANSPLANT NETWORK MEDICARE [7012],MHS HB MANAGED MEDICARE 106% MMMC,(not in grid),
+OPTUM TRANSPLANT NETWORK MEDICARE [7012],MHS HB MANAGED MEDICARE 106% MRMC,(not in grid),
+OPTUM TRANSPLANT NETWORK MEDICARE [7012],MHS HB MANAGED MEDICARE 106% MSMC,(not in grid),
+OSCAR INSURANCE COMPANY [2057],MHS HB OSCAR HMO MCEL,Oscar,Ex
+OSCAR INSURANCE COMPANY [2057],MHS HB OSCAR HMO MCMC,Oscar,Ex
+OSCAR INSURANCE COMPANY [2057],MHS HB OSCAR HMO MDMC,Oscar,Ex
+OSCAR INSURANCE COMPANY [2057],MHS HB OSCAR HMO MLMC,Oscar,Ex
+OSCAR INSURANCE COMPANY [2057],MHS HB OSCAR HMO MMMC,Oscar,Ex
+OSCAR INSURANCE COMPANY [2057],MHS HB OSCAR HMO MRMC,Oscar,Ex
+OSCAR INSURANCE COMPANY [2057],MHS HB OSCAR HMO MSMC,Oscar,Ex
+Odyssey Healthcare,Hospice,(not in grid),
+Odyssey Healthcare,MCD,(not in grid),
+Odyssey Healthcare,MCR,(not in grid),
+Optum,ALL PRODUCTS,(not in grid),
+Optum,Commercial,(not in grid),
+Optum,Spine and Joint Specialty Network,(not in grid),
+Optum,Transplant,(not in grid),
+Optum Health,MCD,(not in grid),
+Optum Health (URN),COMM,(not in grid),
+Optum Health URN,MCR,(not in grid),
+Optum Transplant,COMM,(not in grid),
+Optum Transplant,MGMCD,(not in grid),
+Optum Transplant,MGMCR,(not in grid),
+Oscar,HIX,Oscar,Ex
+Oscar Health,Default,Oscar,Ex
+Owens Corning EAP,COMM,(not in grid),
+PARKLAND CHIP PERINATE [1320],ABOVE FPIL CHIP PERINATE [132002],Parkland Community Health Plan,Mcd
+PARKLAND CHIP PERINATE [1320],BELOW FPIL CHIP PERINATE [132001],Parkland Community Health Plan,Mcd
+PARKLAND COMMUNITY HEALTH PLAN [1056],Parkland CHIP [105606],Parkland Community Health Plan,Mcd
+PARKLAND COMMUNITY HEALTH PLAN [1056],Parkland STAR [105600],Parkland Community Health Plan,Mcd
+PC Texas Partners,WCOMP,(not in grid),
+PHCS,,Rental PPO networks,Com
+PHCS,All Commercial Plans,Rental PPO networks,Com
+PHCS,Commercial,Rental PPO networks,Com
+PHCS,PPO,Rental PPO networks,Com
+POINT COMFORT UNDERWRITERS [1801],POINT COMFORT UNDERWRITERS [180100],(not in grid),
+PPO Next,,(not in grid),
+PROCARE ADVANTAGE [2104],PROCARE ADVANTAGE [210400],(not in grid),
+PROCARE ADVANTAGE [7018],MHS HB SCOTT AND WHITE MEDICARE MCMC,(not in grid),
+PROCARE ADVANTAGE [7018],MHS HB SCOTT AND WHITE MEDICARE MDMC,(not in grid),
+PROCARE ADVANTAGE [7018],MHS HB SCOTT AND WHITE MEDICARE MLMC,(not in grid),
+PROCARE ADVANTAGE [7018],MHS HB SCOTT AND WHITE MEDICARE MMMC,(not in grid),
+PROCARE ADVANTAGE [7018],MHS HB SCOTT AND WHITE MEDICARE MRMC,(not in grid),
+PROCARE ADVANTAGE [7018],MHS HB SCOTT AND WHITE MEDICARE MSMC,(not in grid),
+PROVIDER PARTNERS HEALTH PLAN [7025],MHS HB PROVIDERS PARTNER HEALTH MCMC,(not in grid),
+PROVIDER PARTNERS HEALTH PLAN [7025],MHS HB PROVIDERS PARTNER HEALTH MDMC,(not in grid),
+PROVIDER PARTNERS HEALTH PLAN [7025],MHS HB PROVIDERS PARTNER HEALTH MLMC,(not in grid),
+PROVIDER PARTNERS HEALTH PLAN [7025],MHS HB PROVIDERS PARTNER HEALTH MMMC,(not in grid),
+PROVIDER PARTNERS HEALTH PLAN [7025],MHS HB PROVIDERS PARTNER HEALTH MRMC,(not in grid),
+PROVIDER PARTNERS HEALTH PLAN [7025],MHS HB PROVIDERS PARTNER HEALTH MSMC,(not in grid),
+Pacificare All Payer,,UnitedHealthcare,Com
+Pacificare Medicare Advantage HMO,,UnitedHealthcare,MA
+Pacificare Options PPO,,UnitedHealthcare,Com
+Parker County,LOGOV,(not in grid),
+Parkland,Managed Medicaid,(not in grid),
+Parkland Community Health Plan,MCD,Parkland Community Health Plan,Mcd
+Parkland Community Health Plan,Medicaid Managed Care Plan,Parkland Community Health Plan,Mcd
+Parkland Medicaid,Parkland Community CHIP Medicaid,Parkland Community Health Plan,Mcd
+Parkland Medicaid,Parkland Community Health Plan Medicaid,Parkland Community Health Plan,Mcd
+Parkland Medicaid Star,,Parkland Community Health Plan,Mcd
+Physicians Coop of TX,MGMCR,(not in grid),
+Poly America,,(not in grid),
+Prime Health,Medicare Advantage,(not in grid),
+Prime Health,PPO,(not in grid),
+Prime Health Services,Worker's Compensation,(not in grid),
+Principal Edge,,(not in grid),
+Private Health Care System,PHCS Network,Rental PPO networks,Com
+Private Pay/Self Pay,,(not in grid),
+ProCare Advantage,Medicare Advantage,(not in grid),
+ProCare Advantge,MCR,(not in grid),
+Procare,Medicare Advantage,(not in grid),
+Prominence Health,HMO,(not in grid),
+Prominence Health,Medicare Advantage,(not in grid),
+Prominence Health,PPO,(not in grid),
+Prominence Health Plan,HIX,(not in grid),
+Provider Partners Health Plan,MCR,(not in grid),
+Provider Partners Health Plan,Provider Partners Health Plan,(not in grid),
+Provider Select,PPO,(not in grid),
+Providers Partners Health Plan,Medicare Advantage,(not in grid),
+Quick Trip,Commercial,(not in grid),
+QuickTrip,,(not in grid),
+QuikTrip,Commercial,(not in grid),
+QuikTrip,Employee Benefit Plan,(not in grid),
+RIGHTCARE,MDC S&W,(not in grid),
+RIGHTCARE,STAR,(not in grid),
+Randalls Food Market,PPO,(not in grid),
+Religious Order of Jehovah Witness,LOGOV,(not in grid),
+Rockport Health Group,WORKERSCOMP,(not in grid),
+Rockwall County,,(not in grid),
+Rockwall County,Commercial,(not in grid),
+S&W HEALTH,ALL PRODUCTS,BSW Health Plan,Com
+SANA BENEFITS [3069],MHS HB SANA MCEL,(not in grid),
+SANA BENEFITS [3069],MHS HB SANA MCMC,(not in grid),
+SANA BENEFITS [3069],MHS HB SANA MDMC,(not in grid),
+SANA BENEFITS [3069],MHS HB SANA MLMC,(not in grid),
+SANA BENEFITS [3069],MHS HB SANA MMMC,(not in grid),
+SANA BENEFITS [3069],MHS HB SANA MRMC,(not in grid),
+SANA BENEFITS [3069],MHS HB SANA MSMC,(not in grid),
+SCOTT & WHITE HEALTH PLAN TRS [3062],MHS HB AETNA BAYLOR SCOTT AND WHITE MDMC,BSW Health Plan,?
+SCOTT & WHITE HEALTH PLAN TRS [3062],MHS HB AETNA BAYLOR SCOTT AND WHITE MSMC,BSW Health Plan,?
+SCOTT AND WHITE MEDICARE [9911],MHS HB SCOTT AND WHITE MEDICARE MCMC,BSW Health Plan,MA
+SCOTT AND WHITE MEDICARE [9911],MHS HB SCOTT AND WHITE MEDICARE MDMC,BSW Health Plan,MA
+SCOTT AND WHITE MEDICARE [9911],MHS HB SCOTT AND WHITE MEDICARE MLMC,BSW Health Plan,MA
+SCOTT AND WHITE MEDICARE [9911],MHS HB SCOTT AND WHITE MEDICARE MMMC,BSW Health Plan,MA
+SCOTT AND WHITE MEDICARE [9911],MHS HB SCOTT AND WHITE MEDICARE MRMC,BSW Health Plan,MA
+SCOTT AND WHITE MEDICARE [9911],MHS HB SCOTT AND WHITE MEDICARE MSMC,BSW Health Plan,MA
+SILVERADO HOSPICE [4017],MHS HB HOSPICE MMMC,(not in grid),
+SOUTHWESTERN HEALTH RESOURCES SWHR [7015],MHS HB MANAGED MEDICARE 106% MCEL,(not in grid),
+SOUTHWESTERN HEALTH RESOURCES SWHR [7015],MHS HB MANAGED MEDICARE 106% MCMC,(not in grid),
+SOUTHWESTERN HEALTH RESOURCES SWHR [7015],MHS HB MANAGED MEDICARE 106% MDMC,(not in grid),
+SOUTHWESTERN HEALTH RESOURCES SWHR [7015],MHS HB MANAGED MEDICARE 106% MLMC,(not in grid),
+SOUTHWESTERN HEALTH RESOURCES SWHR [7015],MHS HB MANAGED MEDICARE 106% MMMC,(not in grid),
+SOUTHWESTERN HEALTH RESOURCES SWHR [7015],MHS HB MANAGED MEDICARE 106% MRMC,(not in grid),
+SOUTHWESTERN HEALTH RESOURCES SWHR [7015],MHS HB MANAGED MEDICARE 106% MSMC,(not in grid),
+SUPERIOR HEALTH,CHIP,Superior/Ambetter/Wellcare (Centene),Mcd
+SUPERIOR HEALTH,STAR,Superior/Ambetter/Wellcare (Centene),Mcd
+SUPERIOR HEALTH,STAR PLUS,Superior/Ambetter/Wellcare (Centene),Mcd
+SUPERIOR HEALTH PLAN [1402],SUPERIOR STAR HEALTH FOSTER CARE [140200],Superior/Ambetter/Wellcare (Centene),Mcd
+SUPERIOR HEALTHPLAN [1383],SUPERIOR STAR PLUS [138305],Superior/Ambetter/Wellcare (Centene),Mcd
+SUPERIOR MEDICAID MANAGED CARE [5007],MHS HB MEDICAID 110% STAR PLUS MCEL,Superior/Ambetter/Wellcare (Centene),Mcd
+SUPERIOR MEDICAID MANAGED CARE [5007],MHS HB MEDICAID 110% STAR PLUS MCMC,Superior/Ambetter/Wellcare (Centene),Mcd
+SUPERIOR MEDICAID MANAGED CARE [5007],MHS HB MEDICAID 110% STAR PLUS MDMC,Superior/Ambetter/Wellcare (Centene),Mcd
+SUPERIOR MEDICAID MANAGED CARE [5007],MHS HB MEDICAID 110% STAR PLUS MLMC,Superior/Ambetter/Wellcare (Centene),Mcd
+SUPERIOR MEDICAID MANAGED CARE [5007],MHS HB MEDICAID 110% STAR PLUS MRMC,Superior/Ambetter/Wellcare (Centene),Mcd
+SUPERIOR MEDICARE ADVANTAGE [1319],ALLWELL SUPERIOR MEDICARE ADVANTAGE [131900],Superior/Ambetter/Wellcare (Centene),MA
+SUPERIOR MEDICARE ADVANTAGE [1319],SUPERIOR DUAL MEDICARE-MEDICAID PLAN [131901],Superior/Ambetter/Wellcare (Centene),MA
+SUPERIOR MEDICARE MANAGED CARE [7008],MHS HB MANAGED MEDICARE PART A & B MCEL,Superior/Ambetter/Wellcare (Centene),MA
+SUPERIOR MEDICARE MANAGED CARE [7008],MHS HB MANAGED MEDICARE PART A & B MCMC,Superior/Ambetter/Wellcare (Centene),MA
+SUPERIOR MEDICARE MANAGED CARE [7008],MHS HB MANAGED MEDICARE PART A & B MDMC,Superior/Ambetter/Wellcare (Centene),MA
+SUPERIOR MEDICARE MANAGED CARE [7008],MHS HB MANAGED MEDICARE PART A & B MLMC,Superior/Ambetter/Wellcare (Centene),MA
+SUPERIOR MEDICARE MANAGED CARE [7008],MHS HB MANAGED MEDICARE PART A & B MMMC,Superior/Ambetter/Wellcare (Centene),MA
+SUPERIOR MEDICARE MANAGED CARE [7008],MHS HB MANAGED MEDICARE PART A & B MRMC,Superior/Ambetter/Wellcare (Centene),MA
+SUPERIOR MEDICARE MANAGED CARE [7008],MHS HB MANAGED MEDICARE PART A & B MSMC,Superior/Ambetter/Wellcare (Centene),MA
+Samaritan Care Hospice,MCR,(not in grid),
+Seasons Hospice,MCD,(not in grid),
+Seasons Hospice,MCR,(not in grid),
+Sedgwick,Preferred Network,(not in grid),
+Sedgwick,Sedgwick,(not in grid),
+Self Pay,,(not in grid),
+Southwest Transplant Alliance,COMM,(not in grid),
+St Michaels Hospice,COMM,(not in grid),
+St Michaels Hospice,MCD,(not in grid),
+St Michaels Hospice,MCR,(not in grid),
+Superior,Ambetter,Superior/Ambetter/Wellcare (Centene),Ex
+Superior,Behavioral Health Plan,Superior/Ambetter/Wellcare (Centene),?
+Superior,EPO,Superior/Ambetter/Wellcare (Centene),Com
+Superior,HMO,Superior/Ambetter/Wellcare (Centene),Com
+Superior,Managed Medicaid,Superior/Ambetter/Wellcare (Centene),Mcd
+Superior,Medicare Advantage,Superior/Ambetter/Wellcare (Centene),MA
+Superior,ValueHMO,Superior/Ambetter/Wellcare (Centene),Com
+Superior Ambetter,Ambetter Exchange,Superior/Ambetter/Wellcare (Centene),Ex
+Superior Ambetter Exchange,Commercial,Superior/Ambetter/Wellcare (Centene),Ex
+Superior Health Plan,,Superior/Ambetter/Wellcare (Centene),?
+Superior Health Plan,CHIP,Superior/Ambetter/Wellcare (Centene),Mcd
+Superior Health Plan,"CHIP,MCDSTAR,STARHealth,STARKids,STARPLUS",Superior/Ambetter/Wellcare (Centene),Mcd
+Superior Health Plan,Exchange,Superior/Ambetter/Wellcare (Centene),Ex
+Superior Health Plan,MCDSTAR,Superior/Ambetter/Wellcare (Centene),Mcd
+Superior Health Plan,MGMCRBH,Superior/Ambetter/Wellcare (Centene),MA
+Superior Health Plan,MGMCRDualEligible,Superior/Ambetter/Wellcare (Centene),MA
+Superior Health Plan,MGMCRHMO,Superior/Ambetter/Wellcare (Centene),MA
+Superior Health Plan,MGMCRPFFS,Superior/Ambetter/Wellcare (Centene),MA
+Superior Health Plan,MGMCRPOS,Superior/Ambetter/Wellcare (Centene),MA
+Superior Health Plan,MGMCRPPO,Superior/Ambetter/Wellcare (Centene),MA
+Superior Health Plan,MGMCRSNP,Superior/Ambetter/Wellcare (Centene),MA
+Superior Health Plan,Medicaid,Superior/Ambetter/Wellcare (Centene),Mcd
+Superior Health Plan,Medicaid Managed Care Plan,Superior/Ambetter/Wellcare (Centene),Mcd
+Superior Health Plan,Medicare,Superior/Ambetter/Wellcare (Centene),MA
+Superior Health Plan,Medicare Managed Care Plan,Superior/Ambetter/Wellcare (Centene),MA
+Superior Health Plan,STARHealth,Superior/Ambetter/Wellcare (Centene),Mcd
+Superior Health Plan,STARKids,Superior/Ambetter/Wellcare (Centene),Mcd
+Superior Health Plan,STARPLUS,Superior/Ambetter/Wellcare (Centene),Mcd
+Superior Health Plan,Superior Health Plan CHIP Medicaid,Superior/Ambetter/Wellcare (Centene),Mcd
+Superior Health Plan,Superior Health Plan Commercial Exchange-EPO/HMO,Superior/Ambetter/Wellcare (Centene),Ex
+Superior Health Plan,Superior Health Plan Medicare Advantage/MMP,Superior/Ambetter/Wellcare (Centene),MA
+Superior Health Plan,Superior Health STAR Medicaid,Superior/Ambetter/Wellcare (Centene),Mcd
+Superior Health Plan,Superior Health STAR PLUS Medicaid,Superior/Ambetter/Wellcare (Centene),Mcd
+Superior Health Plan,Superior Health Star Kids MEDICAID,Superior/Ambetter/Wellcare (Centene),Mcd
+Superior Health Plan/Wellcare,Superior Commercial Exchange EPO HMO,Superior/Ambetter/Wellcare (Centene),Ex
+Superior Health Plan/Wellcare,Superior Health Plan CHIP Medicaid,Superior/Ambetter/Wellcare (Centene),Mcd
+Superior Health Plan/Wellcare,Superior Health Plan Medicare Advantage/MMP Dual Eligible,Superior/Ambetter/Wellcare (Centene),MA
+Superior Health Plan/Wellcare,Superior Health Plan STAR KIDS Medicaid,Superior/Ambetter/Wellcare (Centene),Mcd
+Superior Health Plan/Wellcare,Superior Health Plan STAR Medicaid,Superior/Ambetter/Wellcare (Centene),Mcd
+Superior Health Plan/Wellcare,Superior Health Plan STAR PLUS Medicaid,Superior/Ambetter/Wellcare (Centene),Mcd
+Superior Healthplan,Ambetter Exchange,Superior/Ambetter/Wellcare (Centene),Ex
+Superior Healthplan,Medicaid Managed Care Plan,Superior/Ambetter/Wellcare (Centene),Mcd
+Superior Healthplan,Medicare Managed Care Plan,Superior/Ambetter/Wellcare (Centene),MA
+Superior Wellcare,Managed Medicaid,Superior/Ambetter/Wellcare (Centene),Mcd
+Superior Wellcare,Medicare Advantage HMO,Superior/Ambetter/Wellcare (Centene),MA
+Superior Wellcare,Medicare Advantage MMP,Superior/Ambetter/Wellcare (Centene),MA
+TCU ATHLETICS,COMM,(not in grid),
+TEXAN PLUS HMO MEDICARE MANAGED CARE [7009],MHS HB MANAGED MEDICARE PART A & B MCEL,(not in grid),
+TEXAN PLUS HMO MEDICARE MANAGED CARE [7009],MHS HB MANAGED MEDICARE PART A & B MCMC,(not in grid),
+TEXAN PLUS HMO MEDICARE MANAGED CARE [7009],MHS HB MANAGED MEDICARE PART A & B MDMC,(not in grid),
+TEXAN PLUS HMO MEDICARE MANAGED CARE [7009],MHS HB MANAGED MEDICARE PART A & B MLMC,(not in grid),
+TEXAN PLUS HMO MEDICARE MANAGED CARE [7009],MHS HB MANAGED MEDICARE PART A & B MMMC,(not in grid),
+TEXAN PLUS HMO MEDICARE MANAGED CARE [7009],MHS HB MANAGED MEDICARE PART A & B MRMC,(not in grid),
+TEXAN PLUS HMO MEDICARE MANAGED CARE [7009],MHS HB MANAGED MEDICARE PART A & B MSMC,(not in grid),
+TEXAS HEALTH NETWORK,MCD,(not in grid),
+TEXAS INSTRUMENTS,EmployeesHealthBenefitPlan,(not in grid),
+TH Aetna JV 9 County,,Aetna,?
+TH Aetna JV Broad Network Full,,Aetna,?
+TH Aetna JV Broad Network Self,,Aetna,?
+TH Aetna JV Narrow Large,,Aetna,?
+TH Aetna JV Narrow Small,,Aetna,?
+THR Employees,,(not in grid),
+TML INTERGOVERNMENTAL EMPLOYEE BENEFITS [3050],MHS HB UNITED HEALTHCARE MSMC,(not in grid),
+TOTAL PLANS SRVICES,TOTAL PLANS SERVICES,(not in grid),
+TRICARE [1001],MHS HB TRICARE MCEL,(not in grid),
+TRICARE [1001],MHS HB TRICARE MSMC,(not in grid),
+TRISTAR RISK MANAGEMENT [8006],MHS HB WORKERS COMP MLMC,(not in grid),
+TRISTAR RISK MANAGEMENT [8006],MHS HB WORKERS COMP MMMC,(not in grid),
+TRISTAR RISK MANAGEMENT [8006],MHS HB WORKERS COMP MSMC,(not in grid),
+TRIWEST (BCBS),Triwest - BCBS,(not in grid),
+TRIWEST (BCBS),Triwest BCBS,(not in grid),
+TRIWEST HEALTHCARE ALLIANCE [1409],COMMUNITY CARE NETWORK [140900],(not in grid),
+TRIWEST WPS [8010],MHS HB TRICARE MCEL,(not in grid),
+TRIWEST WPS [8010],MHS HB TRICARE MSMC,(not in grid),
+TX CHILDREN HEALTH,CHIP,(not in grid),
+TX CHILDREN HEALTH,STAR,(not in grid),
+TX CHILDREN HEALTH,STAR KIDS,(not in grid),
+Texas A&M Commerce,Injured Athletes,(not in grid),
+Texas BlueBonnett Health Plan,Bluebonnett Health Commercial HMO/PPO/EPO,(not in grid),
+Texas BlueBonnett Health Plan,Bluebonnett Health Medicare Advantage,(not in grid),
+Texas Bluebonnett Health Plan,Texas Bluebonnett Health Plan Commercial,(not in grid),
+Texas Bluebonnett Health Plan,Texas Bluebonnett Health Plan Medicare Advantage,(not in grid),
+Texas First HP,First HP Medicare Advantage,(not in grid),
+Texas Healthcare Foundation WC,WORKERSCOMP,(not in grid),
+Texas Independent Health Plan,MGMCR,(not in grid),
+Texas Workforce Commission,Workers Compensation,(not in grid),
+Three Rivers Provider Network,PPO,(not in grid),
+Traditional Medicare,Traditional Medicare,(not in grid),
+TriWest,Community Care Network,(not in grid),
+TriWest,FEDERAL,(not in grid),
+TriWest Health Alliance,FEDERAL,(not in grid),
+TriWest Health Alliance,TRCR,(not in grid),
+TriWest Veterans,FED,(not in grid),
+TriWest Veterans,FEDERAL,(not in grid),
+Tricare,Tricare,(not in grid),
+Trinity Hospice,COMM,(not in grid),
+Trinity Hospice,MCR,(not in grid),
+Triwest VA Choice Network,Government,(not in grid),
+Triwest Veterans,FED,(not in grid),
+Triwest Veterans,FEDERAL,(not in grid),
+UHC,MGD,UnitedHealthcare,?
+UHC,UHC Commercial All Payor,UnitedHealthcare,Com
+UHC,UHC Commercial Options PPO,UnitedHealthcare,Com
+UHC,UHC Medicare Advantage,UnitedHealthcare,MA
+UHC - MHS EMPLOYEE HEALTH PLAN [9000],MHS HB UHC EMPLOYEE HEALTH MSMC,UnitedHealthcare,Com
+UHC AARP SECURE HORIZONS [7023],MHS HB MANAGED MEDICARE PART A & B MCEL,UnitedHealthcare,MA
+UHC AARP SECURE HORIZONS [7023],MHS HB MANAGED MEDICARE PART A & B MCMC,UnitedHealthcare,MA
+UHC AARP SECURE HORIZONS [7023],MHS HB MANAGED MEDICARE PART A & B MDMC,UnitedHealthcare,MA
+UHC AARP SECURE HORIZONS [7023],MHS HB MANAGED MEDICARE PART A & B MLMC,UnitedHealthcare,MA
+UHC AARP SECURE HORIZONS [7023],MHS HB MANAGED MEDICARE PART A & B MMMC,UnitedHealthcare,MA
+UHC AARP SECURE HORIZONS [7023],MHS HB MANAGED MEDICARE PART A & B MRMC,UnitedHealthcare,MA
+UHC AARP SECURE HORIZONS [7023],MHS HB MANAGED MEDICARE PART A & B MSMC,UnitedHealthcare,MA
+UHC City of Fort Worth,,UnitedHealthcare,Com
+UHC Medicaid,UHC Medicaid,UnitedHealthcare,Mcd
+UHC Medicaid,UHC STAR KIDS MEDICAID,UnitedHealthcare,Mcd
+UHC Medicaid,UHC STAR MEDICAID,UnitedHealthcare,Mcd
+UHC Medicaid,UHC STAR PLUS MEDICAID,UnitedHealthcare,Mcd
+UHC Medicare Advantage HMO,,UnitedHealthcare,MA
+UHC Medicare Advantage PPO,,UnitedHealthcare,MA
+UNITED COMMUNITY,CHIP,(not in grid),
+UNITED COMMUNITY,STAR,(not in grid),
+UNITED COMMUNITY,STAR KIDS,(not in grid),
+UNITED COMMUNITY,STAR PLUS,(not in grid),
+UNITED HEALTHCARE GLOBAL [3075],MHS HB UNITED HEALTHCARE MSMC,UnitedHealthcare,?
+UNITED HEALTHCARE MANAGED CARE [3021],MHS HB UHC EXCHANGE MCEL,UnitedHealthcare,Ex
+UNITED HEALTHCARE MANAGED CARE [3021],MHS HB UHC EXCHANGE MCMC,UnitedHealthcare,Ex
+UNITED HEALTHCARE MANAGED CARE [3021],MHS HB UHC EXCHANGE MDMC,UnitedHealthcare,Ex
+UNITED HEALTHCARE MANAGED CARE [3021],MHS HB UHC EXCHANGE MLMC,UnitedHealthcare,Ex
+UNITED HEALTHCARE MANAGED CARE [3021],MHS HB UHC EXCHANGE MMMC,UnitedHealthcare,Ex
+UNITED HEALTHCARE MANAGED CARE [3021],MHS HB UHC EXCHANGE MRMC,UnitedHealthcare,Ex
+UNITED HEALTHCARE MANAGED CARE [3021],MHS HB UHC EXCHANGE MSMC,UnitedHealthcare,Ex
+UNITED HEALTHCARE MANAGED CARE [3021],MHS HB UNITED HEALTHCARE MSMC,UnitedHealthcare,?
+UNITED HEALTHCARE MEDICAID MANAGED CARE [5015],MHS HB UNITED MEDICAID STAR PLUS MCMC,UnitedHealthcare,Mcd
+UNITED HEALTHCARE MEDICAID MANAGED CARE [5015],MHS HB UNITED MEDICAID STAR PLUS MDMC,UnitedHealthcare,Mcd
+UNITED HEALTHCARE MEDICAID MANAGED CARE [5015],MHS HB UNITED MEDICAID STAR PLUS MLMC,UnitedHealthcare,Mcd
+UNITED HEALTHCARE MEDICAID MANAGED CARE [5015],MHS HB UNITED MEDICAID STAR PLUS MMMC,UnitedHealthcare,Mcd
+UNITED HEALTHCARE MEDICAID MANAGED CARE [5015],MHS HB UNITED MEDICAID STAR PLUS MRMC,UnitedHealthcare,Mcd
+UNITED HEALTHCARE MEDICAID MANAGED CARE [5015],MHS HB UNITED MEDICAID STAR PLUS MSMC,UnitedHealthcare,Mcd
+UNITED HEALTHCARE MEDICARE ADVANTAGE [1315],UNITED HEALTHCARE DUAL COMPLETE [131503],UnitedHealthcare,MA
+UNITED HEALTHCARE MEDICARE ADVANTAGE [1315],UNITED HEALTHCARE MEDICARE ADVANTAGE [131500],UnitedHealthcare,MA
+UNITED HEALTHCARE MEDICARE MANAGED CARE [3044],MHS HB UHC MEDICARE COMPLETE MCEL,UnitedHealthcare,MA
+UNITED HEALTHCARE MEDICARE MANAGED CARE [3044],MHS HB UHC MEDICARE COMPLETE MCMC,UnitedHealthcare,MA
+UNITED HEALTHCARE MEDICARE MANAGED CARE [3044],MHS HB UHC MEDICARE COMPLETE MDMC,UnitedHealthcare,MA
+UNITED HEALTHCARE MEDICARE MANAGED CARE [3044],MHS HB UHC MEDICARE COMPLETE MLMC,UnitedHealthcare,MA
+UNITED HEALTHCARE MEDICARE MANAGED CARE [3044],MHS HB UHC MEDICARE COMPLETE MMMC,UnitedHealthcare,MA
+UNITED HEALTHCARE MEDICARE MANAGED CARE [3044],MHS HB UHC MEDICARE COMPLETE MRMC,UnitedHealthcare,MA
+UNITED HEALTHCARE MEDICARE MANAGED CARE [3044],MHS HB UHC MEDICARE COMPLETE MSMC,UnitedHealthcare,MA
+UNITED HEALTHCARE MEDICARE MANAGED CARE [7010],MHS HB UHC MEDICARE COMPLETE MCEL,UnitedHealthcare,MA
+UNITED HEALTHCARE MEDICARE MANAGED CARE [7010],MHS HB UHC MEDICARE COMPLETE MCMC,UnitedHealthcare,MA
+UNITED HEALTHCARE MEDICARE MANAGED CARE [7010],MHS HB UHC MEDICARE COMPLETE MDMC,UnitedHealthcare,MA
+UNITED HEALTHCARE MEDICARE MANAGED CARE [7010],MHS HB UHC MEDICARE COMPLETE MLMC,UnitedHealthcare,MA
+UNITED HEALTHCARE MEDICARE MANAGED CARE [7010],MHS HB UHC MEDICARE COMPLETE MMMC,UnitedHealthcare,MA
+UNITED HEALTHCARE MEDICARE MANAGED CARE [7010],MHS HB UHC MEDICARE COMPLETE MRMC,UnitedHealthcare,MA
+UNITED HEALTHCARE MEDICARE MANAGED CARE [7010],MHS HB UHC MEDICARE COMPLETE MSMC,UnitedHealthcare,MA
+UNITED HEALTHCARE MEDICARE MANAGED CARE [7010],MHS HB UHC MEDICARE DIRECT MCEL,UnitedHealthcare,MA
+UNITED HEALTHCARE MEDICARE MANAGED CARE [7010],MHS HB UHC MEDICARE DIRECT MCMC,UnitedHealthcare,MA
+UNITED HEALTHCARE MEDICARE MANAGED CARE [7010],MHS HB UHC MEDICARE DIRECT MDMC,UnitedHealthcare,MA
+UNITED HEALTHCARE MEDICARE MANAGED CARE [7010],MHS HB UHC MEDICARE DIRECT MLMC,UnitedHealthcare,MA
+UNITED HEALTHCARE MEDICARE MANAGED CARE [7010],MHS HB UHC MEDICARE DIRECT MMMC,UnitedHealthcare,MA
+UNITED HEALTHCARE MEDICARE MANAGED CARE [7010],MHS HB UHC MEDICARE DIRECT MRMC,UnitedHealthcare,MA
+UNITED HEALTHCARE MEDICARE MANAGED CARE [7010],MHS HB UHC MEDICARE DIRECT MSMC,UnitedHealthcare,MA
+UNITED HEALTHCARE MEDICARE MANAGED CARE [7010],MHS HB UHC WELLMED MCEL,UnitedHealthcare,MA
+UNITED HEALTHCARE MEDICARE MANAGED CARE [7010],MHS HB UHC WELLMED MCMC,UnitedHealthcare,MA
+UNITED HEALTHCARE MEDICARE MANAGED CARE [7010],MHS HB UHC WELLMED MDMC,UnitedHealthcare,MA
+UNITED HEALTHCARE MEDICARE MANAGED CARE [7010],MHS HB UHC WELLMED MLMC,UnitedHealthcare,MA
+UNITED HEALTHCARE MEDICARE MANAGED CARE [7010],MHS HB UHC WELLMED MMMC,UnitedHealthcare,MA
+UNITED HEALTHCARE MEDICARE MANAGED CARE [7010],MHS HB UHC WELLMED MRMC,UnitedHealthcare,MA
+UNITED HEALTHCARE MEDICARE MANAGED CARE [7010],MHS HB UHC WELLMED MSMC,UnitedHealthcare,MA
+UNITED HEALTHCARE OF TX [1079],UHC - UMR [107903],UnitedHealthcare,?
+UNITED HEALTHCARE OF TX [1079],UNITED HEALTHCARE OF TX [107900],UnitedHealthcare,?
+UNITED HEALTHCARE-COMMERCIAL [2026],MHS HB UNITED HEALTHCARE MSMC,UnitedHealthcare,Com
+UNITED HEALTHCARE-MANAGED CARE [2067],MHS HB UNITED HEALTHCARE MSMC,UnitedHealthcare,?
+USA,MCO,Rental PPO networks,Com
+USA Managed Care,,Rental PPO networks,Com
+USA Managed Care,COMM,Rental PPO networks,Com
+USA Managed Care,PPO,Rental PPO networks,Com
+USA Managed Care,WORKERSCOMP,(not in grid),
+USA SENIOR CARE NETWORK,USA SENIOR CARE NETWORK,(not in grid),
+USA Senior Care Network,USA Senior Care Network,(not in grid),
+USAMCO,ALL PRODUCTS,(not in grid),
+USC Health Services,COMM,(not in grid),
+UST HEALTH PROOF [1005],MHS HB UHC MEDICARE COMPLETE MCEL,(not in grid),
+UST HEALTH PROOF [1005],MHS HB UHC MEDICARE COMPLETE MCMC,(not in grid),
+UST HEALTH PROOF [1005],MHS HB UHC MEDICARE COMPLETE MDMC,(not in grid),
+UST HEALTH PROOF [1005],MHS HB UHC MEDICARE COMPLETE MLMC,(not in grid),
+UST HEALTH PROOF [1005],MHS HB UHC MEDICARE COMPLETE MMMC,(not in grid),
+UST HEALTH PROOF [1005],MHS HB UHC MEDICARE COMPLETE MRMC,(not in grid),
+UST HEALTH PROOF [1005],MHS HB UHC MEDICARE COMPLETE MSMC,(not in grid),
+Unicare,,Wellpoint/Amerigroup,Mcd
+Unicare,CHIP,Wellpoint/Amerigroup,Mcd
+Unicare,MCD,Wellpoint/Amerigroup,Mcd
+Unicare Medicaid,,Wellpoint/Amerigroup,Mcd
+United,AllPayerAppendix,UnitedHealthcare,?
+United,CHIP,UnitedHealthcare,Mcd
+United,GlobalBenefitPlan,UnitedHealthcare,?
+United,MGMCR,UnitedHealthcare,MA
+United,NarrowNetworkIndivExchange,UnitedHealthcare,Ex
+United,OptionsPPO,UnitedHealthcare,Com
+United,STAR,UnitedHealthcare,Mcd
+United,STARKids,UnitedHealthcare,Mcd
+United,STARPLUS,UnitedHealthcare,Mcd
+United,STARPerinate,UnitedHealthcare,Mcd
+United,SmallGroup,UnitedHealthcare,Com
+United Behavioral Health,COMM,(not in grid),
+United Behavioral Health,Commercial,(not in grid),
+United Behavioral Health,MGMCD,(not in grid),
+United Behavioral Health,MGMCR,(not in grid),
+United Behavioral Health,Managed Medicaid,(not in grid),
+United Behavioral Health,Medicare Advantage,(not in grid),
+United HealthCare,UHC CHIP MEDICAID,UnitedHealthcare,Mcd
+United HealthCare,UHC Commercial All Payor,UnitedHealthcare,Com
+United HealthCare,UHC MEDCAID,UnitedHealthcare,?
+United HealthCare,UHC Medicare Advantage,UnitedHealthcare,MA
+United HealthCare,UHC STAR KIDS MEDICAID,UnitedHealthcare,Mcd
+United HealthCare,UHC STAR PLUS MEDICAID,UnitedHealthcare,Mcd
+United Healthcare,All Payer,UnitedHealthcare,Com
+United Healthcare,Charter,UnitedHealthcare,?
+United Healthcare,Commercial,UnitedHealthcare,Com
+United Healthcare,Commercial Broad,UnitedHealthcare,Com
+United Healthcare,Default,UnitedHealthcare,?
+United Healthcare,Managed Medicaid,UnitedHealthcare,Mcd
+United Healthcare,Medicaid/CHIP,UnitedHealthcare,Mcd
+United Healthcare,Medicare Advantage,UnitedHealthcare,MA
+United Healthcare,Medicare Advantage HMO,UnitedHealthcare,MA
+United Healthcare,Medicare Advantage PPO,UnitedHealthcare,MA
+United Healthcare,Nexus,UnitedHealthcare,?
+United Healthcare All Payer,,UnitedHealthcare,Com
+United Healthcare Compass,,UnitedHealthcare,?
+United Healthcare Options,PPO,UnitedHealthcare,Com
+United Healthcare Options PPO,,UnitedHealthcare,Com
+United Healthcare W500,Commercial,UnitedHealthcare,Com
+United Options Nexus,Commercial,UnitedHealthcare,Com
+UnitedHealthCare,All Commercial Plans,UnitedHealthcare,Com
+UnitedHealthCare,Behavioral Health Plan,UnitedHealthcare,?
+UnitedHealthCare,Medicaid Managed Care Plan,UnitedHealthcare,Mcd
+UnitedHealthCare,Medicare Managed Care Plan,UnitedHealthcare,MA
+Unitedhealthcare,All Commercial Plans,UnitedHealthcare,Com
+Unitedhealthcare,Behavioral Health Plan,UnitedHealthcare,?
+Unitedhealthcare,Medicaid Managed Care Plan,UnitedHealthcare,Mcd
+Unitedhealthcare,Medicare Managed Care Plan,UnitedHealthcare,MA
+Universal Healthcare Group,MCR,(not in grid),
+Universal Hospice,MCD,(not in grid),
+Universal Hospice,MCR,(not in grid),
+University of Mary Hardin-Baylor,Commercial,(not in grid),
+VELOCITY [3070],MHS HB VELOCITY MCEL,(not in grid),
+VELOCITY [3070],MHS HB VELOCITY MCMC,(not in grid),
+VELOCITY [3070],MHS HB VELOCITY MDMC,(not in grid),
+VELOCITY [3070],MHS HB VELOCITY MLMC,(not in grid),
+VELOCITY [3070],MHS HB VELOCITY MMMC,(not in grid),
+VELOCITY [3070],MHS HB VELOCITY MRMC,(not in grid),
+VELOCITY [3070],MHS HB VELOCITY MSMC,(not in grid),
+VETERANS ADMINISTRATION [9001],MHS HB TRICARE MCEL,(not in grid),
+VETERANS ADMINISTRATION [9001],MHS HB TRICARE MSMC,(not in grid),
+VISTA CARE HOSPICE [2023],MHS HB HOSPICE MMMC,(not in grid),
+VITAS HOSPICE [2024],MHS HB HOSPICE MMMC,(not in grid),
+VNA HOSPICE [2025],MHS HB HOSPICE MMMC,(not in grid),
+VNA Hospice,COMM,(not in grid),
+VNA Hospice,HMO,(not in grid),
+VNA Hospice,MCD,(not in grid),
+VNA Hospice,MCR,(not in grid),
+Value Options,Commercial,(not in grid),
+Value Options Behavioral Health,COMM,(not in grid),
+Verda Health Plan,MGMCR,(not in grid),
+VistaCare Hospice,MCD,(not in grid),
+VistaCare Hospice,MCR,(not in grid),
+Vitas Healthcare,MCR,(not in grid),
+Vitas Hospice,MCD,(not in grid),
+Vitas Hospice,MCR,(not in grid),
+WC Corvel,,(not in grid),
+WC Physicians Co-Op,,(not in grid),
+WEB TPA [3049],MHS HB AETNA HMO PPO MDMC,(not in grid),
+WEB TPA [3049],MHS HB AETNA HMO PPO MSMC,(not in grid),
+WEB TPA [3049],MHS HB AETNA WHOLE HEALTH MDMC,(not in grid),
+WEB TPA [3049],MHS HB AETNA WHOLE HEALTH MSMC,(not in grid),
+WEB TPA [3049],MHS HB CUSTOM INK MCEL,(not in grid),
+WEB TPA [3049],MHS HB CUSTOM INK MCMC,(not in grid),
+WEB TPA [3049],MHS HB CUSTOM INK MDMC,(not in grid),
+WEB TPA [3049],MHS HB CUSTOM INK MLMC,(not in grid),
+WEB TPA [3049],MHS HB CUSTOM INK MMMC,(not in grid),
+WEB TPA [3049],MHS HB CUSTOM INK MRMC,(not in grid),
+WEB TPA [3049],MHS HB CUSTOM INK MSMC,(not in grid),
+WELLCARE OF TEXAS [1330],WELLCARE DUAL - UXR [133003],Superior/Ambetter/Wellcare (Centene),MA
+WELLCARE OF TEXAS [1330],WELLCARE MEDICARE ADVANTAGE - UXR [133000],Superior/Ambetter/Wellcare (Centene),MA
+WELLCARE [7016],MHS HB MANAGED MEDICARE PART A & B MCEL,Superior/Ambetter/Wellcare (Centene),MA
+WELLCARE [7016],MHS HB MANAGED MEDICARE PART A & B MCMC,Superior/Ambetter/Wellcare (Centene),MA
+WELLCARE [7016],MHS HB MANAGED MEDICARE PART A & B MDMC,Superior/Ambetter/Wellcare (Centene),MA
+WELLCARE [7016],MHS HB MANAGED MEDICARE PART A & B MLMC,Superior/Ambetter/Wellcare (Centene),MA
+WELLCARE [7016],MHS HB MANAGED MEDICARE PART A & B MMMC,Superior/Ambetter/Wellcare (Centene),MA
+WELLCARE [7016],MHS HB MANAGED MEDICARE PART A & B MRMC,Superior/Ambetter/Wellcare (Centene),MA
+WELLCARE [7016],MHS HB MANAGED MEDICARE PART A & B MSMC,Superior/Ambetter/Wellcare (Centene),MA
+WELLPOINT,CHIP,Wellpoint/Amerigroup,Mcd
+WELLPOINT,STAR,Wellpoint/Amerigroup,Mcd
+WELLPOINT,STAR PLUS,Wellpoint/Amerigroup,Mcd
+WELLPOINT MARKETPLACE EXCHANGE [3071],MHS HB WELLPOINT TEXAS ESSENTIALS MCEL,Wellpoint/Amerigroup,Ex
+WELLPOINT MARKETPLACE EXCHANGE [3071],MHS HB WELLPOINT TEXAS ESSENTIALS MCMC,Wellpoint/Amerigroup,Ex
+WELLPOINT MARKETPLACE EXCHANGE [3071],MHS HB WELLPOINT TEXAS ESSENTIALS MDMC,Wellpoint/Amerigroup,Ex
+WELLPOINT MARKETPLACE EXCHANGE [3071],MHS HB WELLPOINT TEXAS ESSENTIALS MLMC,Wellpoint/Amerigroup,Ex
+WELLPOINT MARKETPLACE EXCHANGE [3071],MHS HB WELLPOINT TEXAS ESSENTIALS MMMC,Wellpoint/Amerigroup,Ex
+WELLPOINT MARKETPLACE EXCHANGE [3071],MHS HB WELLPOINT TEXAS ESSENTIALS MRMC,Wellpoint/Amerigroup,Ex
+WELLPOINT MARKETPLACE EXCHANGE [3071],MHS HB WELLPOINT TEXAS ESSENTIALS MSMC,Wellpoint/Amerigroup,Ex
+WELLPOINT MEDICAID MANAGED CARE [5001],MHS HB WELLPOINT MEDICAID STAR MMMC,Wellpoint/Amerigroup,Mcd
+WELLPOINT MEDICAID MANAGED CARE [5001],MHS HB WELLPOINT MEDICAID STAR MSMC,Wellpoint/Amerigroup,Mcd
+WELLPOINT MEDICARE ADVANTAGE [2009],WELLPOINT DUAL MEDICARE-MEDICAID PLAN [200902],Wellpoint/Amerigroup,MA
+WELLPOINT MEDICARE ADVANTAGE [2009],WELLPOINT MEDICARE ADVANTAGE [200901],Wellpoint/Amerigroup,MA
+WELLPOINT MEDICARE MANAGED CARE [7001],MHS HB MANAGED MEDICARE 106% MCEL,Wellpoint/Amerigroup,MA
+WELLPOINT MEDICARE MANAGED CARE [7001],MHS HB MANAGED MEDICARE 106% MCMC,Wellpoint/Amerigroup,MA
+WELLPOINT MEDICARE MANAGED CARE [7001],MHS HB MANAGED MEDICARE 106% MDMC,Wellpoint/Amerigroup,MA
+WELLPOINT MEDICARE MANAGED CARE [7001],MHS HB MANAGED MEDICARE 106% MLMC,Wellpoint/Amerigroup,MA
+WELLPOINT MEDICARE MANAGED CARE [7001],MHS HB MANAGED MEDICARE 106% MMMC,Wellpoint/Amerigroup,MA
+WELLPOINT MEDICARE MANAGED CARE [7001],MHS HB MANAGED MEDICARE 106% MRMC,Wellpoint/Amerigroup,MA
+WELLPOINT MEDICARE MANAGED CARE [7001],MHS HB MANAGED MEDICARE 106% MSMC,Wellpoint/Amerigroup,MA
+WELLPOINT [1007],ABOVE FPIL WELLPOINT CHIP PERINATE [100709],Wellpoint/Amerigroup,Mcd
+WELLPOINT [1007],BELOW FPIL WELLPOINT CHIP PERINATE [100708],Wellpoint/Amerigroup,Mcd
+WELLPOINT [1007],WELLPOINT CHIP PERINATE POST PARTUM [100704],Wellpoint/Amerigroup,Mcd
+WELLPOINT [1007],WELLPOINT STAR KIDS [100706],Wellpoint/Amerigroup,Mcd
+WELLPOINT [1007],WELLPOINT STAR PLUS [100701],Wellpoint/Amerigroup,Mcd
+WELLPOINT [1007],WELLPOINT STAR [100700],Wellpoint/Amerigroup,Mcd
+Wal-Mart Aetna,,Aetna,?
+WellCare,MGMCR,Superior/Ambetter/Wellcare (Centene),MA
+WellCare,Medicare Managed Care Plan,Superior/Ambetter/Wellcare (Centene),MA
+WellMed,MGMCR,(not in grid),
+WellMed,Medicare Advantage,(not in grid),
+WellPath,WellPath Medicare Prison,(not in grid),
+WellPoint,Medicaid Managed Care Plan,Wellpoint/Amerigroup,Mcd
+WellPoint,Medicare Managed Care Plan,Wellpoint/Amerigroup,MA
+WellPoint (fka Amerigroup),CHIP/Medicaid,Wellpoint/Amerigroup,Mcd
+WellPoint (fka Amerigroup),Medicare,Wellpoint/Amerigroup,MA
+Wellcare,Medicare Managed Care Plan,Superior/Ambetter/Wellcare (Centene),MA
+Wellcare,Wellcare Medicare Advantage,Superior/Ambetter/Wellcare (Centene),MA
+Wellmed,Specialist Medicare Managed Care Plan,(not in grid),
+Wellmed,Wellmed Medicare Advantage,(not in grid),
+Wellpoint,Exchange,Wellpoint/Amerigroup,Ex
+Wellpoint,Managed Medicaid,Wellpoint/Amerigroup,Mcd
+Wellpoint,Medicare Advantage,Wellpoint/Amerigroup,MA
+Wellpoint Amerigroup,Wellpoint Amerigroup CHIP Medicaid,Wellpoint/Amerigroup,Mcd
+Wellpoint Amerigroup,Wellpoint Amerigroup MMP (Dual-Eligible),Wellpoint/Amerigroup,MA
+Wellpoint Amerigroup,Wellpoint Amerigroup MMP Dual Eligible,Wellpoint/Amerigroup,MA
+Wellpoint Amerigroup,Wellpoint Amerigroup Medicaid,Wellpoint/Amerigroup,Mcd
+Wellpoint Amerigroup,Wellpoint Amerigroup Medicare,Wellpoint/Amerigroup,MA
+Wellpoint Amerigroup,Wellpoint Amerigroup STAR KIDS,Wellpoint/Amerigroup,Mcd
+Wellpoint Amerigroup,Wellpoint Amerigroup STAR KIDS Medicaid,Wellpoint/Amerigroup,Mcd
+Wellpoint Amerigroup,Wellpoint Amerigroup STAR Medicaid,Wellpoint/Amerigroup,Mcd
+Wellpoint Amerigroup,Wellpoint Amerigroup STAR PLUS Medicaid,Wellpoint/Amerigroup,Mcd
+Worker Compensation,Workers Compensation,(not in grid),
+Worker Compensation,Workers Compensation Consolidated,(not in grid),
