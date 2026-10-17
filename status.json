@@ -1,0 +1,615 @@
+{
+ "generated_at": "2026-10-17T18:49:59+00:00",
+ "insurers_tx": {
+  "networks": 91,
+  "active": 44,
+  "status": {
+   "processed": 38,
+   "failed": 6
+  },
+  "not_done": [
+   {
+    "network": "Community Health Choice marketplace Limited Network Bronze",
+    "status": "failed",
+    "fails": "3",
+    "launched_at": "2026-10-15T12:54:07Z",
+    "detail": "    for pr in s6.roster_items(fb): |   File \"/opt/bot/insurers/pipeline/06_filter_payer_file.py\", line 153, in roster_it"
+   },
+   {
+    "network": "Community Health Choice marketplace Limited Network Gold",
+    "status": "failed",
+    "fails": "3",
+    "launched_at": "2026-10-15T12:54:07Z",
+    "detail": "    for pr in s6.roster_items(fb): |   File \"/opt/bot/insurers/pipeline/06_filter_payer_file.py\", line 153, in roster_it"
+   },
+   {
+    "network": "Community Health Choice marketplace Limited Network Silver",
+    "status": "failed",
+    "fails": "3",
+    "launched_at": "2026-10-15T12:54:07Z",
+    "detail": "    for pr in s6.roster_items(fb): |   File \"/opt/bot/insurers/pipeline/06_filter_payer_file.py\", line 153, in roster_it"
+   },
+   {
+    "network": "Community Health Choice marketplace Premier Bronze",
+    "status": "failed",
+    "fails": "3",
+    "launched_at": "2026-10-15T12:54:07Z",
+    "detail": "    for pr in s6.roster_items(fb): |   File \"/opt/bot/insurers/pipeline/06_filter_payer_file.py\", line 153, in roster_it"
+   },
+   {
+    "network": "Community Health Choice marketplace Premier Gold",
+    "status": "failed",
+    "fails": "3",
+    "launched_at": "2026-10-15T12:54:07Z",
+    "detail": "    for pr in s6.roster_items(fb): |   File \"/opt/bot/insurers/pipeline/06_filter_payer_file.py\", line 153, in roster_it"
+   },
+   {
+    "network": "Community Health Choice marketplace Premier Silver",
+    "status": "failed",
+    "fails": "3",
+    "launched_at": "2026-10-15T12:54:07Z",
+    "detail": "    for pr in s6.roster_items(fb): |   File \"/opt/bot/insurers/pipeline/06_filter_payer_file.py\", line 153, in roster_it"
+   }
+  ]
+ },
+ "insurers_dfw": {
+  "networks": 91,
+  "active": 44,
+  "status": {
+   "processed": 38,
+   "failed": 6
+  },
+  "not_done": [
+   {
+    "network": "Community Health Choice marketplace Limited Network Bronze",
+    "status": "failed",
+    "fails": "3",
+    "launched_at": "2026-10-15T12:51:37Z",
+    "detail": "    for pr in s6.roster_items(fb): |   File \"/opt/bot/insurers/pipeline/06_filter_payer_file.py\", line 153, in roster_it"
+   },
+   {
+    "network": "Community Health Choice marketplace Limited Network Gold",
+    "status": "failed",
+    "fails": "3",
+    "launched_at": "2026-10-15T12:51:37Z",
+    "detail": "    for pr in s6.roster_items(fb): |   File \"/opt/bot/insurers/pipeline/06_filter_payer_file.py\", line 153, in roster_it"
+   },
+   {
+    "network": "Community Health Choice marketplace Limited Network Silver",
+    "status": "failed",
+    "fails": "3",
+    "launched_at": "2026-10-15T12:51:37Z",
+    "detail": "    for pr in s6.roster_items(fb): |   File \"/opt/bot/insurers/pipeline/06_filter_payer_file.py\", line 153, in roster_it"
+   },
+   {
+    "network": "Community Health Choice marketplace Premier Bronze",
+    "status": "failed",
+    "fails": "3",
+    "launched_at": "2026-10-15T12:51:37Z",
+    "detail": "    for pr in s6.roster_items(fb): |   File \"/opt/bot/insurers/pipeline/06_filter_payer_file.py\", line 153, in roster_it"
+   },
+   {
+    "network": "Community Health Choice marketplace Premier Gold",
+    "status": "failed",
+    "fails": "3",
+    "launched_at": "2026-10-15T12:51:37Z",
+    "detail": "    for pr in s6.roster_items(fb): |   File \"/opt/bot/insurers/pipeline/06_filter_payer_file.py\", line 153, in roster_it"
+   },
+   {
+    "network": "Community Health Choice marketplace Premier Silver",
+    "status": "failed",
+    "fails": "3",
+    "launched_at": "2026-10-15T12:51:37Z",
+    "detail": "    for pr in s6.roster_items(fb): |   File \"/opt/bot/insurers/pipeline/06_filter_payer_file.py\", line 153, in roster_it"
+   }
+  ]
+ },
+ "insurer_hold": false,
+ "insurer_scopes": {
+  "ct": {
+   "active": 652,
+   "processed": 31,
+   "status": {
+    "processed": 31,
+    "running": 621
+   }
+  },
+  "nc": {
+   "active": 60,
+   "processed": 60,
+   "status": {
+    "processed": 60
+   }
+  },
+  "s7": {
+   "active": 262,
+   "processed": 262,
+   "status": {
+    "processed": 262
+   }
+  }
+ },
+ "hospitals": {
+  "listed": 5973,
+  "status": {
+   "unchanged": 4512,
+   "no price file found": 875,
+   "new - first version saved": 402,
+   "link broken": 96,
+   "not a price file": 51,
+   "changed - new version saved": 35,
+   "wrong hospital's file": 2
+  },
+  "total": 5905,
+  "have_file": 4919,
+  "as_of": "2026-10-17"
+ },
+ "code_names": {
+  "cpt_codes": 11479,
+  "named": 11436,
+  "left": 43
+ },
+ "tx_cities": {
+  "abilene": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  },
+  "amarillo": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  },
+  "austin": {
+   "run": "v2",
+   "done": 256,
+   "total": 256
+  },
+  "beaumont-port-arthur": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  },
+  "brownsville-harlingen": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  },
+  "college-station-bryan": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  },
+  "corpus-christi": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  },
+  "el-paso": {
+   "run": "v2",
+   "done": 256,
+   "total": 256
+  },
+  "houston": {
+   "run": "v2",
+   "done": 256,
+   "total": 256
+  },
+  "killeen-temple": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  },
+  "longview": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  },
+  "lubbock": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  },
+  "mcallen": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  },
+  "midland": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  },
+  "odessa": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  },
+  "rest": {
+   "run": "v2",
+   "done": 256,
+   "total": 256
+  },
+  "san-angelo": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  },
+  "san-antonio": {
+   "run": "v2",
+   "done": 256,
+   "total": 256
+  },
+  "small-towns": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  },
+  "texarkana": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  },
+  "tyler": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  },
+  "victoria": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  },
+  "waco": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  },
+  "wichita-falls": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  }
+ },
+ "r2": {
+  "objects": 2389173,
+  "gb": 3690.8,
+  "est_usd_month": 55.21,
+  "largest": [
+   [
+    "data/s7",
+    1442.9
+   ],
+   [
+    "data/nc",
+    467.7
+   ],
+   [
+    "data/tx",
+    429.7
+   ],
+   [
+    "work/every-st",
+    339.1
+   ],
+   [
+    "data/ct",
+    252.2
+   ],
+   [
+    "site/every-st",
+    161.7
+   ]
+  ]
+ },
+ "digitalocean": {
+  "month_to_date_usd": 527.48,
+  "credit_left_usd": 1305.0,
+  "machines": [
+   {
+    "name": "upfront-site-stct-2026-10-connecticut-c1",
+    "usd_hour": 0.25,
+    "created": "2026-10-16T23:39:04Z"
+   },
+   {
+    "name": "upfront-site-st-2026-10b-colorado-c1",
+    "usd_hour": 0.25,
+    "created": "2026-10-17T16:33:40Z"
+   },
+   {
+    "name": "upfront-site-st-2026-10b-colorado-c2",
+    "usd_hour": 0.25,
+    "created": "2026-10-17T16:33:42Z"
+   },
+   {
+    "name": "upfront-site-st-2026-10b-colorado-c3",
+    "usd_hour": 0.25,
+    "created": "2026-10-17T16:33:46Z"
+   },
+   {
+    "name": "upfront-site-st-2026-10b-missouri-c1",
+    "usd_hour": 0.25,
+    "created": "2026-10-17T16:33:48Z"
+   },
+   {
+    "name": "upfront-site-st-2026-10b-missouri-c2",
+    "usd_hour": 0.25,
+    "created": "2026-10-17T16:33:51Z"
+   },
+   {
+    "name": "upfront-site-st-2026-10b-missouri-c3",
+    "usd_hour": 0.25,
+    "created": "2026-10-17T16:33:54Z"
+   },
+   {
+    "name": "upfront-site-st-2026-10b-georgia-c1",
+    "usd_hour": 0.25,
+    "created": "2026-10-17T16:33:57Z"
+   },
+   {
+    "name": "upfront-site-st-2026-10b-georgia-c2",
+    "usd_hour": 0.25,
+    "created": "2026-10-17T16:34:00Z"
+   },
+   {
+    "name": "upfront-site-st-2026-10b-georgia-c3",
+    "usd_hour": 0.25,
+    "created": "2026-10-17T16:34:02Z"
+   },
+   {
+    "name": "upfront-site-st-2026-10b-georgia-c4",
+    "usd_hour": 0.25,
+    "created": "2026-10-17T16:34:06Z"
+   },
+   {
+    "name": "upfront-site-st-2026-10b-georgia-c5",
+    "usd_hour": 0.25,
+    "created": "2026-10-17T16:34:08Z"
+   },
+   {
+    "name": "upfront-site-st-2026-10b-georgia-c6",
+    "usd_hour": 0.25,
+    "created": "2026-10-17T16:34:11Z"
+   },
+   {
+    "name": "upfront-site-st-2026-10b-georgia-c7",
+    "usd_hour": 0.25,
+    "created": "2026-10-17T16:34:14Z"
+   },
+   {
+    "name": "upfront-site-st-2026-10b-georgia-c8",
+    "usd_hour": 0.25,
+    "created": "2026-10-17T16:34:17Z"
+   },
+   {
+    "name": "upfront-site-st-2026-10b-georgia-c9",
+    "usd_hour": 0.25,
+    "created": "2026-10-17T16:34:19Z"
+   },
+   {
+    "name": "upfront-site-st-2026-10b-georgia-c10",
+    "usd_hour": 0.25,
+    "created": "2026-10-17T16:34:22Z"
+   },
+   {
+    "name": "upfront-site-st-2026-10b-georgia-c11",
+    "usd_hour": 0.25,
+    "created": "2026-10-17T16:34:24Z"
+   },
+   {
+    "name": "upfront-site-st-2026-10b-georgia-c12",
+    "usd_hour": 0.25,
+    "created": "2026-10-17T16:34:27Z"
+   },
+   {
+    "name": "upfront-site-st-2026-10b-georgia-c13",
+    "usd_hour": 0.25,
+    "created": "2026-10-17T16:34:29Z"
+   },
+   {
+    "name": "upfront-site-st-2026-10b-georgia-c14",
+    "usd_hour": 0.25,
+    "created": "2026-10-17T16:34:32Z"
+   },
+   {
+    "name": "upfront-site-st-2026-10b-georgia-c15",
+    "usd_hour": 0.25,
+    "created": "2026-10-17T16:34:34Z"
+   },
+   {
+    "name": "upfront-site-st-2026-10b-colorado-c4",
+    "usd_hour": 0.25,
+    "created": "2026-10-17T16:34:37Z"
+   },
+   {
+    "name": "upfront-site-st-2026-10b-missouri-c4",
+    "usd_hour": 0.25,
+    "created": "2026-10-17T16:34:39Z"
+   }
+  ],
+  "usd_hour_now": 6.0,
+  "machine_limit": 25
+ },
+ "recent_runs": [
+  {
+   "name": "North Carolina Price Finder page",
+   "status": "pending",
+   "conclusion": null,
+   "at": "2026-10-17T19:11:01Z"
+  },
+  {
+   "name": "Insurer price files",
+   "status": "pending",
+   "conclusion": null,
+   "at": "2026-10-17T19:10:01Z"
+  },
+  {
+   "name": "Board status (every 15 min)",
+   "status": "pending",
+   "conclusion": null,
+   "at": "2026-10-17T19:07:01Z"
+  },
+  {
+   "name": "Board status (every 15 min)",
+   "status": "completed",
+   "conclusion": "cancelled",
+   "at": "2026-10-17T19:02:13Z"
+  },
+  {
+   "name": "Insurer price files",
+   "status": "in_progress",
+   "conclusion": null,
+   "at": "2026-10-17T19:00:01Z"
+  },
+  {
+   "name": "Board status (every 15 min)",
+   "status": "completed",
+   "conclusion": "cancelled",
+   "at": "2026-10-17T18:52:54Z"
+  },
+  {
+   "name": "Board status (every 15 min)",
+   "status": "completed",
+   "conclusion": "cancelled",
+   "at": "2026-10-17T18:52:01Z"
+  },
+  {
+   "name": "Board status (every 15 min)",
+   "status": "completed",
+   "conclusion": "cancelled",
+   "at": "2026-10-17T18:50:04Z"
+  },
+  {
+   "name": "Insurer price files",
+   "status": "completed",
+   "conclusion": "success",
+   "at": "2026-10-17T18:50:01Z"
+  },
+  {
+   "name": "Dashboard data (hospital and price sides)",
+   "status": "in_progress",
+   "conclusion": null,
+   "at": "2026-10-17T18:49:55Z"
+  },
+  {
+   "name": "Board status (every 15 min)",
+   "status": "in_progress",
+   "conclusion": null,
+   "at": "2026-10-17T18:49:40Z"
+  },
+  {
+   "name": "Insurer price files",
+   "status": "completed",
+   "conclusion": "cancelled",
+   "at": "2026-10-17T18:49:37Z"
+  },
+  {
+   "name": "Insurer price files",
+   "status": "completed",
+   "conclusion": "cancelled",
+   "at": "2026-10-17T18:47:01Z"
+  },
+  {
+   "name": "Board status (every 15 min)",
+   "status": "completed",
+   "conclusion": "cancelled",
+   "at": "2026-10-17T18:44:21Z"
+  },
+  {
+   "name": "Seven-state Price Finder pages",
+   "status": "pending",
+   "conclusion": null,
+   "at": "2026-10-17T18:41:01Z"
+  },
+  {
+   "name": "Board status (every 15 min)",
+   "status": "completed",
+   "conclusion": "cancelled",
+   "at": "2026-10-17T18:40:06Z"
+  },
+  {
+   "name": "Insurer price files",
+   "status": "completed",
+   "conclusion": "success",
+   "at": "2026-10-17T18:40:02Z"
+  },
+  {
+   "name": "Board status (every 15 min)",
+   "status": "completed",
+   "conclusion": "cancelled",
+   "at": "2026-10-17T18:37:01Z"
+  },
+  {
+   "name": "Procedure pages",
+   "status": "completed",
+   "conclusion": "cancelled",
+   "at": "2026-10-17T18:34:39Z"
+  },
+  {
+   "name": "Insurer price files",
+   "status": "completed",
+   "conclusion": "cancelled",
+   "at": "2026-10-17T18:30:01Z"
+  },
+  {
+   "name": "Board status (every 15 min)",
+   "status": "completed",
+   "conclusion": "cancelled",
+   "at": "2026-10-17T18:29:42Z"
+  },
+  {
+   "name": "Website refresh (monthly)",
+   "status": "completed",
+   "conclusion": "cancelled",
+   "at": "2026-10-17T18:29:01Z"
+  },
+  {
+   "name": "Procedure pages",
+   "status": "in_progress",
+   "conclusion": null,
+   "at": "2026-10-17T18:26:02Z"
+  },
+  {
+   "name": "Board status (every 15 min)",
+   "status": "completed",
+   "conclusion": "cancelled",
+   "at": "2026-10-17T18:22:01Z"
+  },
+  {
+   "name": "Insurer price files",
+   "status": "completed",
+   "conclusion": "success",
+   "at": "2026-10-17T18:20:01Z"
+  },
+  {
+   "name": "Inventory + contract end dates for tables we already have",
+   "status": "pending",
+   "conclusion": null,
+   "at": "2026-10-17T18:19:01Z"
+  },
+  {
+   "name": "Board status (every 15 min)",
+   "status": "completed",
+   "conclusion": "success",
+   "at": "2026-10-17T18:13:03Z"
+  },
+  {
+   "name": "North Carolina Price Finder page",
+   "status": "completed",
+   "conclusion": "success",
+   "at": "2026-10-17T18:11:01Z"
+  },
+  {
+   "name": "Board status (every 15 min)",
+   "status": "completed",
+   "conclusion": "cancelled",
+   "at": "2026-10-17T18:10:04Z"
+  },
+  {
+   "name": "Insurer price files",
+   "status": "completed",
+   "conclusion": "success",
+   "at": "2026-10-17T18:10:01Z"
+  }
+ ]
+}
