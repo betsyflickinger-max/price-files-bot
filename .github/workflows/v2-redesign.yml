@@ -1,0 +1,48 @@
+name: V2 Redesign (dev kit / branch preview)
+
+# Oct 31, 2026: the V2 Redesign lives beside the Original site. Nothing here deploys to production (branch main).
+#   devkit  - read-only: packs the live pages + one DFW procedure's data files the redesign is built against
+#             (download "devkit" from the run), and lists the Pages project's preview-environment settings by NAME only.
+#   preview - builds Original + switch + V2 from the live bundle and deploys it to the Pages PREVIEW branch
+#             "v2-redesign" (its own *.pages.dev address, same password gate). Production and R2 current.tgz are untouched.
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "devkit or preview"
+        default: "devkit"
+      codes:
+        description: "billing codes for the dev kit"
+        default: "45378,73721"
+
+permissions:
+  contents: read
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+      STORAGE_ENDPOINT: ${{ vars.STORAGE_ENDPOINT }}
+      STORAGE_REGION: ${{ vars.STORAGE_REGION }}
+      R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      R2_BUCKET: ${{ secrets.R2_BUCKET }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      MODE: ${{ inputs.mode }}
+      CODES: ${{ inputs.codes }}
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install boto3==1.35.36 requests==2.32.3
+      - run: python site/redesign/ci.py | tee -a "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ${{ inputs.mode }}
+          path: /tmp/v2out
+          retention-days: 7
