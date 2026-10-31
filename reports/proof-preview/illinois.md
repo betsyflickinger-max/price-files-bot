@@ -165,24 +165,24 @@ Also listed, may not offer this procedure: 0
 
 ## Vaginal delivery (global) (59400)
 
-Providers on the page by kind and proof: surgery center not_covered: 155; practice, clinic, lab or imaging center not_covered: 18819; practice, clinic, lab or imaging center wrong_specialty: 310; hospital not_covered: 582
+Providers on the page by kind and proof: surgery center not_covered: 155; practice, clinic, lab or imaging center not_covered: 14720; practice, clinic, lab or imaging center wrong_specialty: 4409; hospital not_covered: 582
 
 Check: per-code insurer file found (site/every-st/illinois/2026-10/t/); providers with rates 19866; left out as out of state 3; ranked providers 16622; kind doc; states seen {'IL': 146821, 'MO': 7, 'IN': 3, 'KS': 2}
 
 | # | Before (today) | After | Proof shown |
 |---|---|---|---|
-| 1 | Amg Illinois Ltd $810 | Amg Illinois Ltd $810 |  |
-| 2 | Alliance Healthcare Services Inc $975 | Alliance Healthcare Services Inc $975 |  |
-| 3 | Forefront Dermatology, S.C. $1,128 | Forefront Dermatology, S.C. $1,128 |  |
-| 4 | Forefront Dermatology, S.C. $1,128 | Forefront Dermatology, S.C. $1,128 |  |
-| 5 | Forefront Dermatology, S.C. $1,128 | Forefront Dermatology, S.C. $1,128 |  |
-| 6 | Forefront Dermatology, S.C. $1,128 | Forefront Dermatology, S.C. $1,128 |  |
-| 7 | Forefront Dermatology, S.C. $1,128 | Forefront Dermatology, S.C. $1,128 |  |
-| 8 | Forefront Dermatology, S.C. $1,128 | Forefront Dermatology, S.C. $1,128 |  |
-| 9 | Forefront Dermatology, S.C. $1,128 | Forefront Dermatology, S.C. $1,128 |  |
-| 10 | Forefront Dermatology, S.C. $1,128 | Forefront Dermatology, S.C. $1,128 |  |
+| 1 | Amg Illinois Ltd $810 | Alliance Healthcare Services Inc $975 |  |
+| 2 | Alliance Healthcare Services Inc $975 | Northland Hearing Centers, Inc. $1,153 |  |
+| 3 | Forefront Dermatology, S.C. $1,128 | Northland Hearing Centers, Inc. $1,153 |  |
+| 4 | Forefront Dermatology, S.C. $1,128 | Northland Hearing Centers, Inc. $1,153 |  |
+| 5 | Forefront Dermatology, S.C. $1,128 | Northland Hearing Centers, Inc. $1,153 |  |
+| 6 | Forefront Dermatology, S.C. $1,128 | Northland Hearing Centers, Inc. $1,153 |  |
+| 7 | Forefront Dermatology, S.C. $1,128 | Northland Hearing Centers, Inc. $1,153 |  |
+| 8 | Forefront Dermatology, S.C. $1,128 | Northland Hearing Centers, Inc. $1,153 |  |
+| 9 | Forefront Dermatology, S.C. $1,128 | Union Hospital Inc $1,289 |  |
+| 10 | Forefront Dermatology, S.C. $1,128 | Ferrell Hospital Community Foundation $1,307 |  |
 
-Left out of the figures (clinicians whose specialty doesn't perform this code): 310; lowest before $810, after $810
+Left out of the figures (clinicians whose specialty doesn't perform this code): 4409; lowest before $810, after $975
 
 Also listed, may not offer this procedure: 0
 
@@ -214,7 +214,7 @@ Also listed, may not offer this procedure: 0
 | Kind | Proved | Ranked as before (no file covers them) | Held out (no record) |
 |---|---|---|---|
 | surgery center | 162 | 1272 | 0 |
-| practice, clinic, lab or imaging center | 579 | 185082 | 0 |
+| practice, clinic, lab or imaging center | 579 | 180983 | 0 |
 | hospital | 3 | 5033 | 0 |
 
 ## Areas and the state the page code gives them
