@@ -1,0 +1,62 @@
+name: Copy progress check (read-only)
+# Oct 31, 2026: is the R2 -> Backblaze copy (issue #231) still moving? Reads only: the copy machine's network traffic and
+# CPU (DigitalOcean), the end of its saved logs in Backblaze (bot/migration/logs/), and how much is in Backblaze so far.
+on:
+  workflow_dispatch:
+    inputs:
+      count:
+        description: "Also add up everything in Backblaze (slow: lists every file)"
+        type: boolean
+        default: true
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      B2_ENDPOINT: ${{ secrets.B2_ENDPOINT }}
+      B2_BUCKET: ${{ secrets.B2_BUCKET }}
+      B2_ACCESS_KEY_ID: ${{ secrets.B2_ACCESS_KEY_ID }}
+      B2_SECRET_ACCESS_KEY: ${{ secrets.B2_SECRET_ACCESS_KEY }}
+      DIGITALOCEAN_TOKEN: ${{ secrets.DIGITALOCEAN_TOKEN }}
+      COUNT: ${{ inputs.count }}
+    steps:
+      - run: pip install -q boto3 requests
+      - shell: python
+        run: |
+          import os, re, time, boto3, requests
+          g = lambda k: "".join(os.environ.get(k, "").split())
+          H = {"Authorization": f"Bearer {g('DIGITALOCEAN_TOKEN')}"}
+          DO = "https://api.digitalocean.com/v2"
+          ds = [d for d in requests.get(f"{DO}/droplets", params={"per_page": 200}, headers=H, timeout=60).json()["droplets"]
+                if d["name"].startswith("upfront-copy")]
+          end = int(time.time())
+          for d in ds:
+              print(f"machine {d['name']} made {d['created_at']} status {d['status']}")
+              for label, path, extra in (("network out (Mbit/s)", "bandwidth", {"interface": "public", "direction": "outbound"}),
+                                         ("network in (Mbit/s)", "bandwidth", {"interface": "public", "direction": "inbound"})):
+                  q = dict(host_id=str(d["id"]), start=str(end - 3 * 3600), end=str(end), **extra)
+                  try:
+                      v = requests.get(f"{DO}/monitoring/metrics/droplet/{path}", params=q, headers=H, timeout=60).json()["data"]["result"][0]["values"]
+                      pts = [float(x[1]) for x in v]
+                      print(f"  {label}, last 3 h: avg {sum(pts)/len(pts):.0f}, last {pts[-1]:.0f}, min {min(pts):.0f}")
+                  except Exception as e:
+                      print(f"  {label}: n/a {repr(e)[:120]}")
+          if not ds:
+              print("no copy machine on the account (finished, or never started)")
+          ep, b = g("B2_ENDPOINT"), g("B2_BUCKET")
+          ep = ep if ep.startswith("http") else "https://" + ep
+          m = re.search(r"s3\.([a-z0-9-]+)\.backblazeb2\.com", ep)
+          s3 = boto3.client("s3", endpoint_url=ep, region_name=m.group(1) if m else "us-east-005",
+                            aws_access_key_id=g("B2_ACCESS_KEY_ID"), aws_secret_access_key=g("B2_SECRET_ACCESS_KEY"))
+          for o in s3.list_objects_v2(Bucket=b, Prefix="bot/migration/logs/").get("Contents", []):
+              print(f"--- {o['Key']} ({o['LastModified']:%m-%d %H:%M} UTC, {o['Size']:,} bytes)")
+              txt = s3.get_object(Bucket=b, Key=o["Key"])["Body"].read().decode(errors="replace").strip().splitlines()
+              print("    " + "\n    ".join(l[:220] for l in txt[-12:]))
+          if os.environ.get("COUNT") == "true":
+              n = sz = 0
+              for page in s3.get_paginator("list_objects_v2").paginate(Bucket=b):
+                  for o in page.get("Contents", []):
+                      n += 1; sz += o["Size"]
+              print(f"Backblaze now holds {n:,} files, {sz/1e12:.2f} TB")
