@@ -47,6 +47,9 @@
       groups[st].push(o);
     });
     order.sort(function (a, b) { return a.localeCompare(b); });
+    // places A to Z on every page (the Price Finder's list came in build order); "Small towns of Texas" and the like go last
+    var last = function (o) { return /^(small towns|rest of|other)/i.test(bare(o.textContent)) ? 1 : 0; };
+    order.forEach(function (st) { groups[st].sort(function (a, b) { return last(a) - last(b) || bare(a.textContent).localeCompare(bare(b.textContent)); }); });
     return {groups: groups, states: order, head: head, tail: tail};
   }
 
@@ -103,8 +106,13 @@
     var cs = getComputedStyle(I.btn), bg = cs.backgroundColor, el = I.btn.parentElement;
     while (!solid(bg) && el) { bg = getComputedStyle(el).backgroundColor; el = el.parentElement; }
     if (!solid(bg)) bg = '#fff';
-    return {bg: bg, fg: cs.color, font: cs.fontFamily};
+    var fg = cs.color;   // a picker set in white on a dark header gets a light menu: never pale text on a light menu
+    if (contrast(fg, bg) < 4.5) fg = lum(bg) > 0.35 ? '#1d1a16' : '#ffffff';
+    return {bg: bg, fg: fg, font: cs.fontFamily};
   }
+  function rgb(c) { var m = /rgba?\(([^)]+)\)/.exec(c || ''); if (m) return m[1].split(',').slice(0, 3).map(parseFloat); if (/^#[0-9a-f]{6}$/i.test(c)) return [1, 3, 5].map(function (i) { return parseInt(c.substr(i, 2), 16); }); return [255, 255, 255]; }
+  function lum(c) { return rgb(c).map(function (v) { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }).reduce(function (s, v, i) { return s + v * [0.2126, 0.7152, 0.0722][i]; }, 0); }
+  function contrast(a, b) { var x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); }
 
   // -------- one picker
   function enhance(sel) {
@@ -202,8 +210,10 @@
     var below = vh - r.bottom - 12, above = r.top - 12, up = below < 260 && above > below;
     var maxH = Math.max(160, Math.min(440, up ? above : below));
     pop.style.maxHeight = maxH + 'px';
-    var w = Math.max(r.width, P.flyout ? 240 : Math.min(vw - 24, 300));
-    pop.style.minWidth = Math.min(w, vw - 16) + 'px'; pop.style.maxWidth = (vw - 16) + 'px';
+    // a menu, not a sheet: a full-width picker (control center Cash prices) still gets a list about 360px wide, so the
+    // places can open beside it instead of on top of it
+    var w = P.flyout ? Math.min(Math.max(r.width, 260), 360) : Math.max(r.width, Math.min(vw - 24, 300));
+    pop.style.minWidth = Math.min(w, vw - 16) + 'px'; pop.style.maxWidth = (P.flyout ? Math.max(w, 420) : vw - 16) + 'px';
     var pw = pop.offsetWidth, ph = pop.offsetHeight;
     pop.style.left = Math.max(8, Math.min(r.left, vw - pw - 8)) + 'px';
     pop.style.top = (up ? Math.max(8, r.top - gap - ph) : r.bottom + gap) + 'px';
@@ -213,7 +223,8 @@
     var row = P.subFor, sub = P.sub, pr = P.pop.getBoundingClientRect(), rr = row.getBoundingClientRect(), vw = window.innerWidth, vh = window.innerHeight;
     sub.style.maxHeight = (vh - 16) + 'px';
     var sw = sub.offsetWidth, sh = sub.offsetHeight;
-    var left = pr.right - 2; if (left + sw > vw - 8) left = Math.max(8, pr.left - sw + 2);
+    var left = pr.right - 2;
+    if (left + sw > vw - 8) left = pr.left - sw + 2 >= 8 ? pr.left - sw + 2 : Math.max(8, vw - sw - 8);   // right, else left, else overlap the right edge
     sub.style.left = left + 'px';
     sub.style.top = Math.max(8, Math.min(rr.top - 7, vh - sh - 8)) + 'px';
   }
