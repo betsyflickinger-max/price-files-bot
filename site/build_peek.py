@@ -28,6 +28,20 @@ def hosp_check(slug, sp):
         print(' ', j.get('name'), '| ccn', j.get('ccn'), '| id', j.get('id'), '| by id:', (by_id.get(j.get('id')) or [None, None])[:2],
               '| by name:', [x[1] for x in by_nm.get((j.get('name') or '').strip().lower(), [])], '|', (j.get('url') or '')[:90])
 if len(sys.argv) > 3 and sys.argv[2] == 'hosp': hosp_check(slug, sys.argv[3]); sys.exit(0)
+if slug == 'all':   # Oct 31: every page build's stage and published pages, the reader queue, and failed files by area and reason
+    for o in ls('site/builds/'):
+        if not o['Key'].endswith('/state.json') or o['Key'].count('/') != 3: continue
+        st = json.loads(get(o['Key'])); pub = st.get('published', {})
+        print(o['Key'], o['LastModified'].strftime('%m-%d %H:%M'), 'stage', st.get('stage'), '| published', len(pub))
+        for n, v in sorted(pub.items()): print(f'    {n}: {str(v)[:90]}')
+    for f in ('ops_holds', 'ops_failures'):
+        try: d = json.loads(get(f'control/data/{f}.json'))
+        except Exception as e: print(f, e); continue
+        if f == 'ops_holds': [print(' hold', r) for r in d]
+        else:
+            c = collections.Counter((r['area'], r['reason']) for r in d)
+            for (a, r), n in sorted(c.items()): print(f' failed {a} | {r}: {n}')
+    sys.exit(0)
 if len(sys.argv) > 2 and sys.argv[2] == 'state':   # Oct 31: what each page job has published for this state and its regions
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import regions
     names = [slug] + list(regions.REGIONS.get(slug, {}))
