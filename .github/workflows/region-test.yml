@@ -4,6 +4,9 @@ name: Test a regional split (featured codes)
 # no split.json, so the publish step doesn't use it), then checks every regional row against the state build
 # (site/region_verify.py). Writes only the regions' own build folders; deploys nothing.
 on:
+  push:                     # Oct 31, 2026: also runs for each state listed in site/region_test_states.txt when that file changes
+    branches: [main]
+    paths: [site/region_test_states.txt]
   workflow_dispatch:
     inputs:
       state:
@@ -18,7 +21,25 @@ permissions:
   contents: read
 
 jobs:
+  states:
+    runs-on: ubuntu-latest
+    outputs:
+      list: ${{ steps.l.outputs.list }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: l
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            echo "list=$(python3 -c "import json;print(json.dumps([l.strip() for l in open('site/region_test_states.txt') if l.strip() and not l.startswith('#')]))")" >> "$GITHUB_OUTPUT"
+          else
+            echo "list=[\"${{ inputs.state }}\"]" >> "$GITHUB_OUTPUT"
+          fi
   test:
+    needs: states
+    strategy:
+      fail-fast: false
+      matrix:
+        st: ${{ fromJSON(needs.states.outputs.list) }}
     runs-on: ubuntu-latest
     timeout-minutes: 300
     env:
@@ -28,7 +49,7 @@ jobs:
       R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
       R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
       R2_BUCKET: ${{ secrets.R2_BUCKET }}
-      ST: ${{ inputs.state }}
+      ST: ${{ matrix.st }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

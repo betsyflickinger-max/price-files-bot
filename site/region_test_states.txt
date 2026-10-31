@@ -1,0 +1,4 @@
+# Oct 31, 2026: states whose regional split is tested (region-test.yml) when this file changes. Writes test folders only; publishes nothing.
+new-york
+florida
+illinois
