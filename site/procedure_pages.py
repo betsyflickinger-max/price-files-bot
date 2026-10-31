@@ -1341,7 +1341,9 @@ def procedure_page(area, S, others, related, med_area, pf_path, au, ps):
     pcap = (f"<p class='cap'>Order is by price only. Where Medicare or Medicaid billing records show a provider does this procedure, "
             f"we say so and link the record. \"No record found\" doesn't mean they don't do it: Medicare is mostly people 65+, and small "
             f"counts are hidden. <a href='/methodology/#proof'>About these records</a></p>") if S.get('proof_on') else ''
-    wcap = (f"<p class='cap'>{S['n_wrong_specialty']:,} anesthesia clinician{'s' if S['n_wrong_specialty'] != 1 else ''} listed under this "
+    who_ = ("clinician{s} whose federal provider listing names another specialty (nurses or nurse anesthetists, for example)" if proof_mod.DELIVERY_CODE.match(str(S.get('code') or ''))
+            else "anesthesia clinician{s}").format(s='s' if S['n_wrong_specialty'] != 1 else '')
+    wcap = (f"<p class='cap'>{S['n_wrong_specialty']:,} {who_} listed under this "
             f"code by an insurer {'are' if S['n_wrong_specialty'] != 1 else 'is'} left out of this page's figures (including the doctor's fee): they don't perform it. "
             f"Their rates stay in the Price Finder.</p>") if S.get('n_wrong_specialty') else ''
     low_sec = (f"<div><p class='kicker'>Lowest published</p><h3 class='h3'>The 10 lowest {pl}</h3><ol class='word'>{low_li}</ol>{pcap}{also}{wcap}</div>") if low_li else ''

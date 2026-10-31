@@ -22,7 +22,8 @@ status(...) returns (state, record):
   ('proved', rec)       rec = {'src', 'n', 'unit', 'year', 'url', 'group'}: shown as a proof line with link and year
   ('not_covered', why)  ranked as before; why says which rule applied
   ('no_record', why)    held out of the lowest-10 ranking, still listed; why is the plain note shown with it
-  ('wrong_specialty', why) left out of the page's figures (anesthesia clinician on a code they don't perform)
+  ('wrong_specialty', why) left out of the page's figures (anesthesia clinician on a code they don't perform; on a delivery
+                           code, a clinician whose listed specialty doesn't deliver babies)
 """
 import io
 import re
@@ -41,6 +42,19 @@ def performed_code(code):
     """CPT surgery (incl. deliveries), radiology and lab ranges: services an anesthesia clinician doesn't perform. Visits, therapy,
     psych and other medicine codes (90281-99607) are left alone: pain-medicine anesthesiologists bill office visits."""
     return bool(re.fullmatch(r'\d{5}', code or '')) and 10004 <= int(code) <= 89398
+
+
+# Oct 31, 2026 (Betsy OK'd): obstetric delivery codes (59400-59622: vaginal, cesarean and VBAC deliveries) are performed by
+# OB/GYNs, family and general practice physicians and midwives. DFW's "lowest vaginal delivery" was a $435-$440 amount that one
+# insurer lists for every clinician in a group, nurses and anesthetists included. A clinician whose federal NPI listing names
+# another specialty is left out of that page's figures, like the anesthesia rule. Unknown specialty: kept.
+DELIVERY_CODE = re.compile(r'^59(?:4\d\d|5[01]\d|6[0-2]\d)$')
+DELIVERY_TAX = ('207V', '207Q', '208D', '176B', '367A')   # OB/GYN (incl. maternal-fetal), family med, general practice, midwives
+
+
+def is_non_delivery(t):
+    tax = (t[0] if isinstance(t, tuple) else t) or ''
+    return bool(tax) and not str(tax).startswith(DELIVERY_TAX)
 
 
 def is_anesthesia(t, name):
@@ -113,6 +127,8 @@ class Proof:
         """kind: the page's provider kind (H hospital, A surgery center, G group/other place, P individual clinician)."""
         if kind in ('P', 'G') and performed_code(code) and is_anesthesia(self.tax.get(str(npi or '')), name_of):
             return 'wrong_specialty', 'anesthesia clinician listed under a code they don\'t perform'
+        if kind == 'P' and DELIVERY_CODE.match(code or '') and is_non_delivery(self.tax.get(str(npi or ''))):
+            return 'wrong_specialty', 'listed specialty doesn\'t deliver babies'
 
         if cat in POOR_GUIDE_CATS or POOR_GUIDE_NAME.search(name or ''):
             return 'not_covered', 'Medicare is a poor guide for this procedure (mostly people 65+)'

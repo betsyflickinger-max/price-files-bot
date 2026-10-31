@@ -100,7 +100,7 @@ def main():
         for e in al:
             cc = (loc.get(e['fi']) or [None, None, None])[2]
             e['diag'] = f"CCN {cc}, {P.ccn_groups.get(cc, 0)} Medicare outpatient groups on record" if cc else 'no CCN'
-        out += ["", f"Left out of the figures (anesthesia clinicians under this code): {S1['n_wrong_specialty']}; lowest before {money(S0['lo']['v']) if S0['lo'] else '-'}, after {money(S1['lo']['v']) if S1['lo'] else '-'}"]
+        out += ["", f"Left out of the figures (clinicians whose specialty doesn't perform this code): {S1['n_wrong_specialty']}; lowest before {money(S0['lo']['v']) if S0['lo'] else '-'}, after {money(S1['lo']['v']) if S1['lo'] else '-'}"]
         out += ["", f"Also listed, may not offer this procedure: {len(al)}" + (" (" + "; ".join(f"{e['name']} {money(e['v'])} [{e.get('diag', '')}]" for e in al[:8])
                                                                                + (" ..." if len(al) > 8 else "") + ")" if al else ""), ""]
         if c == '47562':   # one full page, rendered exactly as the live build would, to check the HTML
