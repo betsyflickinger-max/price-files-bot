@@ -4,8 +4,9 @@
   "why": "Betsy OK'd (Oct 29, 2026): once the DigitalOcean credit is used up, rent machines on her card up to $500 a month, then stop renting until she raises this (files being read finish; nothing is deleted)"
  },
  "stb4-2026-10": {
-  "usd": 160,
-  "why": "Betsy OK'd finishing Ohio (Oct 30, 2026, issue #219): the $206 hold was mostly machines idle during the R2 outage; Indiana and Kentucky were done and Ohio was ~2.4 h / ~$8 from done. Raised above the $150 at the hold so it resumes; the price check measures from the restart, so this caps new spend"
+  "usd": 30,
+  "ok_at": "2026-10-31 19:10",
+  "why": "Betsy OK'd a small capped Ohio run (Oct 31, 2026, issue #242) after the fix that splits Ohio's batches into 4 pieces (WBIG). $30 from the restart: enough to read the tables and measure real speed; the price check holds again if finishing would cost more"
  },
  "stb4-2026-11": {
   "usd": 150,
