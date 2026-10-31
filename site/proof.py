@@ -127,8 +127,12 @@ class Proof:
         """kind: the page's provider kind (H hospital, A surgery center, G group/other place, P individual clinician)."""
         if kind in ('P', 'G') and performed_code(code) and is_anesthesia(self.tax.get(str(npi or '')), name_of):
             return 'wrong_specialty', 'anesthesia clinician listed under a code they don\'t perform'
-        if kind == 'P' and DELIVERY_CODE.match(code or '') and is_non_delivery(self.tax.get(str(npi or ''))):
-            return 'wrong_specialty', 'listed specialty doesn\'t deliver babies'
+        if DELIVERY_CODE.match(code or ''):
+            t_ = self.tax.get(str(npi or ''))
+            # a clinician with another specialty; a practice only when its listing names one other physician specialty
+            # (Illinois: a dermatology group was the "lowest vaginal delivery"); multi-specialty groups and clinics are kept
+            if (kind == 'P' and is_non_delivery(t_)) or (kind == 'G' and is_non_delivery(t_) and str((t_ or ('',))[0] if isinstance(t_, tuple) else t_).startswith(('207', '208'))):
+                return 'wrong_specialty', 'listed specialty doesn\'t deliver babies'
 
         if cat in POOR_GUIDE_CATS or POOR_GUIDE_NAME.search(name or ''):
             return 'not_covered', 'Medicare is a poor guide for this procedure (mostly people 65+)'
