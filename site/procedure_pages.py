@@ -294,9 +294,13 @@ def _scope_states():
         return {}
 
 
-CA_REGIONS = {'los-angeles': 'CA', 'san-diego-inland-empire': 'CA', 'bay-area': 'CA', 'sacramento-northern-california': 'CA',
-              'central-california': 'CA'}
-STATES = {**_scope_states(), **STATES}   # CA regions stay out: like Texas metros, they get their own Medicare localities
+sys.path.insert(0, HERE)
+import regions as _regions   # Oct 31, 2026: regional pages (California's 5; New York, Florida, Illinois, Pennsylvania beside their state page)
+CA_REGIONS = {r: _regions.STATE_CODE[st] for r, st in _regions.PARENT.items()}   # every regional page -> its state (name kept from CA)
+STATES = {**_scope_states(), **STATES}   # regions stay out: like Texas metros, they get their own Medicare localities
+STATE_NAME = {code: ('Texas' if code == 'TX' else slug.replace('-', ' ').title().replace(' Of ', ' of '))
+              for slug, code in STATES.items() if slug != 'washington-dc'}
+STATE_NAME.update({'CA': 'California', 'DC': 'Washington, DC'})
 
 
 def area_state(a):
@@ -1001,18 +1005,18 @@ def anes_med(S, area):
     bu, cf = _ANES
     if code not in bu:
         return None
-    st = ('TEXAS' if area_state(area) == 'TX' else 'CALIFORNIA' if area['slug'] in CA_REGIONS
+    st = ('TEXAS' if area_state(area) == 'TX' else STATE_NAME[area_state(area)].upper() if area['slug'] in CA_REGIONS
           else area['slug'].replace('-', ' ').upper())
     if area['slug'] in ('washington-dc', 'district-of-columbia'):
         locs = [r for r in cf if r['locality_name'].startswith('DC')]
     elif area['slug'] in CA_REGIONS:   # Oct 31, 2026: the Medicare localities of the region's counties (site/regions.py)
-        if HERE not in sys.path:
-            sys.path.insert(0, HERE)
-        import regions
-        cty = set(regions.REGIONS['california'][area['slug']][4])
+        code_ = CA_REGIONS[area['slug']]
+        cty = set(_regions.REGIONS[_regions.PARENT[area['slug']]][area['slug']][4])
         nums = {z['area'].split('-')[1] for z in csv.DictReader(open(os.path.join(HERE, '..', 'data', 'medicare_areas_zip.csv')))
-                if z['state'] == 'CA' and z['county'] in cty}
-        cons = {r['contractor'] for r in cf if r['locality_name'] == 'REST OF CALIFORNIA' or r['locality_name'].startswith('LOS ANGELES-')}
+                if z['state'] == code_ and z['county'] in cty}
+        # a state's Medicare contractor numbers share their first 3 digits (California 01112/01182, New York 13202/13282/13292)
+        pre3 = {r['contractor'][:3] for r in cf if r['locality_name'] in (st, 'REST OF ' + st)}
+        cons = {r['contractor'] for r in cf if r['contractor'][:3] in pre3}
         locs = [r for r in cf if r['contractor'] in cons and r['locality'] in nums]
     else:
         cons = {r['contractor'] for r in cf if r['locality_name'] in (st, 'REST OF ' + st) or r['locality_name'].startswith(st + ', ')}   # 'HAWAII, GUAM'
@@ -1023,7 +1027,7 @@ def anes_med(S, area):
     if not locs:
         return None
     v = sorted(float(r['cf_nonqualifying_apm']) for r in locs)
-    where = ', '.join(sorted(r['locality_name'].title().replace('Dc ', 'DC ').replace('Md/Va', 'MD/VA').replace(' Of ', ' of ') for r in locs))
+    where = ', '.join(sorted(r['locality_name'].title().replace('Dc ', 'DC ').replace('Md/Va', 'MD/VA').replace('Nyc ', 'NYC ').replace(' Of ', ' of ') for r in locs))
     return {'bu': bu[code], 'lo': v[0], 'hi': v[-1], 'where': where if len(locs) <= 3 else f"{len(locs)} Medicare areas in the {'region' if area['slug'] in CA_REGIONS else 'state'}"}
 
 
@@ -1554,10 +1558,9 @@ def costs_index(areas, procs):
     by_st = {}
     for a, au, n in areas:
         by_st.setdefault(page_state(a), []).append((a, au))
-    st_name = {'TX': 'Texas', 'CA': 'California'}
+    st_name = {}
     for a, au, n in areas:
-        if page_state(a) != 'TX':
-            st_name.setdefault(page_state(a), a['name'])
+        st_name.setdefault(page_state(a), STATE_NAME.get(page_state(a), a['name']))
     chips = []
     for st, items in sorted(by_st.items(), key=lambda x: (x[0] != 'TX', st_name[x[0]])):   # Texas first
         items.sort(key=lambda x: x[0]['name'])
@@ -1683,12 +1686,11 @@ def national_section(areas, summaries, procs, n_rates_note):
     """The homepage's front-page section. areas: [(area, au)]; summaries: {(slug, code): summary}."""
     tot, found = hospital_counts()
     live_states = {page_state(a) for a, _ in areas}
-    state_link, n_in = {}, {}
+    by_st = {}
     for a, au in areas:
-        st = page_state(a)
-        n_in[st] = n_in.get(st, 0) + 1
-        state_link[st] = f'/costs/{au}/' if n_in[st] == 1 else '/costs/'   # a state with several places (California): the place list
-    state_link['TX'] = '#tx-places'
+        by_st.setdefault(page_state(a), []).append((a, au))
+    # one place: its page; several (Texas, California, states with regions): that state's list of places below the map
+    state_link = {st: (f'/costs/{v[0][1]}/' if len(v) == 1 else f'#{st.lower()}-places') for st, v in by_st.items()}
     W, Hh = 12, 8
     cells = []
     for st, c, r in TILEMAP:
@@ -1703,8 +1705,10 @@ def national_section(areas, summaries, procs, n_rates_note):
         cells.append(f"<a href='{state_link[st]}' aria-label='{esc(label)}'><title>{esc(label)}</title>{inner}</a>" if st in state_link
                      else f"<g role='img' aria-label='{esc(label)}'><title>{esc(label)}</title>{inner}</g>")
     T, F = sum(tot.values()), sum(found.values())
-    tx = [(a, au) for a, au in areas if page_state(a) == 'TX']
+    tx = by_st.get('TX', [])
     st_areas = [(a, au) for a, au in areas if page_state(a) != 'TX']
+    multi = sorted((st for st, v in by_st.items() if st != 'TX' and len(v) > 1), key=lambda x: STATE_NAME.get(x, x))
+    one = [(a, au) for a, au in st_areas if page_state(a) not in multi]
 
     # the biggest spread among featured procedures, from the data (changes with every build)
     best = None
@@ -1790,7 +1794,7 @@ Outlined states have a Price Finder with insurers' negotiated rates. We're still
 <p class="cap">Source: CMS Hospital General Information list; files found by our bot, which keeps searching. "Not found yet" doesn't always mean a hospital isn't publishing.</p></div></div>
 <div><p class="kicker">Pick your place</p><h2>{len(areas)} places, {every_codes()} billing codes</h2>
 <p class="lede">The Price Finder searches every billing code in the files, {every_codes()} procedures, tests and services. {len(procs)} of the most common also get their own easy-read page in every place, with the lowest and highest published price and the source for each.</p>
-<h3 id="tx-places">Texas</h3><div>{chips(tx)}</div><h3 style="margin-top:18px">States</h3><div>{chips(st_areas)}</div>
+<h3 id="tx-places">Texas</h3><div>{chips(tx)}</div>{''.join(f'<h3 id="{x.lower()}-places" style="margin-top:18px">{esc(STATE_NAME.get(x, x))}</h3><div>{chips(by_st[x])}</div>' for x in multi)}<h3 style="margin-top:18px">{'Other states' if multi else 'States'}</h3><div>{chips(one)}</div>
 <p style="margin-top:14px"><a class="btn" href="/costs/">Browse every price page</a></p></div>
 </div>
 <div class="sec"><p class="kicker">House rules</p><h2>How we keep receipts</h2><div class="doors">

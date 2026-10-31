@@ -334,7 +334,8 @@ def build(slug, template, embed, rvu, med_all, t5, out, hosp_index=None, arb_fil
         st_ = _regions.PARENT[slug]; R_ = _regions.REGIONS[st_]
         nb = (f'<p class="note" style="margin:6px 0 0">{STATE_PAGES[st_][0]} is split into {len(R_)} regional pages. Near a border? Also see '
               + ' · '.join(f'<a href="/{n}/price-finder/">{R_[n][0]}</a>' for n in _regions.NEIGHBORS.get(slug, []))
-              + f' · <a href="/{st_}/price-finder/">all {STATE_PAGES[st_][0]} regions</a></p>')
+              + (f' · <a href="/{st_}/price-finder/">all of {STATE_PAGES[st_][0]}</a></p>' if st_ in _regions.ALONGSIDE
+                 else f' · <a href="/{st_}/price-finder/">all {STATE_PAGES[st_][0]} regions</a></p>'))
     w.sub('<div class="eyebrow">Dallas–Fort Worth · published prices</div>', f'<div class="eyebrow">{name} · published prices</div>{nb}')
     w.sub(r'<div class="note" id="planNote">.*?</div>',
           f'<div class="note" id="planNote"><b>Have a HealthCare.gov plan?</b> Insurer prices below are not what you pay. Your share '
@@ -472,7 +473,7 @@ def main():
     if A.city not in CITIES: sys.exit(f'unknown city {A.city!r}; choose one of {", ".join(CITIES)}')
     name = CITIES[A.city][0]
     os.makedirs(A.out, exist_ok=True)
-    if A.city in _regions.REGIONS:   # Oct 31, 2026: a state split into regional pages gets a short page linking to them
+    if A.city in _regions.REGIONS and A.city not in _regions.ALONGSIDE:   # Oct 31, 2026: California's address links to its regions
         return landing_page(A)
     if A.template:   # offline test: local files only
         empty_quality(A.quality, f'{A.out}/quality.txt')

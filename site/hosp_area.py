@@ -307,8 +307,9 @@ def split_flow(O, st, a, done):
                 st['published'].pop(r, None); st['launches'].pop(f'h2-{r}', None)
                 try: O.s3.delete_object(Bucket=O.B, Key=SP + f'h2/{r}.done')
                 except Exception: pass
-            try: O.s3.delete_object(Bucket=O.B, Key=f'site/deploy/cities/{a}/price-finder.html')   # the too-big statewide page
-            except Exception: pass
+            if a not in _regions.ALONGSIDE:   # the too-big statewide page (California); ALONGSIDE states keep theirs
+                try: O.s3.delete_object(Bucket=O.B, Key=f'site/deploy/cities/{a}/price-finder.html')
+                except Exception: pass
         if st['launches'].get(role, 0) >= 3 and not O.alive(role):
             O.log(a, 'REGIONAL SPLIT FAILED 3 times: see the split machine log (run.log); nothing published'); return 0
         if not O.alive(role): O.bundle()   # the machine runs this repository's current code
@@ -367,7 +368,7 @@ def split_flow(O, st, a, done):
         else: busy += 1
     live = [r for r in R if str(st['published'].get(r, '')).startswith('live')]
     O.log(a, 'regional pages:', len(live), 'of', len(R), 'live')
-    if len(live) == len(R) and not busy and not str(st['published'].get(a, '')).startswith('live'):
+    if a not in _regions.ALONGSIDE and len(live) == len(R) and not busy and not str(st['published'].get(a, '')).startswith('live'):
         publish_one(O, st, a, 'live: page linking to its regional pages')
     return busy
 
@@ -459,8 +460,9 @@ def state_by_state(O, st):
     done = {k.rsplit('/', 1)[1][:-5] for k in O.ls(SP + 'h2/')}
     busy = 0
     for a in ready:
-        if _regions and a in _regions.REGIONS:   # Oct 31, 2026: published as regional pages (split_flow), checked every run
-            busy += split_flow(O, st, a, done); continue   # even once its page is live: a new split version or build redoes the regions
+        if _regions and a in _regions.REGIONS and a in _regions.ON:   # Oct 31, 2026: regional pages (split_flow), checked every run
+            busy += split_flow(O, st, a, done)   # even once its page is live: a new split version or build redoes the regions
+            if a not in _regions.ALONGSIDE: continue   # California: its address is the page linking to the regions
         if a in st['published']: continue
         role = f'h2-{a}'
         gave_up = st['launches'].get(role, 0) >= 2 and not O.alive(role)
