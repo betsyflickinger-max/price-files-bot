@@ -1,0 +1,719 @@
+{
+ "generated_at": "2026-10-31T19:51:16+00:00",
+ "insurers_tx": {
+  "networks": 102,
+  "active": 55,
+  "status": {
+   "processed": 49,
+   "failed": 6
+  },
+  "not_done": [
+   {
+    "network": "Community Health Choice marketplace Limited Network Bronze",
+    "status": "failed",
+    "fails": "3",
+    "launched_at": "2026-10-30T15:50:46Z",
+    "detail": "insurer's file is cut off: it ends partway through the price list (a problem with the insurer's file, not the reader) | "
+   },
+   {
+    "network": "Community Health Choice marketplace Limited Network Gold",
+    "status": "failed",
+    "fails": "3",
+    "launched_at": "2026-10-30T15:50:46Z",
+    "detail": "insurer's file is cut off: it ends partway through the price list (a problem with the insurer's file, not the reader) | "
+   },
+   {
+    "network": "Community Health Choice marketplace Limited Network Silver",
+    "status": "failed",
+    "fails": "3",
+    "launched_at": "2026-10-30T15:50:46Z",
+    "detail": "insurer's file is cut off: it ends partway through the price list (a problem with the insurer's file, not the reader) | "
+   },
+   {
+    "network": "Community Health Choice marketplace Premier Bronze",
+    "status": "failed",
+    "fails": "3",
+    "launched_at": "2026-10-30T15:50:46Z",
+    "detail": "insurer's file is cut off: it ends partway through the price list (a problem with the insurer's file, not the reader) | "
+   },
+   {
+    "network": "Community Health Choice marketplace Premier Gold",
+    "status": "failed",
+    "fails": "3",
+    "launched_at": "2026-10-30T15:50:46Z",
+    "detail": "insurer's file is cut off: it ends partway through the price list (a problem with the insurer's file, not the reader) | "
+   },
+   {
+    "network": "Community Health Choice marketplace Premier Silver",
+    "status": "failed",
+    "fails": "3",
+    "launched_at": "2026-10-30T15:50:46Z",
+    "detail": "insurer's file is cut off: it ends partway through the price list (a problem with the insurer's file, not the reader) | "
+   }
+  ]
+ },
+ "insurers_dfw": {
+  "networks": 102,
+  "active": 55,
+  "status": {
+   "processed": 46,
+   "failed": 6,
+   "running": 3
+  },
+  "not_done": [
+   {
+    "network": "Community Health Choice marketplace Limited Network Bronze",
+    "status": "failed",
+    "fails": "3",
+    "launched_at": "2026-10-30T15:47:05Z",
+    "detail": "insurer's file is cut off: it ends partway through the price list (a problem with the insurer's file, not the reader) | "
+   },
+   {
+    "network": "Community Health Choice marketplace Limited Network Gold",
+    "status": "failed",
+    "fails": "3",
+    "launched_at": "2026-10-30T15:47:05Z",
+    "detail": "insurer's file is cut off: it ends partway through the price list (a problem with the insurer's file, not the reader) | "
+   },
+   {
+    "network": "Community Health Choice marketplace Limited Network Silver",
+    "status": "failed",
+    "fails": "3",
+    "launched_at": "2026-10-30T15:47:05Z",
+    "detail": "insurer's file is cut off: it ends partway through the price list (a problem with the insurer's file, not the reader) | "
+   },
+   {
+    "network": "Community Health Choice marketplace Premier Bronze",
+    "status": "failed",
+    "fails": "3",
+    "launched_at": "2026-10-30T15:47:05Z",
+    "detail": "insurer's file is cut off: it ends partway through the price list (a problem with the insurer's file, not the reader) | "
+   },
+   {
+    "network": "Community Health Choice marketplace Premier Gold",
+    "status": "failed",
+    "fails": "3",
+    "launched_at": "2026-10-30T15:47:05Z",
+    "detail": "insurer's file is cut off: it ends partway through the price list (a problem with the insurer's file, not the reader) | "
+   },
+   {
+    "network": "Community Health Choice marketplace Premier Silver",
+    "status": "failed",
+    "fails": "3",
+    "launched_at": "2026-10-30T15:47:05Z",
+    "detail": "insurer's file is cut off: it ends partway through the price list (a problem with the insurer's file, not the reader) | "
+   },
+   {
+    "network": "Community Health Choice marketplace Ultra Bronze",
+    "status": "running",
+    "fails": "0",
+    "launched_at": "2026-10-31T12:52:05Z",
+    "detail": "in the machine queue, waiting for a free machine"
+   },
+   {
+    "network": "Community Health Choice marketplace Ultra Gold",
+    "status": "running",
+    "fails": "0",
+    "launched_at": "2026-10-31T12:52:05Z",
+    "detail": "in the machine queue, waiting for a free machine"
+   },
+   {
+    "network": "Community Health Choice marketplace Ultra Silver",
+    "status": "running",
+    "fails": "0",
+    "launched_at": "2026-10-31T12:52:05Z",
+    "detail": "in the machine queue, waiting for a free machine"
+   }
+  ]
+ },
+ "insurer_hold": false,
+ "insurer_scopes": {
+  "ar": {
+   "active": 16,
+   "processed": 16,
+   "status": {
+    "processed": 16
+   }
+  },
+  "az": {
+   "active": 23,
+   "processed": 23,
+   "status": {
+    "processed": 23
+   }
+  },
+  "b1": {
+   "active": 622,
+   "processed": 622,
+   "status": {
+    "processed": 622
+   }
+  },
+  "b4": {
+   "active": 540,
+   "processed": 165,
+   "status": {
+    "processed": 165,
+    "running": 374,
+    "failed": 1
+   }
+  },
+  "c1": {
+   "active": 284,
+   "processed": 277,
+   "status": {
+    "processed": 277,
+    "failed": 1,
+    "running": 5,
+    "new": 1
+   }
+  },
+  "c2": {
+   "active": 3648,
+   "processed": 254,
+   "status": {
+    "processed": 254,
+    "failed": 2,
+    "running": 3392
+   }
+  },
+  "c3": {
+   "active": 4037,
+   "processed": 3831,
+   "status": {
+    "processed": 3831,
+    "running": 205,
+    "failed": 1
+   }
+  },
+  "ct": {
+   "active": 655,
+   "processed": 651,
+   "status": {
+    "processed": 651,
+    "running": 4
+   }
+  },
+  "il": {
+   "active": 23,
+   "processed": 23,
+   "status": {
+    "processed": 23
+   }
+  },
+  "la": {
+   "active": 27,
+   "processed": 27,
+   "status": {
+    "processed": 27
+   }
+  },
+  "n5": {
+   "active": 382,
+   "processed": 330,
+   "status": {
+    "running": 32,
+    "failed": 4,
+    "processed": 330,
+    "new": 16
+   }
+  },
+  "nc": {
+   "active": 75,
+   "processed": 72,
+   "status": {
+    "processed": 72,
+    "running": 3
+   }
+  },
+  "nyhf": {
+   "active": 6137,
+   "processed": 6137,
+   "status": {
+    "processed": 6137
+   }
+  },
+  "s7": {
+   "active": 479,
+   "processed": 305,
+   "status": {
+    "processed": 305,
+    "running": 26,
+    "failed": 148
+   }
+  },
+  "skipil": {
+   "active": 20,
+   "processed": 20,
+   "status": {
+    "processed": 20
+   }
+  }
+ },
+ "hospitals": {
+  "listed": 5973,
+  "status": {
+   "unchanged": 5084,
+   "no price file found": 612,
+   "link broken": 174,
+   "not a price file": 50,
+   "changed - new version saved": 41,
+   "new - first version saved": 5,
+   "queued for a rented machine": 4,
+   "wrong hospital's file": 3
+  },
+  "total": 5905,
+  "have_file": 5096,
+  "as_of": "2026-10-31"
+ },
+ "code_names": {
+  "cpt_codes": 11479,
+  "named": 11436,
+  "left": 43
+ },
+ "tx_cities": {
+  "abilene": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  },
+  "amarillo": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  },
+  "austin": {
+   "run": "v2",
+   "done": 256,
+   "total": 256
+  },
+  "beaumont-port-arthur": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  },
+  "brownsville-harlingen": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  },
+  "college-station-bryan": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  },
+  "corpus-christi": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  },
+  "el-paso": {
+   "run": "v2",
+   "done": 256,
+   "total": 256
+  },
+  "houston": {
+   "run": "v2",
+   "done": 256,
+   "total": 256
+  },
+  "killeen-temple": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  },
+  "longview": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  },
+  "lubbock": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  },
+  "mcallen": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  },
+  "midland": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  },
+  "odessa": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  },
+  "rest": {
+   "run": "v2",
+   "done": 256,
+   "total": 256
+  },
+  "san-angelo": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  },
+  "san-antonio": {
+   "run": "v2",
+   "done": 256,
+   "total": 256
+  },
+  "small-towns": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  },
+  "texarkana": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  },
+  "tyler": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  },
+  "victoria": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  },
+  "waco": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  },
+  "wichita-falls": {
+   "run": "v202610",
+   "done": 256,
+   "total": 256
+  }
+ },
+ "r2": {
+  "objects": 6158020,
+  "gb": 13776.0,
+  "est_usd_month": 206.49,
+  "largest": [],
+  "source": "Cloudflare storage analytics, 2026-10-31",
+  "counted_at": "2026-10-31 15:10 UTC"
+ },
+ "digitalocean": {
+  "month_to_date_usd": 1439.45,
+  "credit_left_usd": 0.0,
+  "machines": [
+   {
+    "name": "upfront-fleet-16g-20261029-1946-02",
+    "usd_hour": 0.16667,
+    "created": "2026-10-29T19:55:53Z"
+   },
+   {
+    "name": "upfront-fleet-32g-20261030-0650-02",
+    "usd_hour": 0.25,
+    "created": "2026-10-30T06:55:41Z"
+   },
+   {
+    "name": "upfront-fleet-32g-20261030-0650-06",
+    "usd_hour": 0.25,
+    "created": "2026-10-30T06:55:49Z"
+   },
+   {
+    "name": "upfront-fleet-32g-20261030-0650-10",
+    "usd_hour": 0.25,
+    "created": "2026-10-30T06:55:57Z"
+   },
+   {
+    "name": "upfront-copy-r2-b2-231",
+    "usd_hour": 0.14286,
+    "created": "2026-10-30T12:44:19Z"
+   },
+   {
+    "name": "upfront-site-stc3-2026-10-washington-big",
+    "usd_hour": 0.25,
+    "created": "2026-10-30T18:44:06Z"
+   },
+   {
+    "name": "upfront-site-2026-10b-ins1",
+    "usd_hour": 0.16667,
+    "created": "2026-10-31T12:29:49Z"
+   },
+   {
+    "name": "upfront-site-2026-10b-ins2",
+    "usd_hour": 0.16667,
+    "created": "2026-10-31T12:29:51Z"
+   },
+   {
+    "name": "upfront-fleet-16g-20261031-1320-01",
+    "usd_hour": 0.16667,
+    "created": "2026-10-31T13:20:56Z"
+   },
+   {
+    "name": "upfront-fleet-16g-20261031-1320-02",
+    "usd_hour": 0.16667,
+    "created": "2026-10-31T13:20:57Z"
+   },
+   {
+    "name": "upfront-fleet-16g-20261031-1320-03",
+    "usd_hour": 0.16667,
+    "created": "2026-10-31T13:20:59Z"
+   },
+   {
+    "name": "upfront-site-stc1-2026-10-michigan-c1",
+    "usd_hour": 0.25,
+    "created": "2026-10-31T15:13:52Z"
+   },
+   {
+    "name": "upfront-site-stc1-2026-10-michigan-big",
+    "usd_hour": 0.25,
+    "created": "2026-10-31T15:13:56Z"
+   },
+   {
+    "name": "upfront-site-stc1-2026-10-north-dakota-big",
+    "usd_hour": 0.25,
+    "created": "2026-10-31T15:19:42Z"
+   },
+   {
+    "name": "upfront-site-stc1-2026-10-north-dakota-c1",
+    "usd_hour": 0.25,
+    "created": "2026-10-31T15:25:22Z"
+   },
+   {
+    "name": "upfront-site-stc1-2026-10-iowa-c1",
+    "usd_hour": 0.25,
+    "created": "2026-10-31T15:31:06Z"
+   },
+   {
+    "name": "upfront-site-stc1-2026-10-iowa-big",
+    "usd_hour": 0.25,
+    "created": "2026-10-31T15:42:07Z"
+   },
+   {
+    "name": "upfront-site-stc1-2026-10-minnesota-c1",
+    "usd_hour": 0.25,
+    "created": "2026-10-31T15:42:10Z"
+   },
+   {
+    "name": "upfront-site-stc1-2026-10-kansas-big",
+    "usd_hour": 0.25,
+    "created": "2026-10-31T16:31:15Z"
+   },
+   {
+    "name": "upfront-site-stc1-2026-10-minnesota-big",
+    "usd_hour": 0.25,
+    "created": "2026-10-31T17:52:15Z"
+   },
+   {
+    "name": "upfront-site-stc1-2026-10-nebraska-c1",
+    "usd_hour": 0.25,
+    "created": "2026-10-31T17:52:19Z"
+   },
+   {
+    "name": "upfront-site-stc1-2026-10-nebraska-big",
+    "usd_hour": 0.25,
+    "created": "2026-10-31T18:19:08Z"
+   },
+   {
+    "name": "upfront-site-stc1-2026-10-kansas-c1",
+    "usd_hour": 0.25,
+    "created": "2026-10-31T18:19:12Z"
+   },
+   {
+    "name": "upfront-site-stc1-2026-10-michigan-c2",
+    "usd_hour": 0.25,
+    "created": "2026-10-31T19:38:41Z"
+   },
+   {
+    "name": "upfront-site-stc3-2026-10-washington-c1",
+    "usd_hour": 0.25,
+    "created": "2026-10-31T19:38:44Z"
+   }
+  ],
+  "usd_hour_now": 5.643,
+  "machine_limit": 25
+ },
+ "recent_runs": [
+  {
+   "name": "Board status (every 15 min)",
+   "status": "pending",
+   "conclusion": null,
+   "at": "2026-10-31T19:52:12Z"
+  },
+  {
+   "name": "Storage alarm (every 15 min)",
+   "status": "completed",
+   "conclusion": "success",
+   "at": "2026-10-31T19:52:11Z"
+  },
+  {
+   "name": "V2 Redesign (dev kit / branch preview)",
+   "status": "completed",
+   "conclusion": "success",
+   "at": "2026-10-31T19:51:01Z"
+  },
+  {
+   "name": "Board status (every 15 min)",
+   "status": "in_progress",
+   "conclusion": null,
+   "at": "2026-10-31T19:50:56Z"
+  },
+  {
+   "name": "Push on main",
+   "status": "completed",
+   "conclusion": "success",
+   "at": "2026-10-31T19:50:56Z"
+  },
+  {
+   "name": "Insurer fill",
+   "status": "completed",
+   "conclusion": "success",
+   "at": "2026-10-31T19:50:12Z"
+  },
+  {
+   "name": "Requested codes (common codes first)",
+   "status": "completed",
+   "conclusion": "success",
+   "at": "2026-10-31T19:50:12Z"
+  },
+  {
+   "name": "Push on main",
+   "status": "completed",
+   "conclusion": "success",
+   "at": "2026-10-31T19:48:29Z"
+  },
+  {
+   "name": "Visitors (every 15 min, control center)",
+   "status": "completed",
+   "conclusion": "success",
+   "at": "2026-10-31T19:47:12Z"
+  },
+  {
+   "name": "Proof of procedures - price page preview (no deploy)",
+   "status": "completed",
+   "conclusion": "success",
+   "at": "2026-10-31T19:44:28Z"
+  },
+  {
+   "name": "Push on main",
+   "status": "completed",
+   "conclusion": "success",
+   "at": "2026-10-31T19:44:15Z"
+  },
+  {
+   "name": "Small insurer files (free GitHub machines)",
+   "status": "pending",
+   "conclusion": null,
+   "at": "2026-10-31T19:43:12Z"
+  },
+  {
+   "name": "Push on main",
+   "status": "completed",
+   "conclusion": "success",
+   "at": "2026-10-31T19:42:36Z"
+  },
+  {
+   "name": "Proof of procedures - price page preview (no deploy)",
+   "status": "completed",
+   "conclusion": "success",
+   "at": "2026-10-31T19:42:36Z"
+  },
+  {
+   "name": "Proof of procedures - price page preview (no deploy)",
+   "status": "completed",
+   "conclusion": "cancelled",
+   "at": "2026-10-31T19:42:02Z"
+  },
+  {
+   "name": "Push on main",
+   "status": "completed",
+   "conclusion": "success",
+   "at": "2026-10-31T19:41:49Z"
+  },
+  {
+   "name": "Seven-state Price Finder pages",
+   "status": "pending",
+   "conclusion": null,
+   "at": "2026-10-31T19:41:11Z"
+  },
+  {
+   "name": "Board status (every 15 min)",
+   "status": "completed",
+   "conclusion": "success",
+   "at": "2026-10-31T19:41:05Z"
+  },
+  {
+   "name": "Proof of procedures - price page preview (no deploy)",
+   "status": "completed",
+   "conclusion": "success",
+   "at": "2026-10-31T19:40:30Z"
+  },
+  {
+   "name": "Push on main",
+   "status": "completed",
+   "conclusion": "success",
+   "at": "2026-10-31T19:40:30Z"
+  },
+  {
+   "name": "Requested codes (common codes first)",
+   "status": "completed",
+   "conclusion": "success",
+   "at": "2026-10-31T19:40:12Z"
+  },
+  {
+   "name": "Insurer fill",
+   "status": "completed",
+   "conclusion": "success",
+   "at": "2026-10-31T19:40:11Z"
+  },
+  {
+   "name": "Push on main",
+   "status": "completed",
+   "conclusion": "success",
+   "at": "2026-10-31T19:39:34Z"
+  },
+  {
+   "name": "Procedure pages",
+   "status": "pending",
+   "conclusion": null,
+   "at": "2026-10-31T19:37:59Z"
+  },
+  {
+   "name": "Proof of procedures - price page preview (no deploy)",
+   "status": "completed",
+   "conclusion": "success",
+   "at": "2026-10-31T19:37:59Z"
+  },
+  {
+   "name": "Push on main",
+   "status": "completed",
+   "conclusion": "success",
+   "at": "2026-10-31T19:37:59Z"
+  },
+  {
+   "name": "Board status (every 15 min)",
+   "status": "completed",
+   "conclusion": "success",
+   "at": "2026-10-31T19:37:12Z"
+  },
+  {
+   "name": "Storage alarm (every 15 min)",
+   "status": "completed",
+   "conclusion": "success",
+   "at": "2026-10-31T19:37:12Z"
+  },
+  {
+   "name": "State Price Finder pages (shared)",
+   "status": "pending",
+   "conclusion": null,
+   "at": "2026-10-31T19:36:12Z"
+  },
+  {
+   "name": "Visitors (every 15 min, control center)",
+   "status": "completed",
+   "conclusion": "success",
+   "at": "2026-10-31T19:32:12Z"
+  }
+ ]
+}
