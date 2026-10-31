@@ -50,7 +50,7 @@ say() {{ python3 -c 'import json,sys; print(json.dumps({{"body": sys.stdin.read(
   https://api.github.com/repos/{REPO}/issues/{issue}/comments -d @-; }}
 apt-get update -y && apt-get install -y curl unzip python3
 curl -s https://rclone.org/install.sh | bash
-OPTS="--transfers 48 --checkers 64 --retries 10 --low-level-retries 20 --b2-chunk-size 96M --stats 10m --stats-one-line --log-level NOTICE"
+OPTS="--transfers 48 --checkers 64 --retries 10 --low-level-retries 20 --b2-chunk-size 96M --stats 10m --stats-one-line --stats-log-level NOTICE --log-level NOTICE"
 # Oct 30: progress also saved to Backblaze (bot/migration/logs/) every 2 hours, so it can be read even if the GitHub
 # comment can't be posted (the first copy, Oct 29, posted nothing and stopped when Backblaze's free 10 GB cap was hit)
 ( while sleep 7200; do echo "Still copying. Latest: $(grep -a 'Transferred' /var/log/copy.log | tail -1)" | say;
