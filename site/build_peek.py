@@ -28,6 +28,18 @@ def hosp_check(slug, sp):
         print(' ', j.get('name'), '| ccn', j.get('ccn'), '| id', j.get('id'), '| by id:', (by_id.get(j.get('id')) or [None, None])[:2],
               '| by name:', [x[1] for x in by_nm.get((j.get('name') or '').strip().lower(), [])], '|', (j.get('url') or '')[:90])
 if len(sys.argv) > 3 and sys.argv[2] == 'hosp': hosp_check(slug, sys.argv[3]); sys.exit(0)
+if len(sys.argv) > 2 and sys.argv[2] == 'state':   # Oct 31: what each page job has published for this state and its regions
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import regions
+    names = [slug] + list(regions.REGIONS.get(slug, {}))
+    for o in ls('site/builds/'):
+        if not o['Key'].endswith('/state.json'): continue
+        st = json.loads(get(o['Key'])); pub = st.get('published', {})
+        hit = {n: pub[n] for n in names if n in pub}
+        if hit: print(o['Key'], o['LastModified']); [print(f'  {n}: {v}') for n, v in hit.items()]
+        for n in names:
+            try: d = json.loads(get(o['Key'][:-10] + f'h2/{n}.done')); print(f'  h2 done {n}: {len(d.get("jobs", []))} jobs')
+            except Exception: pass
+    sys.exit(0)
 
 root = f'site/every-st/{slug}/'
 months = sorted({o['Key'][len(root):].split('/')[0] for o in ls(root)})
