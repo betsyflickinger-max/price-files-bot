@@ -165,7 +165,7 @@ Also listed, may not offer this procedure: 0
 
 ## Vaginal delivery (global) (59400)
 
-Providers on the page by kind and proof: surgery center not_covered: 155; practice, clinic, lab or imaging center not_covered: 14720; practice, clinic, lab or imaging center wrong_specialty: 4409; hospital not_covered: 582
+Providers on the page by kind and proof: surgery center not_covered: 155; practice, clinic, lab or imaging center not_covered: 10896; practice, clinic, lab or imaging center wrong_specialty: 8233; hospital not_covered: 582
 
 Check: per-code insurer file found (site/every-st/illinois/2026-10/t/); providers with rates 19866; left out as out of state 3; ranked providers 16622; kind doc; states seen {'IL': 146821, 'MO': 7, 'IN': 3, 'KS': 2}
 
@@ -182,7 +182,7 @@ Check: per-code insurer file found (site/every-st/illinois/2026-10/t/); provider
 | 9 | Forefront Dermatology, S.C. $1,128 | Union Hospital Inc $1,289 |  |
 | 10 | Forefront Dermatology, S.C. $1,128 | Ferrell Hospital Community Foundation $1,307 |  |
 
-Left out of the figures (clinicians whose specialty doesn't perform this code): 4409; lowest before $810, after $975
+Left out of the figures (clinicians whose specialty doesn't perform this code): 8231; lowest before $810, after $975
 
 Also listed, may not offer this procedure: 0
 
@@ -214,7 +214,7 @@ Also listed, may not offer this procedure: 0
 | Kind | Proved | Ranked as before (no file covers them) | Held out (no record) |
 |---|---|---|---|
 | surgery center | 162 | 1272 | 0 |
-| practice, clinic, lab or imaging center | 579 | 180983 | 0 |
+| practice, clinic, lab or imaging center | 579 | 177159 | 0 |
 | hospital | 3 | 5033 | 0 |
 
 ## Areas and the state the page code gives them
