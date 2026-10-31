@@ -77,6 +77,31 @@ COLS = ["billing_code_type", "billing_code", "name", "negotiation_arrangement", 
         "billing_code_type_version", "description", "additional_information", "bundled_codes", "covered_services"]
 
 
+# Oct 31, 2026 (Betsy: "store numbers as numbers", option A = new tables only): negotiated_rate is written as a number
+# (DOUBLE) instead of text. It is DuckDB's own try_cast of the text, the same cast every reader already applies
+# (try_cast(negotiated_rate as double)), so every build gives identical results from old (text) and new tables.
+# Nothing is lost: negotiated_rate_text keeps the insurer's original text whenever the number can't stand in for it
+# (not a number, e.g. "N/A", or more than 15 digits, past what a DOUBLE holds exactly); otherwise it is empty.
+RATE_SQL = """select * replace (try_cast(negotiated_rate as double) as negotiated_rate),
+  case when coalesce(negotiated_rate, '') <> '' and (try_cast(negotiated_rate as double) is null
+            or length(regexp_replace(negotiated_rate, '[^0-9]', '', 'g')) > 15)
+       then negotiated_rate end as negotiated_rate_text
+  from t"""
+
+
+def typed_rates(tbl, con):
+    """One batch of mrfrows text columns -> the same batch with negotiated_rate as a number (+ negotiated_rate_text)."""
+    import pyarrow as pa
+    con.register("t", tbl)
+    try:
+        out = con.execute(RATE_SQL).arrow()
+    finally:
+        con.unregister("t")
+    schema = pa.schema([(f.name, pa.float64() if f.name == "negotiated_rate" else pa.string()) for f in tbl.schema]
+                       + [("negotiated_rate_text", pa.string())])
+    return out.select(schema.names).cast(schema)
+
+
 def stream_to_parquet(cmd, dest, consts):
     """Run mrfrows with CSV on stdout and write Parquet batch by batch: no big temporary file."""
     import pyarrow as pa
@@ -110,6 +135,8 @@ def stream_to_parquet(cmd, dest, consts):
     th.start()
     # The six per-file values are the same on every row: build them with pa.repeat, not a Python list per batch.
     const = lambda k, n: pa.repeat(pa.scalar(str(consts[k] or ""), pa.string()), n)
+    rcon = duckdb.connect()   # numbers as numbers (typed_rates): same DuckDB cast the readers use
+    rcon.execute("set threads=2")   # small batches; leave the cores to mrfrows and the Parquet writer
     try:
         for batch in reader:
             if err:
@@ -125,7 +152,7 @@ def stream_to_parquet(cmd, dest, consts):
                         ["billing_code_type", "billing_code", "description"]).aggregate([]).to_pylist():
                     descs.setdefault((r["billing_code_type"], r["billing_code"]), r["description"])
                 tbl = tbl.drop_columns(["description"])
-            q.put(tbl)
+            q.put(typed_rates(tbl, rcon))
     finally:
         q.put(None)
         th.join()
@@ -141,7 +168,9 @@ def stream_to_parquet(cmd, dest, consts):
         # empty table with the usual columns, so it is recorded as read with 0 rows instead of failing three times
         names = ["reporting_entity_name", "file_label", "last_updated_on"] + [c for c in COLS if c != "description"] + \
                 ["source_file", "source_url", "checked_on"]
-        pq.write_table(pa.table({c: pa.array([], pa.string()) for c in names}), dest, compression="zstd")
+        names.append("negotiated_rate_text")   # Oct 31, 2026: same columns and types as a table with prices
+        pq.write_table(pa.table({c: pa.array([], pa.float64() if c == "negotiated_rate" else pa.string()) for c in names}),
+                       dest, compression="zstd")
     codes = CODES / Path(dest).name
     codes.parent.mkdir(parents=True, exist_ok=True)
     pq.write_table(pa.table({"billing_code_type": [k[0] for k in descs], "billing_code": [k[1] for k in descs],
