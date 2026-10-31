@@ -23,7 +23,12 @@ for r in regions.REGIONS[st]:
         try: so = rs.dec(g(f'{src}t/{c}.txt'))
         except Exception: continue
         try: ro = rs.dec(g(f'{pre}t/{c}.txt'))
-        except Exception: ro = {'f': {}, 'p': {}}
+        except Exception as ex:   # Oct 31: say why (99213 came back empty in every region of NY, FL and IL)
+            ro = {'f': {}, 'p': {}}
+            info = lambda k: (lambda h: f"{h['ContentLength']:,} bytes, {h['LastModified']:%m-%d %H:%M}")(s3.head_object(Bucket=B, Key=k))
+            try: rinfo = info(f'{pre}t/{c}.txt')
+            except Exception as ex2: rinfo = 'not there: ' + repr(ex2)[:80]
+            print(f'  {r} {c}: regional file unreadable ({repr(ex)[:120]}); regional {rinfo}; state {info(f"{src}t/{c}.txt")}', flush=True)
         e = 0
         for k, rows in ro['f'].items():
             if so['f'].get(str(back[int(k)])) != rows: e += 1
