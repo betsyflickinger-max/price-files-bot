@@ -1,0 +1,32 @@
+name: Live screenshots (reads the deployed bundle)
+
+# Oct 31, 2026: the live site is password-protected, so this opens site/deploy/current.tgz in a browser on this machine
+# and saves screenshots (download "shots" from the run). Script: site/live_shots.py.
+on:
+  workflow_dispatch:
+
+jobs:
+  shots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+      STORAGE_ENDPOINT: ${{ vars.STORAGE_ENDPOINT }}
+      STORAGE_REGION: ${{ vars.STORAGE_REGION }}
+      R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      R2_BUCKET: ${{ secrets.R2_BUCKET }}
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install boto3==1.35.36 pillow==10.4.0 pyarrow==26.0.0 playwright==1.47.0 && python -m playwright install --with-deps chromium
+      - run: python site/live_shots.py | tee -a "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: shots
+          path: /tmp/shots
+          retention-days: 7
