@@ -21,7 +21,7 @@ Check: per-code insurer file found (site/every-st/illinois/2026-10/t/); provider
 | 9 | Katherine Shaw Bethea Hospital $700 | Katherine Shaw Bethea Hospital $700 |  |
 | 10 | Mendota Community Hospital $700 | Mendota Community Hospital $700 |  |
 
-Left out of the figures (anesthesia clinicians under this code): 450; lowest before $553, after $553
+Left out of the figures (clinicians whose specialty doesn't perform this code): 450; lowest before $553, after $553
 
 Also listed, may not offer this procedure: 0
 
@@ -44,7 +44,7 @@ Check: per-code insurer file found (site/every-st/illinois/2026-10/t/); provider
 | 9 | Cook County $552 | Cook County $552 |  |
 | 10 | Cook County Hospital $552 | Cook County Hospital $552 |  |
 
-Left out of the figures (anesthesia clinicians under this code): 466; lowest before $455, after $455
+Left out of the figures (clinicians whose specialty doesn't perform this code): 466; lowest before $455, after $455
 
 Also listed, may not offer this procedure: 0
 
@@ -67,7 +67,7 @@ Check: per-code insurer file found (site/every-st/illinois/2026-10/t/); provider
 | 9 | St Elizabeths Hospital of the Hospital Sisters of the Third Order $1,042 | St Elizabeths Hospital of the Hospital Sisters of the Third Order $1,042 |  |
 | 10 | St Francis Hospital of the Hospital Sisters of the Third Order of St F $1,042 | St Francis Hospital of the Hospital Sisters of the Third Order of St F $1,042 |  |
 
-Left out of the figures (anesthesia clinicians under this code): 468; lowest before $995, after $995
+Left out of the figures (clinicians whose specialty doesn't perform this code): 468; lowest before $995, after $995
 
 Also listed, may not offer this procedure: 0
 
@@ -90,7 +90,7 @@ Check: per-code insurer file found (site/every-st/illinois/2026-10/t/); provider
 | 9 | Taylorville Memorial Hospital $371 | Taylorville Memorial Hospital $371 |  |
 | 10 | Cook County $426 | Cook County $426 |  |
 
-Left out of the figures (anesthesia clinicians under this code): 452; lowest before $349, after $349
+Left out of the figures (clinicians whose specialty doesn't perform this code): 452; lowest before $349, after $349
 
 Also listed, may not offer this procedure: 0
 
@@ -113,7 +113,7 @@ Check: per-code insurer file found (site/every-st/illinois/2026-10/t/); provider
 | 9 | Morrison Community Hospital District $227 | Morrison Community Hospital District $227 |  |
 | 10 | Henry Ford Health St. John Hospital $232 | Henry Ford Health St. John Hospital $232 | Medicaid: 247 claim lines, 2023-2024 |
 
-Left out of the figures (anesthesia clinicians under this code): 476; lowest before $199, after $199
+Left out of the figures (clinicians whose specialty doesn't perform this code): 476; lowest before $199, after $199
 
 Also listed, may not offer this procedure: 0
 
@@ -136,7 +136,7 @@ Check: per-code insurer file found (site/every-st/illinois/2026-10/t/); provider
 | 9 | John H. Stroger, Jr. Hospital of Cook County $1,609 | John H. Stroger, Jr. Hospital of Cook County $1,609 |  |
 | 10 | Provident Hospital of Cook County $1,609 | Provident Hospital of Cook County $1,609 |  |
 
-Left out of the figures (anesthesia clinicians under this code): 449; lowest before $1,567, after $1,567
+Left out of the figures (clinicians whose specialty doesn't perform this code): 449; lowest before $1,567, after $1,567
 
 Also listed, may not offer this procedure: 0
 
@@ -159,7 +159,7 @@ Check: per-code insurer file found (site/every-st/illinois/2026-10/t/); provider
 | 9 | Loretto Hospital $220 | Loretto Hospital $220 |  |
 | 10 | Provident Hospital of Cook County $220 | Provident Hospital of Cook County $220 |  |
 
-Left out of the figures (anesthesia clinicians under this code): 458; lowest before $220, after $220
+Left out of the figures (clinicians whose specialty doesn't perform this code): 458; lowest before $220, after $220
 
 Also listed, may not offer this procedure: 0
 
@@ -182,7 +182,7 @@ Check: per-code insurer file found (site/every-st/illinois/2026-10/t/); provider
 | 9 | Forefront Dermatology, S.C. $1,128 | Forefront Dermatology, S.C. $1,128 |  |
 | 10 | Forefront Dermatology, S.C. $1,128 | Forefront Dermatology, S.C. $1,128 |  |
 
-Left out of the figures (anesthesia clinicians under this code): 310; lowest before $810, after $810
+Left out of the figures (clinicians whose specialty doesn't perform this code): 310; lowest before $810, after $810
 
 Also listed, may not offer this procedure: 0
 
@@ -205,7 +205,7 @@ Check: per-code insurer file found (site/every-st/illinois/2026-10/t/); provider
 | 9 | Passavant Memorial Area Hospital Association $32 | Passavant Memorial Area Hospital Association $32 |  |
 | 10 | Taylorville Memorial Hospital $32 | Taylorville Memorial Hospital $32 |  |
 
-Left out of the figures (anesthesia clinicians under this code): 0; lowest before $31, after $31
+Left out of the figures (clinicians whose specialty doesn't perform this code): 0; lowest before $31, after $31
 
 Also listed, may not offer this procedure: 0
 
@@ -255,28 +255,28 @@ Also listed, may not offer this procedure: 0
 | North Carolina | north-carolina | NC | NC |
 | Connecticut | connecticut | CT | CT |
 | Illinois | illinois | IL | IL |
-| Arkansas | arkansas | TX | AR **wrong** |
-| Maryland | maryland | TX | MD **wrong** |
+| Arkansas | arkansas | AR | AR |
+| Maryland | maryland | MD | MD |
 | New Mexico | new-mexico | NM | NM |
-| Montana | montana | TX | MT **wrong** |
+| Montana | montana | MT | MT |
 | Louisiana | louisiana | LA | LA |
 | Indiana | indiana | IN | IN |
 | Kentucky | kentucky | KY | KY |
 | Arizona | arizona | AZ | AZ |
-| Oregon | oregon | TX | OR **wrong** |
-| Idaho | idaho | TX | ID **wrong** |
-| Utah | utah | TX | UT **wrong** |
-| Alaska | alaska | TX | AK **wrong** |
-| Nevada | nevada | TX | NV **wrong** |
-| Hawaii | hawaii | TX | HI **wrong** |
-| Wyoming | wyoming | TX | WY **wrong** |
+| Oregon | oregon | OR | OR |
+| Idaho | idaho | ID | ID |
+| Utah | utah | UT | UT |
+| Alaska | alaska | AK | AK |
+| Nevada | nevada | NV | NV |
+| Hawaii | hawaii | HI | HI |
+| Wyoming | wyoming | WY | WY |
 | New York | new-york | NY | NY |
-| Virginia | virginia | TX | VA **wrong** |
-| Washington, DC | district-of-columbia | TX | DC **wrong** |
+| Virginia | virginia | VA | VA |
+| Washington, DC | district-of-columbia | DC | DC |
 | Florida | florida | FL | FL |
-| Wisconsin | wisconsin | TX | WI **wrong** |
-| Los Angeles, Orange & Ventura, California | los-angeles | TX | TX |
-| San Diego & Inland Empire, California | san-diego-inland-empire | TX | TX |
-| San Francisco Bay Area, California | bay-area | TX | TX |
-| Sacramento & Northern California, California | sacramento-northern-california | TX | TX |
-| Central California, California | central-california | TX | TX |
+| Wisconsin | wisconsin | WI | WI |
+| Los Angeles, Orange & Ventura, California | los-angeles | CA | CA |
+| San Diego & Inland Empire, California | san-diego-inland-empire | CA | CA |
+| San Francisco Bay Area, California | bay-area | CA | CA |
+| Sacramento & Northern California, California | sacramento-northern-california | CA | CA |
+| Central California, California | central-california | CA | CA |
