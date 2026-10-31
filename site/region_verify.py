@@ -20,6 +20,10 @@ for r in regions.REGIONS[st]:
     S = json.loads(g(src + 'embed.json')) if r == list(regions.REGIONS[st])[0] else S
     assert all(emb['fac'][j] == S['fac'][back[j]] for j in range(len(rn))), 'provider names differ'
     for c in codes:
+        # Oct 31, 2026: a test split (SPLIT_TEST) covers only the 89 featured codes, and 99213 isn't one of them, so every
+        # region "missed" it (NY, FL, IL). Check only codes the regional page lists.
+        if c not in emb['codes']:
+            print(f'{r} {c}: not in this split (test splits cover the featured codes only); skipped', flush=True); continue
         try: so = rs.dec(g(f'{src}t/{c}.txt'))
         except Exception: continue
         try: ro = rs.dec(g(f'{pre}t/{c}.txt'))
